@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4WE5FE3Q67"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4WE5FE3Q67');
+</script>
+<title>Your Order | VoltReserve</title>
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="logo"><svg class="logo-icon" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="vertical-align:-5px; margin-right:2px;">
+        <circle cx="12" cy="12" r="11" fill="var(--accent)"/>
+        <path d="M13 4L6 13.5H11L10 20L18 10H12L13 4Z" fill="#0a0a0a"/>
+      </svg> VoltReserve</a>
+    <form id="nav-search-form" class="nav-search">
+      <input type="search" id="nav-search-input" placeholder="Search products..." aria-label="Search products">
+    </form>
+    <select id="currency-select" class="currency-select" aria-label="Currency"></select>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle" onclick="this.nextElementSibling.classList.toggle('open')">Shop ▾</button>
+        <div class="nav-dropdown-menu">
+          <a href="products.html">All Products</a>
+          <a href="river.html">RIVER Series</a>
+          <a href="delta.html">DELTA Series</a>
+          <a href="delta-pro.html">DELTA Pro Series</a>
+          <a href="trail.html">TRAIL Series</a>
+          <div class="divider"></div>
+          <a href="solar.html">Solar Panels</a>
+          <a href="accessories.html">Extra Batteries & Accessories</a>
+          <a href="kits.html">Power Kits</a>
+        </div>
+      </div>
+      <a href="compare.html">Compare</a>
+      <a href="guide.html">Buying Guide</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html" class="nav-cart active">Order <span class="count">0</span></a>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Open navigation menu"></button>
+  </nav>
+</header>
+
+<section>
+  <div class="container">
+    <p class="eyebrow">STEP 1 OF 1</p>
+    <h1 style="margin:12px 0 30px;">Your Order Request</h1>
+
+    <div id="cart-empty" class="empty-state" style="display:none;">
+      <p>Your order list is empty.</p>
+      <p style="margin-top:8px;"><a href="products.html">Browse power stations →</a></p>
+    </div>
+
+    <div class="detail-grid" id="order-form-section" style="grid-template-columns: 1.3fr 0.9fr;">
+      <div>
+        <div id="cart-items"></div>
+
+        <form id="order-form" onsubmit="submitOrder(event)" style="margin-top:36px;">
+          <h3 style="margin-bottom:18px;">Your details</h3>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="order-name">Full name</label>
+              <input type="text" id="order-name" required placeholder="Jane Cooper">
+            </div>
+            <div class="form-field">
+              <label for="order-phone">Phone number</label>
+              <div style="display:flex; gap:8px;">
+                <select id="order-phone-code" style="flex:0 0 118px;" aria-label="Country code">
+                  <option value="+1">+1 (US/CA)</option>
+                  <option value="+44">+44 (UK)</option>
+                  <option value="+49">+49 (DE)</option>
+                  <option value="+33">+33 (FR)</option>
+                  <option value="+31">+31 (NL)</option>
+                  <option value="+353">+353 (IE)</option>
+                  <option value="+32">+32 (BE)</option>
+                  <option value="+41">+41 (CH)</option>
+                  <option value="+34">+34 (ES)</option>
+                  <option value="+39">+39 (IT)</option>
+                </select>
+                <input type="tel" id="order-phone" required placeholder="712 345 678" style="flex:1;">
+              </div>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="order-email">Email address</label>
+            <input type="email" id="order-email" required placeholder="jane@email.com">
+          </div>
+          <div class="form-field">
+            <label for="order-country">Country</label>
+            <select id="order-country" required onchange="syncPhoneCode(this.value)">
+              <option value="" disabled selected>Select your country</option>
+              <option value="United States">United States</option>
+              <option value="Canada">Canada</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="Germany">Germany</option>
+              <option value="France">France</option>
+              <option value="Netherlands">Netherlands</option>
+              <option value="Ireland">Ireland</option>
+              <option value="Belgium">Belgium</option>
+              <option value="Switzerland">Switzerland</option>
+              <option value="Spain">Spain</option>
+              <option value="Italy">Italy</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="order-address">Delivery address</label>
+            <input type="text" id="order-address" required placeholder="Street, City, State/Region, Postal Code">
+          </div>
+          <div class="form-field">
+            <label for="order-payment">Preferred payment method</label>
+            <select id="order-payment" required>
+              <option value="" disabled selected>Select a payment method</option>
+              <option value="Cash App">Cash App</option>
+              <option value="Zelle">Zelle</option>
+              <option value="Apple Pay">Apple Pay</option>
+              <option value="Chime">Chime</option>
+              <option value="PayPal">PayPal</option>
+              <option value="Revolut">Revolut</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="order-notes">Notes (optional)</label>
+            <textarea id="order-notes" placeholder="Anything we should know — preferred contact time, delivery instructions, etc."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Submit Order Request</button>
+          <p style="font-size:0.82rem; color:var(--text-faint); margin-top:12px;">When you submit, we'll open a chat with your order details already filled in — just review it and hit send. A member of our team will reply shortly to confirm pricing and payment (Cash App, Zelle, Apple Pay, Chime, PayPal, or Revolut).</p>
+        </form>
+
+        <div id="order-ready-state" style="display:none; text-align:center; padding:50px 20px;">
+          <div class="icon-badge" data-icon="check"></div>
+          <h3 style="margin-bottom:12px;">Your order is ready to send</h3>
+          <p style="color:var(--text-dim);">We've opened a chat with your order details pre-filled. Review it and hit send — a team member will reply shortly to confirm details and payment.</p>
+          <p style="margin-top:20px;"><a href="products.html" style="color:var(--accent);">Continue browsing →</a></p>
+        </div>
+      </div>
+
+      <aside class="cart-summary">
+        <h3 style="margin-bottom:16px;">Order Summary</h3>
+        <div id="cart-summary-body"></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-bottom">
+    <span>© 2026 VoltReserve. Independent reseller — not affiliated with EcoFlow Inc.</span>
+    <a href="products.html" style="color:var(--accent);">Back to catalog →</a>
+  </div>
+</footer>
+
+<script src="js/products-data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  renderCartPage();
+</script>
+<div id="compare-bar" class="compare-bar">
+  <span class="compare-bar-text"></span>
+  <a href="compare.html" class="btn btn-primary btn-sm">Compare Now</a>
+</div>
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'a77613b06d05d9ee2bd17b97e2a9842c8f728c40';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
+</body>
+</html>

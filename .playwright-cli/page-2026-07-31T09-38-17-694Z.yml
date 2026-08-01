@@ -1,0 +1,107 @@
+- generic [active] [ref=f6e1]:
+  - banner [ref=f6e2]:
+    - navigation [ref=f6e3]:
+      - link "VoltReserve" [ref=f6e4] [cursor=pointer]:
+        - /url: index.html
+      - combobox "Currency" [ref=f6e8]:
+        - option "USD ($)" [selected]
+        - option "EUR (€)"
+        - option "GBP (£)"
+        - option "CAD ($)"
+        - option "AUD ($)"
+        - option "XAF (FCFA)"
+        - option "NGN (₦)"
+        - option "ZAR (R)"
+        - option "INR (₹)"
+        - option "JPY (¥)"
+      - button "Open navigation menu" [ref=f6e9] [cursor=pointer]
+  - generic [ref=f6e13]:
+    - paragraph [ref=f6e14]: STEP 1 OF 1
+    - heading "Your Order Request" [level=1] [ref=f6e15]
+    - generic [ref=f6e16]:
+      - generic [ref=f6e17]:
+        - generic [ref=f6e19]:
+          - generic [ref=f6e20]: 1,024Wh
+          - generic [ref=f6e21]:
+            - heading "DELTA 3 Plus" [level=4] [ref=f6e22]
+            - generic [ref=f6e23]:
+              - text: $649 ×
+              - spinbutton [ref=f6e24]: "1"
+          - generic [ref=f6e25]: $649
+          - button "Remove" [ref=f6e26] [cursor=pointer]
+        - generic [ref=f6e27]:
+          - heading "Your details" [level=3] [ref=f6e28]
+          - generic [ref=f6e29]:
+            - generic [ref=f6e30]:
+              - generic [ref=f6e31]: Full name
+              - textbox "Full name" [ref=f6e32]:
+                - /placeholder: Jane Cooper
+            - generic [ref=f6e33]:
+              - generic [ref=f6e34]: Phone number
+              - generic [ref=f6e35]:
+                - combobox "Country code" [ref=f6e36]:
+                  - option "+1 (US/CA)" [selected]
+                  - option "+44 (UK)"
+                  - option "+49 (DE)"
+                  - option "+33 (FR)"
+                  - option "+31 (NL)"
+                  - option "+353 (IE)"
+                  - option "+32 (BE)"
+                  - option "+41 (CH)"
+                  - option "+34 (ES)"
+                  - option "+39 (IT)"
+                - textbox "Phone number" [ref=f6e37]:
+                  - /placeholder: 712 345 678
+          - generic [ref=f6e38]:
+            - generic [ref=f6e39]: Email address
+            - textbox "Email address" [ref=f6e40]:
+              - /placeholder: jane@email.com
+          - generic [ref=f6e41]:
+            - generic [ref=f6e42]: Country
+            - combobox "Country" [ref=f6e43]:
+              - option "Select your country" [disabled] [selected]
+              - option "United States"
+              - option "Canada"
+              - option "United Kingdom"
+              - option "Germany"
+              - option "France"
+              - option "Netherlands"
+              - option "Ireland"
+              - option "Belgium"
+              - option "Switzerland"
+              - option "Spain"
+              - option "Italy"
+          - generic [ref=f6e44]:
+            - generic [ref=f6e45]: Delivery address
+            - textbox "Delivery address" [ref=f6e46]:
+              - /placeholder: Street, City, State/Region, Postal Code
+          - generic [ref=f6e47]:
+            - generic [ref=f6e48]: Preferred payment method
+            - combobox "Preferred payment method" [ref=f6e49]:
+              - option "Select a payment method" [disabled] [selected]
+              - option "Cash App"
+              - option "Zelle"
+              - option "Apple Pay"
+              - option "Chime"
+              - option "PayPal"
+              - option "Revolut"
+          - generic [ref=f6e50]:
+            - generic [ref=f6e51]: Notes (optional)
+            - textbox "Notes (optional)" [ref=f6e52]:
+              - /placeholder: Anything we should know — preferred contact time, delivery instructions, etc.
+          - button "Submit Order Request" [ref=f6e53] [cursor=pointer]
+          - paragraph [ref=f6e54]: When you submit, we'll open a chat with your order details already filled in — just review it and hit send. A member of our team will reply shortly to confirm pricing and payment (Cash App, Zelle, Apple Pay, Chime, PayPal, or Revolut).
+      - complementary [ref=f6e55]:
+        - heading "Order Summary" [level=3] [ref=f6e56]
+        - generic [ref=f6e57]:
+          - generic [ref=f6e58]:
+            - generic [ref=f6e59]: Items
+            - generic [ref=f6e60]: "1"
+          - generic [ref=f6e61]:
+            - generic [ref=f6e62]: Estimated Total
+            - generic [ref=f6e63]: $649
+  - contentinfo [ref=f6e64]:
+    - generic [ref=f6e65]:
+      - generic [ref=f6e66]: © 2026 VoltReserve. Independent reseller — not affiliated with EcoFlow Inc.
+      - link "Back to catalog →" [ref=f6e67] [cursor=pointer]:
+        - /url: products.html

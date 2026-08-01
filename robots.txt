@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /cart.html
+Disallow: /search.html
+Disallow: /order-confirmed.html
+
+Sitemap: https://voltreservepower.com/sitemap.xml
