@@ -1,0 +1,46 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - link "VoltReserve" [ref=e4] [cursor=pointer]:
+        - /url: index.html
+      - searchbox "Search products" [ref=e9]
+      - combobox "Currency" [ref=e10]:
+        - option "USD ($)" [selected]
+        - option "EUR (€)"
+        - option "GBP (£)"
+        - option "CAD ($)"
+        - option "AUD ($)"
+        - option "XAF (FCFA)"
+        - option "NGN (₦)"
+        - option "ZAR (R)"
+        - option "INR (₹)"
+        - option "JPY (¥)"
+      - generic [ref=e11]:
+        - link "Home" [ref=e12] [cursor=pointer]:
+          - /url: index.html
+        - button "Shop" [ref=e14] [cursor=pointer]
+        - link "Compare" [ref=e18] [cursor=pointer]:
+          - /url: compare.html
+        - link "Buying Guide" [ref=e19] [cursor=pointer]:
+          - /url: guide.html
+        - link "About" [ref=e20] [cursor=pointer]:
+          - /url: about.html
+        - link "Contact" [ref=e21] [cursor=pointer]:
+          - /url: contact.html
+        - link "Order 0" [ref=e22] [cursor=pointer]:
+          - /url: cart.html
+          - text: Order
+          - generic [ref=e27]: "0"
+  - generic [ref=e29]:
+    - paragraph [ref=e30]: STEP 1 OF 1
+    - heading "Your Order Request" [level=1] [ref=e31]
+    - generic [ref=e32]:
+      - paragraph [ref=e33]: Your order list is empty.
+      - paragraph [ref=e34]:
+        - link "Browse power stations →" [ref=e35] [cursor=pointer]:
+          - /url: products.html
+  - contentinfo [ref=e36]:
+    - generic [ref=e37]:
+      - generic [ref=e38]: © 2026 VoltReserve. Independent reseller — not affiliated with EcoFlow Inc.
+      - link "Back to catalog →" [ref=e39] [cursor=pointer]:
+        - /url: products.html

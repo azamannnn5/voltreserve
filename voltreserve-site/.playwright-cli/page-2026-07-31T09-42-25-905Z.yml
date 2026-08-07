@@ -1,0 +1,594 @@
+- generic [active] [ref=f3e1]:
+  - banner [ref=f3e2]:
+    - navigation [ref=f3e3]:
+      - link "VoltReserve" [ref=f3e4] [cursor=pointer]:
+        - /url: index.html
+      - combobox "Currency" [ref=f3e8]:
+        - option "USD ($)" [selected]
+        - option "EUR (€)"
+        - option "GBP (£)"
+        - option "CAD ($)"
+        - option "AUD ($)"
+        - option "XAF (FCFA)"
+        - option "NGN (₦)"
+        - option "ZAR (R)"
+        - option "INR (₹)"
+        - option "JPY (¥)"
+      - button "Open navigation menu" [ref=f3e9] [cursor=pointer]
+  - generic [ref=f3e13]:
+    - paragraph [ref=f3e14]: FULL LINEUP
+    - heading "All Power Stations" [level=1] [ref=f3e15]
+    - paragraph [ref=f3e16]: 10 models across the RIVER and DELTA lines — from 245Wh grab-and-go units to 4,096Wh whole-home backup systems.
+  - generic [ref=f3e18]:
+    - generic [ref=f3e19]:
+      - button "All Series" [ref=f3e20] [cursor=pointer]
+      - button "RIVER Series" [ref=f3e21] [cursor=pointer]
+      - button "DELTA Series" [ref=f3e22] [cursor=pointer]
+      - button "DELTA Pro Series" [ref=f3e23] [cursor=pointer]
+      - button "TRAIL Series" [ref=f3e24] [cursor=pointer]
+    - generic [ref=f3e25]:
+      - button "Any Capacity" [ref=f3e26] [cursor=pointer]
+      - button "Under 500Wh" [ref=f3e27] [cursor=pointer]
+      - button "500–1,000Wh" [ref=f3e28] [cursor=pointer]
+      - button "1,000–2,000Wh" [ref=f3e29] [cursor=pointer]
+      - button "2,000Wh+" [ref=f3e30] [cursor=pointer]
+    - generic [ref=f3e31]:
+      - article [ref=f3e32]:
+        - link "RIVER 2 details" [ref=f3e33] [cursor=pointer]:
+          - /url: product.html?id=river-2
+          - generic [ref=f3e34]: RIVER
+          - img "RIVER 2" [ref=f3e35]
+        - generic [ref=f3e36]:
+          - link [ref=f3e37] [cursor=pointer]:
+            - /url: product.html?id=river-2
+            - heading "RIVER 2" [level=3] [ref=f3e38]
+          - paragraph [ref=f3e39]: Compact, affordable power for everyday small devices.
+          - generic [ref=f3e40]:
+            - generic [ref=f3e41]:
+              - text: Output
+              - strong [ref=f3e42]: 300W
+            - generic [ref=f3e43]:
+              - text: Charge
+              - strong [ref=f3e44]: "60"
+          - generic [ref=f3e45]:
+            - generic [ref=f3e46]: $169
+            - button "Add to Order" [ref=f3e47] [cursor=pointer]
+          - generic [ref=f3e48] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e49]
+            - text: Compare
+      - article [ref=f3e50]:
+        - link "RIVER 2 Max details" [ref=f3e51] [cursor=pointer]:
+          - /url: product.html?id=river-2-max
+          - generic [ref=f3e52]: RIVER
+          - img "RIVER 2 Max" [ref=f3e53]
+        - generic [ref=f3e54]:
+          - link [ref=f3e55] [cursor=pointer]:
+            - /url: product.html?id=river-2-max
+            - heading "RIVER 2 Max" [level=3] [ref=f3e56]
+          - paragraph [ref=f3e57]: More capacity for weekend trips and small home backup.
+          - generic [ref=f3e58]:
+            - generic [ref=f3e59]:
+              - text: Output
+              - strong [ref=f3e60]: 500W
+            - generic [ref=f3e61]:
+              - text: Charge
+              - strong [ref=f3e62]: "60"
+          - generic [ref=f3e63]:
+            - generic [ref=f3e64]: $269
+            - button "Add to Order" [ref=f3e65] [cursor=pointer]
+          - generic [ref=f3e66] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e67]
+            - text: Compare
+      - article [ref=f3e68]:
+        - link "RIVER 2 Pro details" [ref=f3e69] [cursor=pointer]:
+          - /url: product.html?id=river-2-pro
+          - generic [ref=f3e70]: RIVER
+          - img "RIVER 2 Pro" [ref=f3e71]
+        - generic [ref=f3e72]:
+          - link [ref=f3e73] [cursor=pointer]:
+            - /url: product.html?id=river-2-pro
+            - heading "RIVER 2 Pro" [level=3] [ref=f3e74]
+          - paragraph [ref=f3e75]: The most capable RIVER for extended off-grid trips.
+          - generic [ref=f3e76]:
+            - generic [ref=f3e77]:
+              - text: Output
+              - strong [ref=f3e78]: 800W
+            - generic [ref=f3e79]:
+              - text: Charge
+              - strong [ref=f3e80]: "70"
+          - generic [ref=f3e81]:
+            - generic [ref=f3e82]: $339
+            - button "Add to Order" [ref=f3e83] [cursor=pointer]
+          - generic [ref=f3e84] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e85]
+            - text: Compare
+      - article [ref=f3e86]:
+        - link "RIVER 3 details" [ref=f3e87] [cursor=pointer]:
+          - /url: product.html?id=river-3
+          - generic [ref=f3e88]: Most Affordable
+          - generic [ref=f3e89]: RIVER
+          - img "RIVER 3" [ref=f3e90]
+        - generic [ref=f3e91]:
+          - link [ref=f3e92] [cursor=pointer]:
+            - /url: product.html?id=river-3
+            - heading "RIVER 3" [level=3] [ref=f3e93]
+          - paragraph [ref=f3e94]: Grab-and-go power for phones, laptops, and weekend trips.
+          - generic [ref=f3e95]:
+            - generic [ref=f3e96]:
+              - text: Output
+              - strong [ref=f3e97]: 300W
+            - generic [ref=f3e98]:
+              - text: Charge
+              - strong [ref=f3e99]: "1"
+          - generic [ref=f3e100]:
+            - generic [ref=f3e101]: $189
+            - button "Add to Order" [ref=f3e102] [cursor=pointer]
+          - generic [ref=f3e103] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e104]
+            - text: Compare
+      - article [ref=f3e105]:
+        - link "RIVER 3 Plus details" [ref=f3e106] [cursor=pointer]:
+          - /url: product.html?id=river-3-plus
+          - generic [ref=f3e107]: RIVER
+          - img "RIVER 3 Plus" [ref=f3e108]
+        - generic [ref=f3e109]:
+          - link [ref=f3e110] [cursor=pointer]:
+            - /url: product.html?id=river-3-plus
+            - heading "RIVER 3 Plus" [level=3] [ref=f3e111]
+          - paragraph [ref=f3e112]: More output, expandable capacity, home-office UPS backup.
+          - generic [ref=f3e113]:
+            - generic [ref=f3e114]:
+              - text: Output
+              - strong [ref=f3e115]: 600W
+            - generic [ref=f3e116]:
+              - text: Charge
+              - strong [ref=f3e117]: "1"
+          - generic [ref=f3e118]:
+            - generic [ref=f3e119]: $245
+            - button "Add to Order" [ref=f3e120] [cursor=pointer]
+          - generic [ref=f3e121] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e122]
+            - text: Compare
+      - article [ref=f3e123]:
+        - link "DELTA 2 details" [ref=f3e124] [cursor=pointer]:
+          - /url: product.html?id=delta-2
+          - generic [ref=f3e125]: Best Seller
+          - generic [ref=f3e126]: DELTA
+          - img "DELTA 2" [ref=f3e127]
+        - generic [ref=f3e128]:
+          - link [ref=f3e129] [cursor=pointer]:
+            - /url: product.html?id=delta-2
+            - heading "DELTA 2" [level=3] [ref=f3e130]
+          - paragraph [ref=f3e131]: The benchmark mid-size station for home backup and travel.
+          - generic [ref=f3e132]:
+            - generic [ref=f3e133]:
+              - text: Output
+              - strong [ref=f3e134]: 1800W
+            - generic [ref=f3e135]:
+              - text: Charge
+              - strong [ref=f3e136]: "50"
+          - generic [ref=f3e137]:
+            - generic [ref=f3e138]: $469
+            - button "Add to Order" [ref=f3e139] [cursor=pointer]
+          - generic [ref=f3e140] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e141]
+            - text: Compare
+      - article [ref=f3e142]:
+        - link "DELTA 3 Classic details" [ref=f3e143] [cursor=pointer]:
+          - /url: product.html?id=delta-3-classic
+          - generic [ref=f3e144]: DELTA
+          - img "DELTA 3 Classic" [ref=f3e145]
+        - generic [ref=f3e146]:
+          - link [ref=f3e147] [cursor=pointer]:
+            - /url: product.html?id=delta-3-classic
+            - heading "DELTA 3 Classic" [level=3] [ref=f3e148]
+          - paragraph [ref=f3e149]: The straightforward, budget-friendly DELTA-class station.
+          - generic [ref=f3e150]:
+            - generic [ref=f3e151]:
+              - text: Output
+              - strong [ref=f3e152]: 1800W
+            - generic [ref=f3e153]:
+              - text: Charge
+              - strong [ref=f3e154]: "45"
+          - generic [ref=f3e155]:
+            - generic [ref=f3e156]: $449
+            - button "Add to Order" [ref=f3e157] [cursor=pointer]
+          - generic [ref=f3e158] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e159]
+            - text: Compare
+      - article [ref=f3e160]:
+        - link "DELTA 3 details" [ref=f3e161] [cursor=pointer]:
+          - /url: product.html?id=delta-3
+          - generic [ref=f3e162]: DELTA
+          - img "DELTA 3" [ref=f3e163]
+        - generic [ref=f3e164]:
+          - link [ref=f3e165] [cursor=pointer]:
+            - /url: product.html?id=delta-3
+            - heading "DELTA 3" [level=3] [ref=f3e166]
+          - paragraph [ref=f3e167]: The current-generation base DELTA — expandable and dependable.
+          - generic [ref=f3e168]:
+            - generic [ref=f3e169]:
+              - text: Output
+              - strong [ref=f3e170]: 1800W
+            - generic [ref=f3e171]:
+              - text: Charge
+              - strong [ref=f3e172]: "45"
+          - generic [ref=f3e173]:
+            - generic [ref=f3e174]: $519
+            - button "Add to Order" [ref=f3e175] [cursor=pointer]
+          - generic [ref=f3e176] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e177]
+            - text: Compare
+      - article [ref=f3e178]:
+        - link "DELTA 3 Plus details" [ref=f3e179] [cursor=pointer]:
+          - /url: product.html?id=delta-3-plus
+          - generic [ref=f3e180]: Recommended
+          - generic [ref=f3e181]: DELTA
+          - img "DELTA 3 Plus" [ref=f3e182]
+        - generic [ref=f3e183]:
+          - link [ref=f3e184] [cursor=pointer]:
+            - /url: product.html?id=delta-3-plus
+            - heading "DELTA 3 Plus" [level=3] [ref=f3e185]
+          - paragraph [ref=f3e186]: The most versatile all-rounder in the lineup.
+          - generic [ref=f3e187]:
+            - generic [ref=f3e188]:
+              - text: Output
+              - strong [ref=f3e189]: 1800W
+            - generic [ref=f3e190]:
+              - text: Charge
+              - strong [ref=f3e191]: "89"
+          - generic [ref=f3e192]:
+            - generic [ref=f3e193]: $649
+            - button "Add to Order" [ref=f3e194] [cursor=pointer]
+          - generic [ref=f3e195] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e196]
+            - text: Compare
+      - article [ref=f3e197]:
+        - link "DELTA 2 Max details" [ref=f3e198] [cursor=pointer]:
+          - /url: product.html?id=delta-2-max
+          - generic [ref=f3e199]: DELTA
+          - img "DELTA 2 Max" [ref=f3e200]
+        - generic [ref=f3e201]:
+          - link [ref=f3e202] [cursor=pointer]:
+            - /url: product.html?id=delta-2-max
+            - heading "DELTA 2 Max" [level=3] [ref=f3e203]
+          - paragraph [ref=f3e204]: More headroom for full home-appliance backup.
+          - generic [ref=f3e205]:
+            - generic [ref=f3e206]:
+              - text: Output
+              - strong [ref=f3e207]: 2400W
+            - generic [ref=f3e208]:
+              - text: Charge
+              - strong [ref=f3e209]: Solar
+          - generic [ref=f3e210]:
+            - generic [ref=f3e211]: $899
+            - button "Add to Order" [ref=f3e212] [cursor=pointer]
+          - generic [ref=f3e213] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e214]
+            - text: Compare
+      - article [ref=f3e215]:
+        - link "DELTA 3 Max details" [ref=f3e216] [cursor=pointer]:
+          - /url: product.html?id=delta-3-max
+          - generic [ref=f3e217]: Pre-Order — Ships Early August
+          - generic [ref=f3e218]: DELTA
+          - img "DELTA 3 Max" [ref=f3e219]
+        - generic [ref=f3e220]:
+          - link [ref=f3e221] [cursor=pointer]:
+            - /url: product.html?id=delta-3-max
+            - heading "DELTA 3 Max" [level=3] [ref=f3e222]
+          - paragraph [ref=f3e223]: The best value-per-watt-hour in the current lineup.
+          - generic [ref=f3e224]:
+            - generic [ref=f3e225]:
+              - text: Output
+              - strong [ref=f3e226]: 2400W
+            - generic [ref=f3e227]:
+              - text: Charge
+              - strong [ref=f3e228]: "68"
+          - generic [ref=f3e229]:
+            - generic [ref=f3e230]: $799
+            - button "Add to Order" [ref=f3e231] [cursor=pointer]
+          - generic [ref=f3e232] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e233]
+            - text: Compare
+      - article [ref=f3e234]:
+        - link "DELTA 3 Max Plus details" [ref=f3e235] [cursor=pointer]:
+          - /url: product.html?id=delta-3-max-plus
+          - generic [ref=f3e236]: DELTA
+          - img "DELTA 3 Max Plus" [ref=f3e237]
+        - generic [ref=f3e238]:
+          - link [ref=f3e239] [cursor=pointer]:
+            - /url: product.html?id=delta-3-max-plus
+            - heading "DELTA 3 Max Plus" [level=3] [ref=f3e240]
+          - paragraph [ref=f3e241]: DELTA 3 Max with expandable capacity for growing needs.
+          - generic [ref=f3e242]:
+            - generic [ref=f3e243]:
+              - text: Output
+              - strong [ref=f3e244]: 3000W
+            - generic [ref=f3e245]:
+              - text: Charge
+              - strong [ref=f3e246]: "43"
+          - generic [ref=f3e247]:
+            - generic [ref=f3e248]: $1,049
+            - button "Add to Order" [ref=f3e249] [cursor=pointer]
+          - generic [ref=f3e250] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e251]
+            - text: Compare
+      - article [ref=f3e252]:
+        - link "DELTA Pro details" [ref=f3e253] [cursor=pointer]:
+          - /url: product.html?id=delta-pro
+          - generic [ref=f3e254]: DELTA PRO
+          - img "DELTA Pro" [ref=f3e255]
+        - generic [ref=f3e256]:
+          - link [ref=f3e257] [cursor=pointer]:
+            - /url: product.html?id=delta-pro
+            - heading "DELTA Pro" [level=3] [ref=f3e258]
+          - paragraph [ref=f3e259]: The original whole-home-leaning battery.
+          - generic [ref=f3e260]:
+            - generic [ref=f3e261]:
+              - text: Output
+              - strong [ref=f3e262]: 3600W
+            - generic [ref=f3e263]:
+              - text: Charge
+              - strong [ref=f3e264]: "2.7"
+          - generic [ref=f3e265]:
+            - generic [ref=f3e266]: $1,549
+            - button "Add to Order" [ref=f3e267] [cursor=pointer]
+          - generic [ref=f3e268] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e269]
+            - text: Compare
+      - article [ref=f3e270]:
+        - link "DELTA 3 Ultra details" [ref=f3e271] [cursor=pointer]:
+          - /url: product.html?id=delta-3-ultra
+          - generic [ref=f3e272]: DELTA
+          - img "DELTA 3 Ultra" [ref=f3e273]
+        - generic [ref=f3e274]:
+          - link [ref=f3e275] [cursor=pointer]:
+            - /url: product.html?id=delta-3-ultra
+            - heading "DELTA 3 Ultra" [level=3] [ref=f3e276]
+          - paragraph [ref=f3e277]: Flagship portable tier with smart circuit prioritization.
+          - generic [ref=f3e278]:
+            - generic [ref=f3e279]:
+              - text: Output
+              - strong [ref=f3e280]: 3600W
+            - generic [ref=f3e281]:
+              - text: Charge
+              - strong [ref=f3e282]: "89"
+          - generic [ref=f3e283]:
+            - generic [ref=f3e284]: $1,249
+            - button "Add to Order" [ref=f3e285] [cursor=pointer]
+          - generic [ref=f3e286] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e287]
+            - text: Compare
+      - article [ref=f3e288]:
+        - link "DELTA 3 Ultra Plus details" [ref=f3e289] [cursor=pointer]:
+          - /url: product.html?id=delta-3-ultra-plus
+          - generic [ref=f3e290]: DELTA
+          - img "DELTA 3 Ultra Plus" [ref=f3e291]
+        - generic [ref=f3e292]:
+          - link [ref=f3e293] [cursor=pointer]:
+            - /url: product.html?id=delta-3-ultra-plus
+            - heading "DELTA 3 Ultra Plus" [level=3] [ref=f3e294]
+          - paragraph [ref=f3e295]: The top of the portable DELTA 3 line, further expandable.
+          - generic [ref=f3e296]:
+            - generic [ref=f3e297]:
+              - text: Output
+              - strong [ref=f3e298]: 3600W
+            - generic [ref=f3e299]:
+              - text: Charge
+              - strong [ref=f3e300]: "48"
+          - generic [ref=f3e301]:
+            - generic [ref=f3e302]: $1,449
+            - button "Add to Order" [ref=f3e303] [cursor=pointer]
+          - generic [ref=f3e304] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e305]
+            - text: Compare
+      - article [ref=f3e306]:
+        - link "DELTA Pro 3 details" [ref=f3e307] [cursor=pointer]:
+          - /url: product.html?id=delta-pro-3
+          - generic [ref=f3e308]: Flagship
+          - generic [ref=f3e309]: DELTA PRO
+          - img "DELTA Pro 3" [ref=f3e310]
+        - generic [ref=f3e311]:
+          - link [ref=f3e312] [cursor=pointer]:
+            - /url: product.html?id=delta-pro-3
+            - heading "DELTA Pro 3" [level=3] [ref=f3e313]
+          - paragraph [ref=f3e314]: The flagship — chainable for whole-home, multi-day power.
+          - generic [ref=f3e315]:
+            - generic [ref=f3e316]:
+              - text: Output
+              - strong [ref=f3e317]: 4000W
+            - generic [ref=f3e318]:
+              - text: Charge
+              - strong [ref=f3e319]: "50"
+          - generic [ref=f3e320]:
+            - generic [ref=f3e321]: $2,299
+            - button "Add to Order" [ref=f3e322] [cursor=pointer]
+          - generic [ref=f3e323] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e324]
+            - text: Compare
+      - article [ref=f3e325]:
+        - link "DELTA Pro Ultra details" [ref=f3e326] [cursor=pointer]:
+          - /url: product.html?id=delta-pro-ultra
+          - generic [ref=f3e327]: UL 9540 Certified
+          - generic [ref=f3e328]: DELTA PRO
+          - img "DELTA Pro Ultra" [ref=f3e329]
+        - generic [ref=f3e330]:
+          - link [ref=f3e331] [cursor=pointer]:
+            - /url: product.html?id=delta-pro-ultra
+            - heading "DELTA Pro Ultra" [level=3] [ref=f3e332]
+          - paragraph [ref=f3e333]: Whole-home backup power built to replace a gas generator.
+          - generic [ref=f3e334]:
+            - generic [ref=f3e335]:
+              - text: Output
+              - strong [ref=f3e336]: 7200W
+            - generic [ref=f3e337]:
+              - text: Charge
+              - strong [ref=f3e338]: 0ms
+          - generic [ref=f3e339]:
+            - generic [ref=f3e340]: $3,799
+            - button "Add to Order" [ref=f3e341] [cursor=pointer]
+          - generic [ref=f3e342] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e343]
+            - text: Compare
+      - article [ref=f3e344]:
+        - link "DELTA Pro Ultra X details" [ref=f3e345] [cursor=pointer]:
+          - /url: product.html?id=delta-pro-ultra-x
+          - generic [ref=f3e346]: Maximum Configuration
+          - generic [ref=f3e347]: DELTA PRO
+          - img "DELTA Pro Ultra X" [ref=f3e348]
+        - generic [ref=f3e349]:
+          - link [ref=f3e350] [cursor=pointer]:
+            - /url: product.html?id=delta-pro-ultra-x
+            - heading "DELTA Pro Ultra X" [level=3] [ref=f3e351]
+          - paragraph [ref=f3e352]: EcoFlow's largest system — 100% whole-home power.
+          - generic [ref=f3e353]:
+            - generic [ref=f3e354]:
+              - text: Output
+              - strong [ref=f3e355]: 12000W
+            - generic [ref=f3e356]:
+              - text: Charge
+              - strong [ref=f3e357]: 20ms
+          - generic [ref=f3e358]:
+            - generic [ref=f3e359]: $7,599
+            - button "Add to Order" [ref=f3e360] [cursor=pointer]
+          - generic [ref=f3e361] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e362]
+            - text: Compare
+      - article [ref=f3e363]:
+        - link "TRAIL 200 DC details" [ref=f3e364] [cursor=pointer]:
+          - /url: product.html?id=trail-200
+          - generic [ref=f3e365]: Ultralight
+          - generic [ref=f3e366]: TRAIL
+          - img "TRAIL 200 DC" [ref=f3e367]
+        - generic [ref=f3e368]:
+          - link [ref=f3e369] [cursor=pointer]:
+            - /url: product.html?id=trail-200
+            - heading "TRAIL 200 DC" [level=3] [ref=f3e370]
+          - paragraph [ref=f3e371]: The lightest way to keep essentials charged in the backcountry.
+          - generic [ref=f3e372]:
+            - generic [ref=f3e373]:
+              - text: Output
+              - strong [ref=f3e374]: 220W
+            - generic [ref=f3e375]:
+              - text: Charge
+              - strong [ref=f3e376]: ~1.5
+          - generic [ref=f3e377]:
+            - generic [ref=f3e378]: $99
+            - button "Add to Order" [ref=f3e379] [cursor=pointer]
+          - generic [ref=f3e380] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e381]
+            - text: Compare
+      - article [ref=f3e382]:
+        - link "TRAIL 300 DC details" [ref=f3e383] [cursor=pointer]:
+          - /url: product.html?id=trail-300
+          - generic [ref=f3e384]: TRAIL
+          - img "TRAIL 300 DC" [ref=f3e385]
+        - generic [ref=f3e386]:
+          - link [ref=f3e387] [cursor=pointer]:
+            - /url: product.html?id=trail-300
+            - heading "TRAIL 300 DC" [level=3] [ref=f3e388]
+          - paragraph [ref=f3e389]: The flagship TRAIL — more ports, more capacity, still pocket-light.
+          - generic [ref=f3e390]:
+            - generic [ref=f3e391]:
+              - text: Output
+              - strong [ref=f3e392]: 300W
+            - generic [ref=f3e393]:
+              - text: Charge
+              - strong [ref=f3e394]: ~2
+          - generic [ref=f3e395]:
+            - generic [ref=f3e396]: $139
+            - button "Add to Order" [ref=f3e397] [cursor=pointer]
+          - generic [ref=f3e398] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e399]
+            - text: Compare
+      - article [ref=f3e400]:
+        - link "TRAIL Plus 300 DC details" [ref=f3e401] [cursor=pointer]:
+          - /url: product.html?id=trail-plus-300
+          - generic [ref=f3e402]: Most Versatile TRAIL
+          - generic [ref=f3e403]: TRAIL
+          - img "TRAIL Plus 300 DC" [ref=f3e404]
+        - generic [ref=f3e405]:
+          - link [ref=f3e406] [cursor=pointer]:
+            - /url: product.html?id=trail-plus-300
+            - heading "TRAIL Plus 300 DC" [level=3] [ref=f3e407]
+          - paragraph [ref=f3e408]: TRAIL 300, plus a built-in light and detachable cable handle.
+          - generic [ref=f3e409]:
+            - generic [ref=f3e410]:
+              - text: Output
+              - strong [ref=f3e411]: 300W
+            - generic [ref=f3e412]:
+              - text: Charge
+              - strong [ref=f3e413]: ~2
+          - generic [ref=f3e414]:
+            - generic [ref=f3e415]: $179
+            - button "Add to Order" [ref=f3e416] [cursor=pointer]
+          - generic [ref=f3e417] [cursor=pointer]:
+            - checkbox "Compare" [ref=f3e418]
+            - text: Compare
+  - contentinfo [ref=f3e419]:
+    - generic [ref=f3e420]:
+      - generic [ref=f3e421]:
+        - generic [ref=f3e422]:
+          - link "VoltReserve" [ref=f3e423] [cursor=pointer]:
+            - /url: index.html
+          - paragraph [ref=f3e427]: Portable power stations for home backup, camping, and off-grid living.
+        - generic [ref=f3e428]:
+          - heading "Shop" [level=4] [ref=f3e429]
+          - list [ref=f3e430]:
+            - listitem [ref=f3e431]:
+              - link "All Products" [ref=f3e432] [cursor=pointer]:
+                - /url: products.html
+            - listitem [ref=f3e433]:
+              - link "RIVER Series" [ref=f3e434] [cursor=pointer]:
+                - /url: river.html
+            - listitem [ref=f3e435]:
+              - link "DELTA Series" [ref=f3e436] [cursor=pointer]:
+                - /url: delta.html
+            - listitem [ref=f3e437]:
+              - link "DELTA Pro Series" [ref=f3e438] [cursor=pointer]:
+                - /url: delta-pro.html
+            - listitem [ref=f3e439]:
+              - link "TRAIL Series" [ref=f3e440] [cursor=pointer]:
+                - /url: trail.html
+            - listitem [ref=f3e441]:
+              - link "Solar Panels" [ref=f3e442] [cursor=pointer]:
+                - /url: solar.html
+            - listitem [ref=f3e443]:
+              - link "Accessories" [ref=f3e444] [cursor=pointer]:
+                - /url: accessories.html
+            - listitem [ref=f3e445]:
+              - link "Power Kits" [ref=f3e446] [cursor=pointer]:
+                - /url: kits.html
+        - generic [ref=f3e447]:
+          - heading "Company" [level=4] [ref=f3e448]
+          - list [ref=f3e449]:
+            - listitem [ref=f3e450]:
+              - link "About" [ref=f3e451] [cursor=pointer]:
+                - /url: about.html
+            - listitem [ref=f3e452]:
+              - link "Contact" [ref=f3e453] [cursor=pointer]:
+                - /url: contact.html
+            - listitem [ref=f3e454]:
+              - link "Buying Guide" [ref=f3e455] [cursor=pointer]:
+                - /url: guide.html
+            - listitem [ref=f3e456]:
+              - link "FAQ" [ref=f3e457] [cursor=pointer]:
+                - /url: faq.html
+            - listitem [ref=f3e458]:
+              - link "Compare" [ref=f3e459] [cursor=pointer]:
+                - /url: compare.html
+        - generic [ref=f3e460]:
+          - heading "Policies" [level=4] [ref=f3e461]
+          - list [ref=f3e462]:
+            - listitem [ref=f3e463]:
+              - link "Shipping & Returns" [ref=f3e464] [cursor=pointer]:
+                - /url: shipping.html
+            - listitem [ref=f3e465]:
+              - link "Privacy Policy" [ref=f3e466] [cursor=pointer]:
+                - /url: privacy.html
+            - listitem [ref=f3e467]:
+              - link "Terms of Service" [ref=f3e468] [cursor=pointer]:
+                - /url: terms.html
+      - generic [ref=f3e469]:
+        - generic [ref=f3e470]: © 2026 VoltReserve. Independent reseller — not affiliated with EcoFlow Inc.
+        - generic [ref=f3e471]: Made for real off-grid power needs.

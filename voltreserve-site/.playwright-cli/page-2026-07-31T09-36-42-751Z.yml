@@ -1,0 +1,112 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - link "VoltReserve" [ref=e4] [cursor=pointer]:
+        - /url: index.html
+      - combobox "Currency" [ref=e10]:
+        - option "USD ($)" [selected]
+        - option "EUR (€)"
+        - option "GBP (£)"
+        - option "CAD ($)"
+        - option "AUD ($)"
+        - option "XAF (FCFA)"
+        - option "NGN (₦)"
+        - option "ZAR (R)"
+        - option "INR (₹)"
+        - option "JPY (¥)"
+      - button "Open navigation menu" [ref=e133] [cursor=pointer]
+  - generic [ref=e30]:
+    - link "Home" [ref=e31] [cursor=pointer]:
+      - /url: index.html
+    - text: /
+    - link "Shop" [ref=e32] [cursor=pointer]:
+      - /url: products.html
+    - text: /
+    - link "DELTA Series" [ref=e33] [cursor=pointer]:
+      - /url: delta.html
+    - text: / DELTA 3 Plus
+  - generic [ref=e35]:
+    - generic [ref=e36]:
+      - generic [ref=e37]:
+        - generic [ref=e38]: Recommended
+        - generic [ref=e39]: DELTA
+        - img "DELTA 3 Plus" [ref=e40]
+      - generic [ref=e41]:
+        - button [ref=e42] [cursor=pointer]:
+          - img "DELTA 3 Plus view 1" [ref=e43]
+        - button [ref=e44] [cursor=pointer]:
+          - img "DELTA 3 Plus view 2" [ref=e45]
+        - button [ref=e46] [cursor=pointer]:
+          - img "DELTA 3 Plus view 3" [ref=e47]
+    - generic [ref=e48]:
+      - paragraph [ref=e49]: DELTA SERIES
+      - heading "DELTA 3 Plus" [level=1] [ref=e50]
+      - paragraph [ref=e51]: Expandable from 1kWh up to 5kWh with DELTA 3, DELTA 2, or DELTA Pro 3 extra battery packs — the smartest starting point for most buyers who expect their needs to grow.
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - generic [ref=e54]: 1,024Wh (expandable 1–5kWh)
+          - generic [ref=e55]: Capacity
+        - generic [ref=e56]:
+          - generic [ref=e57]: 1,800W (2,200W X-Boost, 3,600W surge)
+          - generic [ref=e58]: AC Output
+        - generic [ref=e59]:
+          - generic [ref=e60]: 89 min full charge, 5 charging methods
+          - generic [ref=e61]: Charge Time
+        - generic [ref=e62]:
+          - generic [ref=e63]: 28 lb
+          - generic [ref=e64]: Weight
+      - paragraph [ref=e65]: BEST FOR
+      - paragraph [ref=e66]: "All-purpose: camping to backup"
+      - generic [ref=e67]: $649
+      - generic [ref=e68]:
+        - generic [ref=e69]:
+          - button "−" [ref=e70] [cursor=pointer]
+          - spinbutton [ref=e71]: "1"
+          - button "+" [ref=e72] [cursor=pointer]
+        - button "Add to Order" [active] [ref=e73] [cursor=pointer]
+      - paragraph [ref=e74]: No payment now — a team member confirms details and payment with you directly after you submit your order.
+      - generic [ref=e75]:
+        - generic [ref=e76]: 30-Day Returns
+        - generic [ref=e81]: 5-7 Day Delivery
+        - generic [ref=e87]: Live Chat Support
+        - generic [ref=e92]: Manufacturer Warranty
+  - generic [ref=e97]:
+    - generic [ref=e98]:
+      - paragraph [ref=e99]: FREQUENTLY BOUGHT WITH
+      - heading "Complete the setup" [level=2] [ref=e100]
+    - generic [ref=e101]:
+      - article [ref=e102]:
+        - img "DELTA 3 Series Smart Extra Battery" [ref=e104]
+        - generic [ref=e105]:
+          - heading "DELTA 3 Series Smart Extra Battery" [level=3] [ref=e106]
+          - paragraph [ref=e107]: 1,024Wh battery for DELTA 3 and DELTA 3 Plus — expandable up to 5kWh total.
+          - generic [ref=e108]:
+            - generic [ref=e109]: $389
+            - button "Add to Order" [ref=e110] [cursor=pointer]
+      - article [ref=e111]:
+        - img "800W Alternator Charger" [ref=e113]
+        - generic [ref=e114]:
+          - heading "800W Alternator Charger" [level=3] [ref=e115]
+          - paragraph [ref=e116]: Charge 1kWh in just 1.3 hours while you drive.
+          - generic [ref=e117]:
+            - generic [ref=e118]: $255
+            - button "Add to Order" [ref=e119] [cursor=pointer]
+      - article [ref=e120]:
+        - img "NextGen 160W Portable Solar Panel" [ref=e122]
+        - generic [ref=e123]:
+          - heading "NextGen 160W Portable Solar Panel" [level=3] [ref=e124]
+          - paragraph [ref=e125]: Efficient mid-size panel for the DELTA 3 line.
+          - generic [ref=e126]:
+            - generic [ref=e127]: $239
+            - button "Add to Order" [ref=e128] [cursor=pointer]
+  - contentinfo [ref=e129]:
+    - generic [ref=e130]:
+      - generic [ref=e131]: © 2026 VoltReserve. Independent reseller — not affiliated with EcoFlow Inc.
+      - link "Back to catalog →" [ref=e132] [cursor=pointer]:
+        - /url: products.html
+  - iframe [ref=e136]:
+    
+  - iframe [ref=e138]:
+    - button "Open Smartsupp chat" [ref=f2e3] [cursor=pointer]:
+      - generic [ref=f2e4]: Chat
+  - generic [ref=e139]: Added to order

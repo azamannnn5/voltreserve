@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4WE5FE3Q67"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4WE5FE3Q67');
+</script>
+<title>Shipping & Returns | VoltReserve</title>
+<meta name="description" content="Shipping timelines, costs, and our 30-day return policy for EcoFlow power stations bought through VoltReserve.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="logo"><svg class="logo-icon" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="vertical-align:-5px; margin-right:2px;">
+        <circle cx="12" cy="12" r="11" fill="var(--accent)"/>
+        <path d="M13 4L6 13.5H11L10 20L18 10H12L13 4Z" fill="#0a0a0a"/>
+      </svg> VoltReserve</a>
+    <form id="nav-search-form" class="nav-search">
+      <input type="search" id="nav-search-input" placeholder="Search products..." aria-label="Search products">
+    </form>
+    <select id="currency-select" class="currency-select" aria-label="Currency"></select>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle" onclick="this.nextElementSibling.classList.toggle('open')">Shop ▾</button>
+        <div class="nav-dropdown-menu">
+          <a href="products.html">All Products</a>
+          <a href="river.html">RIVER Series</a>
+          <a href="delta.html">DELTA Series</a>
+          <a href="delta-pro.html">DELTA Pro Series</a>
+          <a href="trail.html">TRAIL Series</a>
+          <div class="divider"></div>
+          <a href="solar.html">Solar Panels</a>
+          <a href="accessories.html">Extra Batteries & Accessories</a>
+          <a href="kits.html">Power Kits</a>
+        </div>
+      </div>
+      <a href="compare.html">Compare</a>
+      <a href="guide.html">Buying Guide</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html" class="nav-cart">Order <span class="count">0</span></a>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Open navigation menu"></button>
+  </nav>
+</header>
+
+<section>
+  <div class="container policy-content">
+    <p class="eyebrow">DELIVERY</p>
+    <h1 style="margin:12px 0 4px;">Shipping & Returns</h1>
+    <p class="updated-tag">Last updated: July 22, 2026</p>
+
+    <h2>Shipping timelines</h2>
+    <p>Once your order is confirmed and payment is arranged, standard delivery within the continental US typically takes 5–7 business days. Larger units (DELTA Pro series) may require freight shipping and can take 7–10 business days — your sales contact will confirm exact dates.</p>
+
+    <h2>International shipping</h2>
+    <p>We currently ship to the United States, Canada, United Kingdom, Germany, France, Netherlands, Ireland, Belgium, Switzerland, Spain, and Italy. International orders take longer than domestic delivery — typically 10–20 business days — due to customs clearance and additional handling required for lithium battery shipments. Your sales contact will confirm an estimated delivery window for your specific location before payment is finalized.</p>
+    <p>International customers are responsible for any import duties, customs fees, or taxes charged by their country upon arrival. These are not included in the product price or shipping cost and are billed separately by the customer's local customs authority or carrier.</p>
+
+    <h2>Shipping costs</h2>
+    <p>Shipping costs vary by product weight and delivery location and will be confirmed before payment is finalized. Smaller items (RIVER, TRAIL series, accessories) typically ship at a flat rate; larger DELTA Pro-tier items may involve a freight quote based on your delivery address. International shipping costs are generally higher than domestic due to carrier surcharges for lithium battery air freight.</p>
+
+    <h2>Returns & exchanges</h2>
+    <p>Unopened units may be returned within 30 days of delivery for a full refund, minus original shipping costs. The customer is responsible for return shipping unless the item arrived damaged or defective. Units that arrive damaged or defective should be reported within 48 hours of delivery for a free replacement or full refund, including shipping.</p>
+
+    <h2>Warranty</h2>
+    <p>All EcoFlow power stations carry the manufacturer's standard warranty. Warranty claims are handled in coordination with EcoFlow's support process — your sales contact can help facilitate this.</p>
+
+    <h2>Questions about your order</h2>
+    <p>Reach out any time at <span id="ship-email">orders@yourdomain.com</span> or via live chat.</p>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-bottom">
+    <span>© 2026 VoltReserve. Independent reseller — not affiliated with EcoFlow Inc.</span>
+    <a href="products.html" style="color:var(--accent);">Shop the lineup →</a>
+  </div>
+</footer>
+
+<script src="js/products-data.js"></script>
+<script src="js/main.js"></script>
+<script>document.getElementById("ship-email").textContent = SALES_EMAIL;</script>
+<div id="compare-bar" class="compare-bar">
+  <span class="compare-bar-text"></span>
+  <a href="compare.html" class="btn btn-primary btn-sm">Compare Now</a>
+</div>
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'a77613b06d05d9ee2bd17b97e2a9842c8f728c40';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
+</body>
+</html>
