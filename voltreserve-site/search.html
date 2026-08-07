@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4WE5FE3Q67"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4WE5FE3Q67');
+</script>
+<title>Search Results | VoltReserve</title>
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="logo"><svg class="logo-icon" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="vertical-align:-5px; margin-right:2px;">
+        <circle cx="12" cy="12" r="11" fill="var(--accent)"/>
+        <path d="M13 4L6 13.5H11L10 20L18 10H12L13 4Z" fill="#0a0a0a"/>
+      </svg> VoltReserve</a>
+    <form id="nav-search-form" class="nav-search">
+      <input type="search" id="nav-search-input" placeholder="Search products..." aria-label="Search products">
+    </form>
+    <select id="currency-select" class="currency-select" aria-label="Currency"></select>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle" onclick="this.nextElementSibling.classList.toggle('open')">Shop ▾</button>
+        <div class="nav-dropdown-menu">
+          <a href="products.html">All Products</a>
+          <a href="river.html">RIVER Series</a>
+          <a href="delta.html">DELTA Series</a>
+          <a href="delta-pro.html">DELTA Pro Series</a>
+          <a href="trail.html">TRAIL Series</a>
+          <div class="divider"></div>
+          <a href="solar.html">Solar Panels</a>
+          <a href="accessories.html">Extra Batteries & Accessories</a>
+          <a href="kits.html">Power Kits</a>
+        </div>
+      </div>
+      <a href="compare.html">Compare</a>
+      <a href="guide.html">Buying Guide</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html" class="nav-cart">Order <span class="count">0</span></a>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Open navigation menu"></button>
+  </nav>
+</header>
+
+<section>
+  <div class="container">
+    <p class="eyebrow">SEARCH RESULTS</p>
+    <h1 id="search-heading" style="margin:12px 0 30px;">Results</h1>
+    <div id="search-results" style="display:flex; flex-direction:column; gap:14px; max-width:700px;"></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-bottom">
+    <span>© 2026 VoltReserve. Independent reseller — not affiliated with EcoFlow Inc.</span>
+    <a href="products.html" style="color:var(--accent);">Browse all products →</a>
+  </div>
+</footer>
+
+<script src="js/products-data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get("q") || "";
+  document.getElementById("nav-search-input").value = q;
+  document.getElementById("search-heading").textContent = q ? `Results for "${q}"` : "Search";
+
+  const results = runSearch(q);
+  const container = document.getElementById("search-results");
+  if (results.length === 0) {
+    container.innerHTML = `<div class="empty-state"><p>No results for "${q}". Try browsing <a href="products.html">all products</a> instead.</p></div>`;
+  } else {
+    container.innerHTML = results.map(r => `
+      <a href="${r.url}" style="display:flex; justify-content:space-between; align-items:center; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:16px 20px;">
+        <div>
+          <div style="font-family:var(--font-display); font-weight:700;">${r.name}</div>
+          <div style="font-size:0.85rem; color:var(--text-dim); margin-top:4px;">${r.tagline}</div>
+        </div>
+        <span class="eyebrow">${r.type}</span>
+      </a>
+    `).join("");
+  }
+</script>
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'a77613b06d05d9ee2bd17b97e2a9842c8f728c40';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
+</body>
+</html>

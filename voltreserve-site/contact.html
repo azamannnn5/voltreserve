@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4WE5FE3Q67"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4WE5FE3Q67');
+</script>
+<title>Contact Us | VoltReserve</title>
+<meta name="description" content="Get in touch with VoltReserve for questions about EcoFlow power stations, orders, or delivery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="logo"><svg class="logo-icon" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="vertical-align:-5px; margin-right:2px;">
+        <circle cx="12" cy="12" r="11" fill="var(--accent)"/>
+        <path d="M13 4L6 13.5H11L10 20L18 10H12L13 4Z" fill="#0a0a0a"/>
+      </svg> VoltReserve</a>
+    <form id="nav-search-form" class="nav-search">
+      <input type="search" id="nav-search-input" placeholder="Search products..." aria-label="Search products">
+    </form>
+    <select id="currency-select" class="currency-select" aria-label="Currency"></select>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle" onclick="this.nextElementSibling.classList.toggle('open')">Shop ▾</button>
+        <div class="nav-dropdown-menu">
+          <a href="products.html">All Products</a>
+          <a href="river.html">RIVER Series</a>
+          <a href="delta.html">DELTA Series</a>
+          <a href="delta-pro.html">DELTA Pro Series</a>
+          <a href="trail.html">TRAIL Series</a>
+          <div class="divider"></div>
+          <a href="solar.html">Solar Panels</a>
+          <a href="accessories.html">Extra Batteries & Accessories</a>
+          <a href="kits.html">Power Kits</a>
+        </div>
+      </div>
+      <a href="compare.html">Compare</a>
+      <a href="guide.html">Buying Guide</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="cart.html" class="nav-cart">Order <span class="count">0</span></a>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="Open navigation menu"></button>
+  </nav>
+</header>
+
+<section>
+  <div class="container detail-grid">
+    <div>
+      <p class="eyebrow">GET IN TOUCH</p>
+      <h1 style="margin:12px 0 18px;">We're easy to reach.</h1>
+      <p>Questions about which model fits your needs, an existing order, or delivery? Reach out — a real person responds.</p>
+
+      <div style="margin-top:34px; display:flex; flex-direction:column; gap:20px;">
+        <div class="feature-card">
+          <span class="icon" data-icon="chat"></span>
+          <h3>Live Chat</h3>
+          <p>Fastest way to reach us — the chat bubble is in the corner of every page.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon" data-icon="arrow"></span>
+          <h3>Email</h3>
+          <p id="email-display">orders@yourdomain.com</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="readout">
+      <div class="readout-label">Send a quick message</div>
+      <form id="contact-form" style="margin-top:16px;" onsubmit="handleContactSubmit(event)">
+        <div class="form-field">
+          <label for="c-name">Name</label>
+          <input type="text" id="c-name" required placeholder="Your name">
+        </div>
+        <div class="form-field">
+          <label for="c-email">Email</label>
+          <input type="email" id="c-email" required placeholder="you@email.com">
+        </div>
+        <div class="form-field">
+          <label for="c-msg">Message</label>
+          <textarea id="c-msg" required placeholder="How can we help?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Send via Email</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-bottom">
+    <span>© 2026 VoltReserve. Independent reseller — not affiliated with EcoFlow Inc.</span>
+    <a href="products.html" style="color:var(--accent);">Shop the lineup →</a>
+  </div>
+</footer>
+
+<script src="js/products-data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.getElementById("email-display").textContent = SALES_EMAIL;
+
+  function handleContactSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById("c-name").value.trim();
+    const email = document.getElementById("c-email").value.trim();
+    const msg = document.getElementById("c-msg").value.trim();
+    const subject = `Website contact message from ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`;
+    window.location.href = `mailto:${SALES_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+</script>
+<div id="compare-bar" class="compare-bar">
+  <span class="compare-bar-text"></span>
+  <a href="compare.html" class="btn btn-primary btn-sm">Compare Now</a>
+</div>
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'a77613b06d05d9ee2bd17b97e2a9842c8f728c40';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
+</body>
+</html>
