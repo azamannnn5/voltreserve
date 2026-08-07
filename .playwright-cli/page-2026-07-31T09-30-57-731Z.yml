@@ -1,0 +1,337 @@
+- generic [ref=f4e1]:
+  - banner [ref=f4e2]:
+    - navigation "Main navigation" [ref=f4e3]:
+      - link "VoltReserve home" [ref=f4e4] [cursor=pointer]:
+        - /url: index.html
+        - text: VoltReserve
+      - combobox "Display currency" [ref=f4e8]:
+        - option "USD ($)" [selected]
+        - option "EUR (€)"
+        - option "GBP (£)"
+        - option "CAD ($)"
+        - option "AUD ($)"
+        - option "XAF (FCFA)"
+        - option "NGN (₦)"
+        - option "ZAR (R)"
+        - option "INR (₹)"
+        - option "JPY (¥)"
+      - generic [ref=f4e318]:
+        - link "Home" [ref=f4e319] [cursor=pointer]:
+          - /url: index.html
+        - button "Shop" [ref=f4e321] [cursor=pointer]
+        - link "Compare" [ref=f4e325] [cursor=pointer]:
+          - /url: compare.html
+        - link "Buying Guide" [ref=f4e326] [cursor=pointer]:
+          - /url: guide.html
+        - link "About" [ref=f4e327] [cursor=pointer]:
+          - /url: about.html
+        - link "Contact" [ref=f4e328] [cursor=pointer]:
+          - /url: contact.html
+        - link "Order 0" [ref=f4e329] [cursor=pointer]:
+          - /url: cart.html
+          - text: Order
+          - generic [ref=f4e334]: "0"
+      - button "Close navigation menu" [expanded] [active] [ref=f4e335] [cursor=pointer]
+  - main [ref=f4e12]:
+    - generic [ref=f4e14]:
+      - generic [ref=f4e15]:
+        - paragraph [ref=f4e16]: Portable energy, clearly sized
+        - heading "Power that keeps up with real life." [level=1] [ref=f4e17]
+        - paragraph [ref=f4e18]: One dependable portable power platform, sized from a day outdoors to a whole-home outage. Compare the numbers that matter, then talk to a real person before you commit.
+        - generic [ref=f4e19]:
+          - link "Explore power stations" [ref=f4e20] [cursor=pointer]:
+            - /url: products.html
+          - link "Find my right size" [ref=f4e24] [cursor=pointer]:
+            - /url: guide.html
+        - generic "Ordering benefits" [ref=f4e25]:
+          - generic [ref=f4e26]: Human sizing help
+          - generic [ref=f4e31]: No payment today
+          - generic [ref=f4e36]: Delivery confirmed first
+      - link "View DELTA 3 Plus" [ref=f4e42] [cursor=pointer]:
+        - /url: product.html?id=delta-3-plus
+        - generic [ref=f4e43]:
+          - generic [ref=f4e44]: Most versatile
+          - generic [ref=f4e45]: DELTA series
+        - img "DELTA 3 Plus portable power station" [ref=f4e46]
+        - generic [ref=f4e47]:
+          - generic [ref=f4e48]:
+            - paragraph [ref=f4e49]: Everyday backup
+            - heading "DELTA 3 Plus" [level=2] [ref=f4e50]
+          - generic [ref=f4e51]: $649
+    - generic "Featured product specifications" [ref=f4e53]:
+      - generic [ref=f4e54]:
+        - strong [ref=f4e55]: 1,024Wh
+        - generic [ref=f4e56]: Battery capacity
+      - generic [ref=f4e57]:
+        - strong [ref=f4e58]: 1,800W
+        - generic [ref=f4e59]: Continuous output
+      - generic [ref=f4e60]:
+        - strong [ref=f4e61]: 89 min
+        - generic [ref=f4e62]: Full AC recharge
+      - generic [ref=f4e63]:
+        - strong [ref=f4e64]: 1–5kWh
+        - generic [ref=f4e65]: Expandable range
+    - generic [ref=f4e67]:
+      - generic [ref=f4e68]:
+        - generic [ref=f4e69]:
+          - paragraph [ref=f4e70]: Start with your situation
+          - heading "The right reserve starts with what you need to keep running." [level=2] [ref=f4e71]
+        - link "Open the buying guide" [ref=f4e72] [cursor=pointer]:
+          - /url: guide.html
+      - generic [ref=f4e73]:
+        - link [ref=f4e74] [cursor=pointer]:
+          - /url: products.html?capacity=UNDER500
+          - generic [ref=f4e78]:
+            - heading "Travel light" [level=3] [ref=f4e79]
+            - paragraph [ref=f4e80]: Phones, cameras, and camp essentials.
+        - link [ref=f4e84] [cursor=pointer]:
+          - /url: products.html?capacity=500-1000
+          - generic [ref=f4e88]:
+            - heading "Stay productive" [level=3] [ref=f4e89]
+            - paragraph [ref=f4e90]: Router, laptop, monitor, and desk setup.
+        - link [ref=f4e94] [cursor=pointer]:
+          - /url: products.html?capacity=1000-2000
+          - generic [ref=f4e99]:
+            - heading "Back up essentials" [level=3] [ref=f4e100]
+            - paragraph [ref=f4e101]: Fridge, lights, internet, and devices.
+        - link [ref=f4e105] [cursor=pointer]:
+          - /url: products.html?capacity=2000PLUS
+          - generic [ref=f4e109]:
+            - heading "Power more" [level=3] [ref=f4e110]
+            - paragraph [ref=f4e111]: Longer outages and high-draw appliances.
+    - generic [ref=f4e116]:
+      - generic [ref=f4e117]:
+        - generic [ref=f4e118]:
+          - paragraph [ref=f4e119]: One platform, purposeful variants
+          - heading "Compare the lineup without decoding a spec sheet." [level=2] [ref=f4e120]
+          - paragraph [ref=f4e121]: Every card shows capacity, output, charge speed, and price in the same place—so more power never means more confusion.
+        - link "View all models" [ref=f4e122] [cursor=pointer]:
+          - /url: products.html
+      - generic [ref=f4e123]:
+        - article [ref=f4e124]:
+          - link "RIVER 3 details" [ref=f4e125] [cursor=pointer]:
+            - /url: product.html?id=river-3
+            - generic [ref=f4e126]: Most Affordable
+            - generic [ref=f4e127]: RIVER
+            - img "RIVER 3" [ref=f4e128]
+          - generic [ref=f4e129]:
+            - link [ref=f4e130] [cursor=pointer]:
+              - /url: product.html?id=river-3
+              - heading "RIVER 3" [level=3] [ref=f4e131]
+            - paragraph [ref=f4e132]: Grab-and-go power for phones, laptops, and weekend trips.
+            - generic [ref=f4e133]:
+              - generic [ref=f4e134]:
+                - text: Capacity
+                - strong [ref=f4e135]: 245Wh
+              - generic [ref=f4e136]:
+                - text: Output
+                - strong [ref=f4e137]: 300W
+            - generic [ref=f4e138]:
+              - generic [ref=f4e139]: $189
+              - link "View model" [ref=f4e140] [cursor=pointer]:
+                - /url: product.html?id=river-3
+        - article [ref=f4e141]:
+          - link "DELTA 3 Plus details" [ref=f4e142] [cursor=pointer]:
+            - /url: product.html?id=delta-3-plus
+            - generic [ref=f4e143]: Recommended
+            - generic [ref=f4e144]: DELTA
+            - img "DELTA 3 Plus" [ref=f4e145]
+          - generic [ref=f4e146]:
+            - link [ref=f4e147] [cursor=pointer]:
+              - /url: product.html?id=delta-3-plus
+              - heading "DELTA 3 Plus" [level=3] [ref=f4e148]
+            - paragraph [ref=f4e149]: The most versatile all-rounder in the lineup.
+            - generic [ref=f4e150]:
+              - generic [ref=f4e151]:
+                - text: Capacity
+                - strong [ref=f4e152]: 1,024Wh (expandable 1–5kWh)
+              - generic [ref=f4e153]:
+                - text: Output
+                - strong [ref=f4e154]: 1800W
+            - generic [ref=f4e155]:
+              - generic [ref=f4e156]: $649
+              - link "View model" [ref=f4e157] [cursor=pointer]:
+                - /url: product.html?id=delta-3-plus
+        - article [ref=f4e158]:
+          - link "DELTA Pro 3 details" [ref=f4e159] [cursor=pointer]:
+            - /url: product.html?id=delta-pro-3
+            - generic [ref=f4e160]: Flagship
+            - generic [ref=f4e161]: DELTA PRO
+            - img "DELTA Pro 3" [ref=f4e162]
+          - generic [ref=f4e163]:
+            - link [ref=f4e164] [cursor=pointer]:
+              - /url: product.html?id=delta-pro-3
+              - heading "DELTA Pro 3" [level=3] [ref=f4e165]
+            - paragraph [ref=f4e166]: The flagship — chainable for whole-home, multi-day power.
+            - generic [ref=f4e167]:
+              - generic [ref=f4e168]:
+                - text: Capacity
+                - strong [ref=f4e169]: 4,096Wh (expandable to 48kWh)
+              - generic [ref=f4e170]:
+                - text: Output
+                - strong [ref=f4e171]: 4000W
+            - generic [ref=f4e172]:
+              - generic [ref=f4e173]: $2,299
+              - link "View model" [ref=f4e174] [cursor=pointer]:
+                - /url: product.html?id=delta-pro-3
+    - generic [ref=f4e176]:
+      - generic [ref=f4e177]:
+        - paragraph [ref=f4e178]: A lower-friction way to buy
+        - heading "Confidence before checkout." [level=2] [ref=f4e179]
+        - paragraph [ref=f4e180]: The handoff stays personal because portable power is not a one-size-fits-all purchase.
+      - generic [ref=f4e181]:
+        - article [ref=f4e182]:
+          - heading "Choose by real use" [level=3] [ref=f4e183]
+          - paragraph [ref=f4e184]: Start with the devices and time you need, then narrow the capacity instead of guessing from product names.
+        - article [ref=f4e185]:
+          - heading "Compare like for like" [level=3] [ref=f4e186]
+          - paragraph [ref=f4e187]: Save up to three options and see the important differences in one consistent technical view.
+        - article [ref=f4e188]:
+          - heading "Confirm with a person" [level=3] [ref=f4e189]
+          - paragraph [ref=f4e190]: Send your order request. We verify the model, delivery, and payment details before anything moves forward.
+    - generic [ref=f4e192]:
+      - generic [ref=f4e193]:
+        - generic [ref=f4e194]:
+          - paragraph [ref=f4e195]: Complete systems
+          - heading "Power station, expansion, and solar—already matched." [level=2] [ref=f4e196]
+          - paragraph [ref=f4e197]: Preconfigured kits make the upgrade path clear while keeping every component compatible.
+        - link "Browse power kits" [ref=f4e198] [cursor=pointer]:
+          - /url: kits.html
+      - generic [ref=f4e199]:
+        - article [ref=f4e200]:
+          - generic [ref=f4e201]:
+            - generic [ref=f4e202]: Great Starter Kit
+            - generic [ref=f4e203]: KIT
+            - img "Weekend Camper Kit" [ref=f4e204]
+          - generic [ref=f4e205]:
+            - heading "Weekend Camper Kit" [level=3] [ref=f4e206]
+            - paragraph [ref=f4e207]: RIVER 3 + 45W solar panel + waterproof carry bag
+            - generic [ref=f4e208]:
+              - generic [ref=f4e209]:
+                - text: "Includes:"
+                - strong [ref=f4e210]: RIVER 3
+              - generic [ref=f4e211]:
+                - text: +
+                - strong [ref=f4e212]: 45W Portable Solar Panel
+              - generic [ref=f4e213]:
+                - text: +
+                - strong [ref=f4e214]: RIVER 3 Waterproof Bag
+            - generic [ref=f4e215]:
+              - generic [ref=f4e216]: $219 $264
+              - button "Add Kit" [ref=f4e217] [cursor=pointer]
+            - generic [ref=f4e218]: Save $45 vs. buying separately
+        - article [ref=f4e219]:
+          - generic [ref=f4e220]:
+            - generic [ref=f4e221]: KIT
+            - img "Home Office UPS Kit" [ref=f4e222]
+          - generic [ref=f4e223]:
+            - heading "Home Office UPS Kit" [level=3] [ref=f4e224]
+            - paragraph [ref=f4e225]: RIVER 3 Plus + EB600 battery for extended desk backup
+            - generic [ref=f4e226]:
+              - generic [ref=f4e227]:
+                - text: "Includes:"
+                - strong [ref=f4e228]: RIVER 3 Plus
+              - generic [ref=f4e229]:
+                - text: +
+                - strong [ref=f4e230]: RIVER 3 EB600 Extra Battery (+572Wh)
+            - generic [ref=f4e231]:
+              - generic [ref=f4e232]: $429 $484
+              - button "Add Kit" [ref=f4e233] [cursor=pointer]
+            - generic [ref=f4e234]: Save $55 vs. buying separately
+        - article [ref=f4e235]:
+          - generic [ref=f4e236]:
+            - generic [ref=f4e237]: New
+            - generic [ref=f4e238]: KIT
+            - img "RIVER 3 Plus" [ref=f4e239]
+          - generic [ref=f4e240]:
+            - heading "RIVER 3 Max Bundle" [level=3] [ref=f4e241]
+            - paragraph [ref=f4e242]: RIVER 3 Plus + EB300 Extra Battery — EcoFlow's own bundled config
+            - generic [ref=f4e243]:
+              - generic [ref=f4e244]:
+                - text: "Includes:"
+                - strong [ref=f4e245]: RIVER 3 Plus
+              - generic [ref=f4e246]:
+                - text: +
+                - strong [ref=f4e247]: RIVER 3 EB300 Extra Battery (+286Wh)
+            - generic [ref=f4e248]:
+              - generic [ref=f4e249]: $299 $394
+              - button "Add Kit" [ref=f4e250] [cursor=pointer]
+            - generic [ref=f4e251]: Save $95 vs. buying separately
+    - generic [ref=f4e253]:
+      - generic [ref=f4e254]:
+        - paragraph [ref=f4e255]: Common questions
+        - heading "Know what happens next." [level=2] [ref=f4e256]
+      - group [ref=f4e257]:
+        - generic "How does ordering work? −" [ref=f4e258] [cursor=pointer]
+        - paragraph [ref=f4e259]: Add products to your order and submit your contact details. A chat opens with the order already prepared for your review. We then confirm availability, delivery, and payment with you directly.
+      - group [ref=f4e260]:
+        - generic "Will I be charged when I submit? +" [ref=f4e261] [cursor=pointer]
+      - group [ref=f4e262]:
+        - generic "How do I know which size is right? +" [ref=f4e263] [cursor=pointer]
+      - group [ref=f4e264]:
+        - generic "Can I add more battery capacity later? +" [ref=f4e265] [cursor=pointer]
+  - contentinfo [ref=f4e266]:
+    - generic [ref=f4e267]:
+      - generic [ref=f4e268]:
+        - generic [ref=f4e269]:
+          - link "VoltReserve" [ref=f4e270] [cursor=pointer]:
+            - /url: index.html
+          - paragraph [ref=f4e274]: Portable power stations, clearly sized for travel, work, and resilient homes.
+        - generic [ref=f4e275]:
+          - heading "Shop" [level=4] [ref=f4e276]
+          - list [ref=f4e277]:
+            - listitem [ref=f4e278]:
+              - link "All Products" [ref=f4e279] [cursor=pointer]:
+                - /url: products.html
+            - listitem [ref=f4e280]:
+              - link "RIVER Series" [ref=f4e281] [cursor=pointer]:
+                - /url: river.html
+            - listitem [ref=f4e282]:
+              - link "DELTA Series" [ref=f4e283] [cursor=pointer]:
+                - /url: delta.html
+            - listitem [ref=f4e284]:
+              - link "DELTA Pro Series" [ref=f4e285] [cursor=pointer]:
+                - /url: delta-pro.html
+            - listitem [ref=f4e286]:
+              - link "Power Kits" [ref=f4e287] [cursor=pointer]:
+                - /url: kits.html
+        - generic [ref=f4e288]:
+          - heading "Decide" [level=4] [ref=f4e289]
+          - list [ref=f4e290]:
+            - listitem [ref=f4e291]:
+              - link "Buying Guide" [ref=f4e292] [cursor=pointer]:
+                - /url: guide.html
+            - listitem [ref=f4e293]:
+              - link "Compare" [ref=f4e294] [cursor=pointer]:
+                - /url: compare.html
+            - listitem [ref=f4e295]:
+              - link "Solar Panels" [ref=f4e296] [cursor=pointer]:
+                - /url: solar.html
+            - listitem [ref=f4e297]:
+              - link "Accessories" [ref=f4e298] [cursor=pointer]:
+                - /url: accessories.html
+        - generic [ref=f4e299]:
+          - heading "Support" [level=4] [ref=f4e300]
+          - list [ref=f4e301]:
+            - listitem [ref=f4e302]:
+              - link "Contact" [ref=f4e303] [cursor=pointer]:
+                - /url: contact.html
+            - listitem [ref=f4e304]:
+              - link "FAQ" [ref=f4e305] [cursor=pointer]:
+                - /url: faq.html
+            - listitem [ref=f4e306]:
+              - link "Shipping & Returns" [ref=f4e307] [cursor=pointer]:
+                - /url: shipping.html
+            - listitem [ref=f4e308]:
+              - link "Privacy" [ref=f4e309] [cursor=pointer]:
+                - /url: privacy.html
+            - listitem [ref=f4e310]:
+              - link "Terms" [ref=f4e311] [cursor=pointer]:
+                - /url: terms.html
+      - generic [ref=f4e312]:
+        - generic [ref=f4e313]: © 2026 VoltReserve. Independent reseller—not affiliated with EcoFlow Inc.
+        - generic [ref=f4e314]: Clear power choices. Human confirmation.
+  - iframe [ref=f4e315]:
+    
+  - iframe [ref=f4e317]:
+    - button "Open Smartsupp chat" [ref=f6e3] [cursor=pointer]
