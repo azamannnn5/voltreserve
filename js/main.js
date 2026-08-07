@@ -18,14 +18,18 @@ const ICON_PATHS = {
   home: '<path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10M9 20v-6h6v6"/>',
   bolt: '<path d="m13 2-8 12h7l-1 8 8-12h-7l1-8Z"/>',
   sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
-  shield: '<path d="M12 3 5 6v5c0 4.7 2.9 8.1 7 10 4.1-1.9 7-5.3 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/>',
-  truck: '<path d="M3 6h11v10H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>',
+  shield:
+    '<path d="M12 3 5 6v5c0 4.7 2.9 8.1 7 10 4.1-1.9 7-5.3 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/>',
+  truck:
+    '<path d="M3 6h11v10H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>',
   chat: '<path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 9h8M8 12h5"/>',
   tool: '<path d="M14.7 6.3a4 4 0 0 0-5 5L4 17l3 3 5.7-5.7a4 4 0 0 0 5-5l-2.4 2.4-3-3 2.4-2.4Z"/>',
-  scale: '<path d="M4 19h16M12 5v14M7 8h10M7 8l-3 6h6L7 8ZM17 8l-3 6h6l-3-6Z"/>',
-  person: '<circle cx="12" cy="8" r="4"/><path d="M4 21c.8-4.4 3.5-7 8-7s7.2 2.6 8 7"/>',
+  scale:
+    '<path d="M4 19h16M12 5v14M7 8h10M7 8l-3 6h6L7 8ZM17 8l-3 6h6l-3-6Z"/>',
+  person:
+    '<circle cx="12" cy="8" r="4"/><path d="M4 21c.8-4.4 3.5-7 8-7s7.2 2.6 8 7"/>',
   check: '<path d="m5 12 4 4L19 6"/>',
-  plug: '<path d="M8 3v5M16 3v5M6 8h12v2a6 6 0 0 1-6 6v5M9 21h6"/>'
+  plug: '<path d="M8 3v5M16 3v5M6 8h12v2a6 6 0 0 1-6 6v5M9 21h6"/>',
 };
 
 function iconHTML(name, className) {
@@ -34,7 +38,7 @@ function iconHTML(name, className) {
 }
 
 function hydrateIcons(root) {
-  (root || document).querySelectorAll("[data-icon]").forEach(el => {
+  (root || document).querySelectorAll("[data-icon]").forEach((el) => {
     el.innerHTML = iconHTML(el.getAttribute("data-icon"));
   });
 }
@@ -58,7 +62,7 @@ function saveCart(cart) {
 function addToCart(id, qty) {
   qty = qty || 1;
   const cart = getCart();
-  const existing = cart.find(item => item.id === id);
+  const existing = cart.find((item) => item.id === id);
   if (existing) {
     existing.qty += qty;
   } else {
@@ -69,14 +73,14 @@ function addToCart(id, qty) {
 }
 
 function removeFromCart(id) {
-  let cart = getCart().filter(item => item.id !== id);
+  let cart = getCart().filter((item) => item.id !== id);
   saveCart(cart);
   if (typeof renderCartPage === "function") renderCartPage();
 }
 
 function updateCartQty(id, qty) {
   const cart = getCart();
-  const item = cart.find(i => i.id === id);
+  const item = cart.find((i) => i.id === id);
   if (item) {
     item.qty = Math.max(1, qty);
     saveCart(cart);
@@ -89,46 +93,77 @@ function cartCount() {
 
 function updateCartCount() {
   const count = cartCount();
-  document.querySelectorAll(".nav-cart .count, .mobile-cart .count").forEach(el => {
-    el.textContent = count;
-  });
-  document.querySelectorAll(".mobile-cart").forEach(link => {
-    link.setAttribute("aria-label", `Order, ${count} ${count === 1 ? "item" : "items"}`);
+  document
+    .querySelectorAll(".nav-cart .count, .mobile-cart .count")
+    .forEach((el) => {
+      el.textContent = count;
+    });
+  document.querySelectorAll(".mobile-cart").forEach((link) => {
+    link.setAttribute(
+      "aria-label",
+      `Order, ${count} ${count === 1 ? "item" : "items"}`,
+    );
   });
 }
 
 function findProduct(id) {
-  return PRODUCTS.find(p => p.id === id);
+  return PRODUCTS.find((p) => p.id === id);
 }
 
 function findBundle(id) {
-  return BUNDLES.find(b => b.id === id);
+  return BUNDLES.find((b) => b.id === id);
 }
 
 function findAccessory(id) {
-  return ACCESSORIES.find(a => a.id === id);
+  return ACCESSORIES.find((a) => a.id === id);
 }
 
 function findSolarPanel(id) {
-  return SOLAR_PANELS.find(s => s.id === id);
+  return SOLAR_PANELS.find((s) => s.id === id);
 }
 
 // Cart item ids are prefixed by type: "bundle:x", "accessory:x", "solar:x", or a bare product id
 function cartItemLookup(rawId) {
   if (rawId.startsWith("bundle:")) {
     const b = findBundle(rawId.replace("bundle:", ""));
-    return b ? { kind: "bundle", data: b, name: b.name, price: b.price, thumb: "KIT" } : null;
+    return b
+      ? { kind: "bundle", data: b, name: b.name, price: b.price, thumb: "KIT" }
+      : null;
   }
   if (rawId.startsWith("accessory:")) {
     const a = findAccessory(rawId.replace("accessory:", ""));
-    return a ? { kind: "accessory", data: a, name: a.name, price: a.price, thumb: "ADD-ON" } : null;
+    return a
+      ? {
+          kind: "accessory",
+          data: a,
+          name: a.name,
+          price: a.price,
+          thumb: "ADD-ON",
+        }
+      : null;
   }
   if (rawId.startsWith("solar:")) {
     const s = findSolarPanel(rawId.replace("solar:", ""));
-    return s ? { kind: "solar", data: s, name: s.name, price: s.price, thumb: s.watts + "W" } : null;
+    return s
+      ? {
+          kind: "solar",
+          data: s,
+          name: s.name,
+          price: s.price,
+          thumb: s.watts + "W",
+        }
+      : null;
   }
   const p = findProduct(rawId);
-  return p ? { kind: "product", data: p, name: p.name, price: p.price, thumb: p.capacityLabel.split(" ")[0] } : null;
+  return p
+    ? {
+        kind: "product",
+        data: p,
+        name: p.name,
+        price: p.price,
+        thumb: p.capacityLabel.split(" ")[0],
+      }
+    : null;
 }
 
 function isBundleCartId(id) {
@@ -184,11 +219,14 @@ function initNav() {
       toggle.classList.toggle("is-open", isOpen);
       toggle.innerHTML = iconHTML(isOpen ? "close" : "menu");
       toggle.setAttribute("aria-expanded", String(isOpen));
-      toggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+      toggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu",
+      );
       document.body.classList.toggle("nav-open", isOpen);
     });
   }
-  document.querySelectorAll(".nav-dropdown-toggle").forEach(button => {
+  document.querySelectorAll(".nav-dropdown-toggle").forEach((button) => {
     button.innerHTML = `<span>Shop</span>${iconHTML("chevron")}`;
     button.removeAttribute("onclick");
     button.setAttribute("aria-expanded", "false");
@@ -198,11 +236,12 @@ function initNav() {
       button.setAttribute("aria-expanded", String(isOpen));
     });
   });
-  document.querySelectorAll(".nav-cart").forEach(link => {
-    if (!link.querySelector("svg")) link.insertAdjacentHTML("afterbegin", iconHTML("cart"));
+  document.querySelectorAll(".nav-cart").forEach((link) => {
+    if (!link.querySelector("svg"))
+      link.insertAdjacentHTML("afterbegin", iconHTML("cart"));
   });
   document.addEventListener("click", (e) => {
-    document.querySelectorAll(".nav-dropdown-menu.open").forEach(menu => {
+    document.querySelectorAll(".nav-dropdown-menu.open").forEach((menu) => {
       if (!menu.parentElement.contains(e.target)) {
         menu.classList.remove("open");
         const button = menu.parentElement.querySelector(".nav-dropdown-toggle");
@@ -244,13 +283,15 @@ function renderProductGrid(containerId, seriesFilter, capacityFilter) {
   if (!container) return;
   let list = PRODUCTS;
   if (seriesFilter && seriesFilter !== "ALL") {
-    list = list.filter(p => p.series === seriesFilter);
+    list = list.filter((p) => p.series === seriesFilter);
   }
   if (capacityFilter && capacityFilter !== "ALL") {
-    list = list.filter(p => p.capacityTier === capacityFilter);
+    list = list.filter((p) => p.capacityTier === capacityFilter);
   }
 
-  container.innerHTML = list.map(p => `
+  container.innerHTML = list
+    .map(
+      (p) => `
     <article class="product-card">
       <a href="product.html?id=${p.id}" class="product-visual" aria-label="${p.name} details">
         ${p.badge ? `<span class="badge">${p.badge}</span>` : ""}
@@ -274,7 +315,9 @@ function renderProductGrid(containerId, seriesFilter, capacityFilter) {
         </label>
       </div>
     </article>
-  `).join("");
+  `,
+    )
+    .join("");
   if (typeof refreshCurrencyDisplay === "function") refreshCurrencyDisplay();
 }
 
@@ -282,13 +325,16 @@ function renderBundleGrid(containerId, limit) {
   const container = document.getElementById(containerId);
   if (!container) return;
   const list = limit ? BUNDLES.slice(0, limit) : BUNDLES;
-  container.innerHTML = list.map(b => {
-    const p = findProduct(b.productId);
-    const savings = b.compareAt - b.price;
-    const visual = b.image
-      ? `<img src="${b.image}" alt="${b.name}" loading="lazy" style="width:100%; height:100%; object-fit:contain; padding:20px;">`
-      : (p ? productVisualHTML(p) : "");
-    return `
+  container.innerHTML = list
+    .map((b) => {
+      const p = findProduct(b.productId);
+      const savings = b.compareAt - b.price;
+      const visual = b.image
+        ? `<img src="${b.image}" alt="${b.name}" loading="lazy" style="width:100%; height:100%; object-fit:contain; padding:20px;">`
+        : p
+          ? productVisualHTML(p)
+          : "";
+      return `
       <article class="product-card">
         <div class="product-visual">
           ${b.badge ? `<span class="badge">${b.badge}</span>` : ""}
@@ -300,7 +346,7 @@ function renderBundleGrid(containerId, limit) {
           <p class="tagline">${b.tagline}</p>
           <div class="spec-row" style="flex-direction:column; gap:4px; align-items:flex-start;">
             <span>Includes: <strong>${p ? p.name : ""}</strong></span>
-            ${b.accessories.map(a => `<span>+ <strong>${a}</strong></span>`).join("")}
+            ${b.accessories.map((a) => `<span>+ <strong>${a}</strong></span>`).join("")}
           </div>
           <div class="price-row">
             <div>
@@ -313,7 +359,8 @@ function renderBundleGrid(containerId, limit) {
         </div>
       </article>
     `;
-  }).join("");
+    })
+    .join("");
   if (typeof refreshCurrencyDisplay === "function") refreshCurrencyDisplay();
 }
 
@@ -321,20 +368,23 @@ function initFilterBar() {
   const seriesButtons = document.querySelectorAll("[data-series]");
   const capacityButtons = document.querySelectorAll("[data-capacity]");
   function applyFilters() {
-    const activeSeries = document.querySelector("[data-series].active")?.dataset.series || "ALL";
-    const activeCapacity = document.querySelector("[data-capacity].active")?.dataset.capacity || "ALL";
+    const activeSeries =
+      document.querySelector("[data-series].active")?.dataset.series || "ALL";
+    const activeCapacity =
+      document.querySelector("[data-capacity].active")?.dataset.capacity ||
+      "ALL";
     renderProductGrid("product-grid", activeSeries, activeCapacity);
   }
-  seriesButtons.forEach(btn => {
+  seriesButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      seriesButtons.forEach(b => b.classList.remove("active"));
+      seriesButtons.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       applyFilters();
     });
   });
-  capacityButtons.forEach(btn => {
+  capacityButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      capacityButtons.forEach(b => b.classList.remove("active"));
+      capacityButtons.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       applyFilters();
     });
@@ -354,10 +404,13 @@ function accessoryVisualHTML(item) {
 function renderAccessoryGrid(containerId, categoryFilter) {
   const container = document.getElementById(containerId);
   if (!container) return;
-  const list = categoryFilter && categoryFilter !== "ALL"
-    ? ACCESSORIES.filter(a => a.category === categoryFilter)
-    : ACCESSORIES;
-  container.innerHTML = list.map(a => `
+  const list =
+    categoryFilter && categoryFilter !== "ALL"
+      ? ACCESSORIES.filter((a) => a.category === categoryFilter)
+      : ACCESSORIES;
+  container.innerHTML = list
+    .map(
+      (a) => `
     <article class="product-card">
       <a href="product.html?id=accessory:${a.id}" class="product-visual" aria-label="${a.name} details">
         <span class="series-tag">${a.category.toUpperCase()}</span>
@@ -366,21 +419,24 @@ function renderAccessoryGrid(containerId, categoryFilter) {
       <div class="product-body">
         <a href="product.html?id=accessory:${a.id}"><h3>${a.name}</h3></a>
         <p class="tagline">${a.tagline}</p>
-        <div class="spec-row"><span>Fits: <strong>${a.compatibleWith.map(id => (findProduct(id)||{}).name || id).join(", ")}</strong></span></div>
+        <div class="spec-row"><span>Fits: <strong>${a.compatibleWith.map((id) => (findProduct(id) || {}).name || id).join(", ")}</strong></span></div>
         <div class="price-row">
           <span class="price" data-usd-price="${a.price}">$${a.price.toLocaleString()}</span>
           <button class="btn btn-secondary btn-sm" onclick="addAccessoryToCart('${a.id}', 1)">Add to Order</button>
         </div>
       </div>
     </article>
-  `).join("");
+  `,
+    )
+    .join("");
   if (typeof refreshCurrencyDisplay === "function") refreshCurrencyDisplay();
 }
 
 function renderSolarGrid(containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
-  container.innerHTML = SOLAR_PANELS.map(s => `
+  container.innerHTML = SOLAR_PANELS.map(
+    (s) => `
     <article class="product-card">
       <a href="product.html?id=solar:${s.id}" class="product-visual" aria-label="${s.name} details">
         <span class="series-tag">${s.watts}W</span>
@@ -389,14 +445,18 @@ function renderSolarGrid(containerId) {
       <div class="product-body">
         <a href="product.html?id=solar:${s.id}"><h3>${s.name}</h3></a>
         <p class="tagline">${s.tagline}</p>
-        <div class="spec-row"><span>Pairs well with: <strong>${s.compatibleWith.map(id => (findProduct(id)||{}).name || id).slice(0,2).join(", ")}</strong></span></div>
+        <div class="spec-row"><span>Pairs well with: <strong>${s.compatibleWith
+          .map((id) => (findProduct(id) || {}).name || id)
+          .slice(0, 2)
+          .join(", ")}</strong></span></div>
         <div class="price-row">
           <span class="price" data-usd-price="${s.price}">$${s.price.toLocaleString()}</span>
           <button class="btn btn-secondary btn-sm" onclick="addSolarToCart('${s.id}', 1)">Add to Order</button>
         </div>
       </div>
     </article>
-  `).join("");
+  `,
+  ).join("");
   if (typeof refreshCurrencyDisplay === "function") refreshCurrencyDisplay();
 }
 
@@ -406,9 +466,16 @@ function renderSolarGrid(containerId) {
 function renderFrequentlyBoughtWith(productId, containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
-  const accMatches = ACCESSORIES.filter(a => a.compatibleWith.includes(productId));
-  const solarMatches = SOLAR_PANELS.filter(s => s.compatibleWith.includes(productId));
-  const items = [...accMatches.map(a => ({ ...a, kind: "accessory" })), ...solarMatches.map(s => ({ ...s, kind: "solar" }))];
+  const accMatches = ACCESSORIES.filter((a) =>
+    a.compatibleWith.includes(productId),
+  );
+  const solarMatches = SOLAR_PANELS.filter((s) =>
+    s.compatibleWith.includes(productId),
+  );
+  const items = [
+    ...accMatches.map((a) => ({ ...a, kind: "accessory" })),
+    ...solarMatches.map((s) => ({ ...s, kind: "solar" })),
+  ];
 
   const section = container.closest("section");
   if (items.length === 0) {
@@ -416,7 +483,9 @@ function renderFrequentlyBoughtWith(productId, containerId) {
     return;
   }
 
-  container.innerHTML = items.map(item => `
+  container.innerHTML = items
+    .map(
+      (item) => `
     <article class="product-card">
       <div class="product-visual" style="aspect-ratio:16/10;">
         ${accessoryVisualHTML(item)}
@@ -426,11 +495,13 @@ function renderFrequentlyBoughtWith(productId, containerId) {
         <p class="tagline">${item.tagline}</p>
         <div class="price-row">
           <span class="price" data-usd-price="${item.price}">$${item.price.toLocaleString()}</span>
-          <button class="btn btn-secondary btn-sm" onclick="${item.kind === 'accessory' ? `addAccessoryToCart('${item.id}', 1)` : `addSolarToCart('${item.id}', 1)`}">Add to Order</button>
+          <button class="btn btn-secondary btn-sm" onclick="${item.kind === "accessory" ? `addAccessoryToCart('${item.id}', 1)` : `addSolarToCart('${item.id}', 1)`}">Add to Order</button>
         </div>
       </div>
     </article>
-  `).join("");
+  `,
+    )
+    .join("");
   if (typeof refreshCurrencyDisplay === "function") refreshCurrencyDisplay();
 }
 
@@ -440,21 +511,41 @@ function renderFrequentlyBoughtWith(productId, containerId) {
 function renderBreadcrumbs(containerId, items) {
   const container = document.getElementById(containerId);
   if (!container) return;
-  container.innerHTML = items.map((item, i) => {
-    const isLast = i === items.length - 1;
-    return isLast
-      ? `<span style="color:var(--text);">${item.label}</span>`
-      : `<a href="${item.url}" style="color:var(--text-dim);">${item.label}</a><span style="color:var(--text-faint); margin:0 6px;">/</span>`;
-  }).join("");
+  container.innerHTML = items
+    .map((item, i) => {
+      const isLast = i === items.length - 1;
+      return isLast
+        ? `<span style="color:var(--text);">${item.label}</span>`
+        : `<a href="${item.url}" style="color:var(--text-dim);">${item.label}</a><span style="color:var(--text-faint); margin:0 6px;">/</span>`;
+    })
+    .join("");
 }
 
 /* ============================================
    SEARCH
    ============================================ */
 function buildSearchIndex() {
-  const products = PRODUCTS.map(p => ({ id: p.id, name: p.name, tagline: p.tagline, type: "Power Station", url: `product.html?id=${p.id}` }));
-  const accessories = ACCESSORIES.map(a => ({ id: a.id, name: a.name, tagline: a.tagline, type: "Accessory", url: `product.html?id=accessory:${a.id}` }));
-  const solar = SOLAR_PANELS.map(s => ({ id: s.id, name: s.name, tagline: s.tagline, type: "Solar Panel", url: `product.html?id=solar:${s.id}` }));
+  const products = PRODUCTS.map((p) => ({
+    id: p.id,
+    name: p.name,
+    tagline: p.tagline,
+    type: "Power Station",
+    url: `product.html?id=${p.id}`,
+  }));
+  const accessories = ACCESSORIES.map((a) => ({
+    id: a.id,
+    name: a.name,
+    tagline: a.tagline,
+    type: "Accessory",
+    url: `product.html?id=accessory:${a.id}`,
+  }));
+  const solar = SOLAR_PANELS.map((s) => ({
+    id: s.id,
+    name: s.name,
+    tagline: s.tagline,
+    type: "Solar Panel",
+    url: `product.html?id=solar:${s.id}`,
+  }));
   return [...products, ...accessories, ...solar];
 }
 
@@ -462,8 +553,10 @@ function runSearch(query) {
   const q = query.trim().toLowerCase();
   if (!q) return [];
   const index = buildSearchIndex();
-  return index.filter(item =>
-    item.name.toLowerCase().includes(q) || item.tagline.toLowerCase().includes(q)
+  return index.filter(
+    (item) =>
+      item.name.toLowerCase().includes(q) ||
+      item.tagline.toLowerCase().includes(q),
   );
 }
 
@@ -497,7 +590,7 @@ function saveCompareList(list) {
 function toggleCompare(productId) {
   let list = getCompareList();
   if (list.includes(productId)) {
-    list = list.filter(id => id !== productId);
+    list = list.filter((id) => id !== productId);
   } else {
     if (list.length >= 3) {
       showToast("You can compare up to 3 products");
@@ -506,9 +599,11 @@ function toggleCompare(productId) {
     list.push(productId);
   }
   saveCompareList(list);
-  document.querySelectorAll(`[data-compare-id="${productId}"]`).forEach(el => {
-    el.classList.toggle("active", list.includes(productId));
-  });
+  document
+    .querySelectorAll(`[data-compare-id="${productId}"]`)
+    .forEach((el) => {
+      el.classList.toggle("active", list.includes(productId));
+    });
 }
 
 function updateCompareBar() {
@@ -520,21 +615,21 @@ function updateCompareBar() {
     return;
   }
   bar.style.display = "flex";
-  const names = list.map(id => (findProduct(id) || {}).name || id).join(", ");
+  const names = list.map((id) => (findProduct(id) || {}).name || id).join(", ");
   bar.querySelector(".compare-bar-text").textContent = `Comparing: ${names}`;
 }
 
 function renderSeriesComparisonTable(seriesKey, containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
-  const items = PRODUCTS.filter(p => p.series === seriesKey);
+  const items = PRODUCTS.filter((p) => p.series === seriesKey);
   const rows = [
-    ["Price", p => `$${p.price.toLocaleString()}`],
-    ["Capacity", p => p.capacityLabel],
-    ["Output", p => p.outputLabel],
-    ["Charge Time", p => p.chargeTime],
-    ["Weight", p => p.weight],
-    ["Best For", p => p.useCase]
+    ["Price", (p) => `$${p.price.toLocaleString()}`],
+    ["Capacity", (p) => p.capacityLabel],
+    ["Output", (p) => p.outputLabel],
+    ["Charge Time", (p) => p.chargeTime],
+    ["Weight", (p) => p.weight],
+    ["Best For", (p) => p.useCase],
   ];
   container.innerHTML = `
     <div style="overflow-x:auto;">
@@ -542,16 +637,20 @@ function renderSeriesComparisonTable(seriesKey, containerId) {
       <thead>
         <tr>
           <th style="text-align:left; padding:14px; border-bottom:1px solid var(--border); color:var(--text-faint); font-family:var(--font-mono); font-size:0.78rem;"></th>
-          ${items.map(p => `<th style="text-align:left; padding:14px; border-bottom:1px solid var(--border);"><a href="product.html?id=${p.id}" style="font-family:var(--font-display); font-size:1rem;">${p.name}</a></th>`).join("")}
+          ${items.map((p) => `<th style="text-align:left; padding:14px; border-bottom:1px solid var(--border);"><a href="product.html?id=${p.id}" style="font-family:var(--font-display); font-size:1rem;">${p.name}</a></th>`).join("")}
         </tr>
       </thead>
       <tbody>
-        ${rows.map(([label, fn]) => `
+        ${rows
+          .map(
+            ([label, fn]) => `
           <tr>
             <td style="padding:14px; border-bottom:1px solid var(--border); color:var(--text-faint); font-family:var(--font-mono); font-size:0.8rem;">${label}</td>
-            ${items.map(p => `<td style="padding:14px; border-bottom:1px solid var(--border); font-family:var(--font-mono); font-size:0.85rem;">${fn(p)}</td>`).join("")}
+            ${items.map((p) => `<td style="padding:14px; border-bottom:1px solid var(--border); font-family:var(--font-mono); font-size:0.85rem;">${fn(p)}</td>`).join("")}
           </tr>
-        `).join("")}
+        `,
+          )
+          .join("")}
       </tbody>
     </table>
     </div>
@@ -566,33 +665,37 @@ function renderComparePage() {
     container.innerHTML = `<div class="empty-state"><p>Select 2-3 products to compare from the <a href="products.html">Products page</a>.</p></div>`;
     return;
   }
-  const items = list.map(id => findProduct(id)).filter(Boolean);
+  const items = list.map((id) => findProduct(id)).filter(Boolean);
   const rows = [
-    ["Price", p => `$${p.price.toLocaleString()}`],
-    ["Capacity", p => p.capacityLabel],
-    ["Output", p => p.outputLabel],
-    ["Charge Time", p => p.chargeTime],
-    ["Weight", p => p.weight],
-    ["Best For", p => p.useCase]
+    ["Price", (p) => `$${p.price.toLocaleString()}`],
+    ["Capacity", (p) => p.capacityLabel],
+    ["Output", (p) => p.outputLabel],
+    ["Charge Time", (p) => p.chargeTime],
+    ["Weight", (p) => p.weight],
+    ["Best For", (p) => p.useCase],
   ];
   container.innerHTML = `
     <table style="width:100%; border-collapse:collapse;">
       <thead>
         <tr>
           <th style="text-align:left; padding:14px; border-bottom:1px solid var(--border); color:var(--text-faint); font-family:var(--font-mono); font-size:0.78rem;"></th>
-          ${items.map(p => `<th style="text-align:left; padding:14px; border-bottom:1px solid var(--border);"><a href="product.html?id=${p.id}" style="font-family:var(--font-display); font-size:1.05rem;">${p.name}</a></th>`).join("")}
+          ${items.map((p) => `<th style="text-align:left; padding:14px; border-bottom:1px solid var(--border);"><a href="product.html?id=${p.id}" style="font-family:var(--font-display); font-size:1.05rem;">${p.name}</a></th>`).join("")}
         </tr>
       </thead>
       <tbody>
-        ${rows.map(([label, fn]) => `
+        ${rows
+          .map(
+            ([label, fn]) => `
           <tr>
             <td style="padding:14px; border-bottom:1px solid var(--border); color:var(--text-faint); font-family:var(--font-mono); font-size:0.82rem;">${label}</td>
-            ${items.map(p => `<td style="padding:14px; border-bottom:1px solid var(--border); font-family:var(--font-mono); font-size:0.9rem;">${fn(p)}</td>`).join("")}
+            ${items.map((p) => `<td style="padding:14px; border-bottom:1px solid var(--border); font-family:var(--font-mono); font-size:0.9rem;">${fn(p)}</td>`).join("")}
           </tr>
-        `).join("")}
+        `,
+          )
+          .join("")}
         <tr>
           <td style="padding:14px;"></td>
-          ${items.map(p => `<td style="padding:14px;"><button class="btn btn-secondary btn-sm" onclick="toggleCompare('${p.id}'); renderComparePage();">Remove</button></td>`).join("")}
+          ${items.map((p) => `<td style="padding:14px;"><button class="btn btn-secondary btn-sm" onclick="toggleCompare('${p.id}'); renderComparePage();">Remove</button></td>`).join("")}
         </tr>
       </tbody>
     </table>
@@ -616,18 +719,34 @@ function renderProductDetail() {
   const displayPrice = lookup.price;
   const description = d.description || d.tagline;
   const images = d.images || [];
-  const eyebrow = kind === "product" ? `${d.series} SERIES`
-    : kind === "solar" ? "SOLAR PANEL"
-    : kind === "bundle" ? "POWER KIT"
-    : (d.category ? d.category.toUpperCase() : "ACCESSORY");
-  const seriesTag = kind === "product" ? d.series : (kind === "solar" ? `${d.watts}W` : eyebrow);
-  const cartIdForAdd = kind === "accessory" ? `accessory:${d.id}` : kind === "solar" ? `solar:${d.id}` : kind === "bundle" ? `bundle:${d.id}` : d.id;
+  const eyebrow =
+    kind === "product"
+      ? `${d.series} SERIES`
+      : kind === "solar"
+        ? "SOLAR PANEL"
+        : kind === "bundle"
+          ? "POWER KIT"
+          : d.category
+            ? d.category.toUpperCase()
+            : "ACCESSORY";
+  const seriesTag =
+    kind === "product" ? d.series : kind === "solar" ? `${d.watts}W` : eyebrow;
+  const cartIdForAdd =
+    kind === "accessory"
+      ? `accessory:${d.id}`
+      : kind === "solar"
+        ? `solar:${d.id}`
+        : kind === "bundle"
+          ? `bundle:${d.id}`
+          : d.id;
 
   document.title = `${displayName} — VoltReserve`;
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc) metaDesc.setAttribute("content", description.slice(0, 155));
 
-  const specsHTML = kind === "product" ? `
+  const specsHTML =
+    kind === "product"
+      ? `
       <div class="detail-specs">
         <div class="spec-box"><div class="num">${d.capacityLabel}</div><div class="lbl">Capacity</div></div>
         <div class="spec-box"><div class="num">${d.outputLabel}</div><div class="lbl">AC Output</div></div>
@@ -636,9 +755,10 @@ function renderProductDetail() {
       </div>
       <p class="eyebrow" style="margin-bottom:6px;">BEST FOR</p>
       <p style="color:var(--text); margin-bottom:20px;">${d.useCase}</p>
-  ` : `
+  `
+      : `
       <p class="eyebrow" style="margin-bottom:6px;">COMPATIBLE WITH</p>
-      <p style="color:var(--text); margin-bottom:20px;">${(d.compatibleWith && d.compatibleWith.length) ? d.compatibleWith.map(id => (findProduct(id)||{}).name || id).join(", ") : "Universal / see product page"}</p>
+      <p style="color:var(--text); margin-bottom:20px;">${d.compatibleWith && d.compatibleWith.length ? d.compatibleWith.map((id) => (findProduct(id) || {}).name || id).join(", ") : "Universal / see product page"}</p>
   `;
 
   container.innerHTML = `
@@ -648,16 +768,24 @@ function renderProductDetail() {
         <span class="series-tag">${seriesTag}</span>
         ${productVisualHTML({ images: images, name: displayName })}
       </div>
-      ${images.length > 1 ? `
+      ${
+        images.length > 1
+          ? `
         <div style="display:flex; gap:10px; margin-top:12px;">
-          ${images.map((img, i) => `
+          ${images
+            .map(
+              (img, i) => `
             <button onclick="document.querySelector('#detail-main-visual img').src='${img}'"
               style="width:64px; height:64px; padding:0; border:1px solid var(--border); border-radius:6px; background:var(--surface); cursor:pointer; overflow:hidden;">
-              <img src="${img}" alt="${displayName} view ${i+1}" style="width:100%; height:100%; object-fit:contain; padding:6px;">
+              <img src="${img}" alt="${displayName} view ${i + 1}" style="width:100%; height:100%; object-fit:contain; padding:6px;">
             </button>
-          `).join("")}
+          `,
+            )
+            .join("")}
         </div>
-      ` : ""}
+      `
+          : ""
+      }
     </div>
     <div>
       <p class="eyebrow">${eyebrow}</p>
@@ -680,14 +808,15 @@ function renderProductDetail() {
       <p style="font-size:0.85rem; color:var(--text-faint);">No payment now — a team member confirms details and payment with you directly after you submit your order.</p>
 
       <div class="service-badges">
-        ${SERVICE_BENEFITS.map(b => `<div class="service-badge">${iconHTML(b.icon)}<span>${b.label}</span></div>`).join("")}
+        ${SERVICE_BENEFITS.map((b) => `<div class="service-badge">${iconHTML(b.icon)}<span>${b.label}</span></div>`).join("")}
       </div>
     </div>
   `;
   if (kind === "product") renderFrequentlyBoughtWith(d.id, "fbw-grid");
   else {
     const fbwSection = document.getElementById("fbw-grid");
-    if (fbwSection && fbwSection.closest("section")) fbwSection.closest("section").style.display = "none";
+    if (fbwSection && fbwSection.closest("section"))
+      fbwSection.closest("section").style.display = "none";
   }
   if (typeof refreshCurrencyDisplay === "function") refreshCurrencyDisplay();
 
@@ -700,16 +829,18 @@ function renderProductDetail() {
   schema.textContent = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": displayName,
-    "description": description,
-    "image": images.length ? `https://voltreservepower.com/${images[0]}` : undefined,
-    "offers": {
+    name: displayName,
+    description: description,
+    image: images.length
+      ? `https://voltreservepower.com/${images[0]}`
+      : undefined,
+    offers: {
       "@type": "Offer",
-      "priceCurrency": "USD",
-      "price": displayPrice,
-      "availability": "https://schema.org/InStock",
-      "url": window.location.href
-    }
+      priceCurrency: "USD",
+      price: displayPrice,
+      availability: "https://schema.org/InStock",
+      url: window.location.href,
+    },
   });
   document.head.appendChild(schema);
 }
@@ -749,12 +880,13 @@ function renderCartPage() {
   if (formSection) formSection.style.display = "grid";
 
   let total = 0;
-  listEl.innerHTML = cart.map(item => {
-    const info = cartItemLookup(item.id);
-    if (!info) return "";
-    const lineTotal = info.price * item.qty;
-    total += lineTotal;
-    return `
+  listEl.innerHTML = cart
+    .map((item) => {
+      const info = cartItemLookup(item.id);
+      if (!info) return "";
+      const lineTotal = info.price * item.qty;
+      total += lineTotal;
+      return `
       <div class="cart-item">
         <div class="mini-icon">${info.thumb}</div>
         <div>
@@ -768,7 +900,8 @@ function renderCartPage() {
         <button class="remove-btn" onclick="removeFromCart('${item.id}')">Remove</button>
       </div>
     `;
-  }).join("");
+    })
+    .join("");
 
   if (summaryEl) {
     summaryEl.innerHTML = `
@@ -783,9 +916,17 @@ function renderCartPage() {
    ORDER SUBMISSION → Smartsupp Live Chat
    ============================================ */
 const COUNTRY_PHONE_CODES = {
-  "United States": "+1", "Canada": "+1", "United Kingdom": "+44", "Germany": "+49",
-  "France": "+33", "Netherlands": "+31", "Ireland": "+353", "Belgium": "+32",
-  "Switzerland": "+41", "Spain": "+34", "Italy": "+39"
+  "United States": "+1",
+  Canada: "+1",
+  "United Kingdom": "+44",
+  Germany: "+49",
+  France: "+33",
+  Netherlands: "+31",
+  Ireland: "+353",
+  Belgium: "+32",
+  Switzerland: "+41",
+  Spain: "+34",
+  Italy: "+39",
 };
 function syncPhoneCode(country) {
   const code = COUNTRY_PHONE_CODES[country];
@@ -793,7 +934,7 @@ function syncPhoneCode(country) {
   if (code && select) select.value = code;
 }
 
-function submitOrder(event) {
+async function submitOrder(event) {
   event.preventDefault();
   const cart = getCart();
   if (cart.length === 0) return;
@@ -810,17 +951,23 @@ function submitOrder(event) {
 
   let itemLines = "";
   let total = 0;
-  cart.forEach(item => {
+  cart.forEach((item) => {
     const info = cartItemLookup(item.id);
     if (!info) return;
     const lineTotal = info.price * item.qty;
     total += lineTotal;
-    const tag = info.kind === "bundle" ? "[KIT] " : info.kind === "accessory" ? "[ADD-ON] " : info.kind === "solar" ? "[SOLAR] " : "";
+    const tag =
+      info.kind === "bundle"
+        ? "[KIT] "
+        : info.kind === "accessory"
+          ? "[ADD-ON] "
+          : info.kind === "solar"
+            ? "[SOLAR] "
+            : "";
     itemLines += `- ${tag}${info.name} × ${item.qty} ($${lineTotal.toLocaleString()})\n`;
   });
 
-  const message =
-`New order request:
+  const message = `New order request:
 
 ${itemLines}
 Estimated Total: $${total.toLocaleString()}
@@ -843,13 +990,32 @@ Notes: ${notes || "—"}`;
       // Smartsupp's script loads async — give it a moment if it hasn't initialized yet
       setTimeout(() => trySmartsupp(retries - 1), 400);
     } else {
-      console.warn("Smartsupp did not load in time; order message was not pre-filled.");
+      console.warn(
+        "Smartsupp did not load in time; order message was not pre-filled.",
+      );
     }
   }
-  trySmartsupp(8);
+  try {
+    const response = await fetch("/.netlify/functions/send-order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message: message,
+      }),
+    });
 
-  saveCart([]);
-  showOrderReadyState();
+    if (!response.ok) {
+      throw new Error("Failed to send order");
+    }
+
+    saveCart([]);
+    showOrderReadyState();
+  } catch (error) {
+    console.error(error);
+    alert("Sorry, we couldn't send your order. Please try again.");
+  }
 }
 
 function showOrderReadyState() {
@@ -874,7 +1040,7 @@ const CURRENCY_LIST = [
   { code: "NGN", label: "NGN (₦)", symbol: "₦" },
   { code: "ZAR", label: "ZAR (R)", symbol: "R" },
   { code: "INR", label: "INR (₹)", symbol: "₹" },
-  { code: "JPY", label: "JPY (¥)", symbol: "¥" }
+  { code: "JPY", label: "JPY (¥)", symbol: "¥" },
 ];
 
 let currentCurrency = localStorage.getItem("ecoflow_currency") || "USD";
@@ -885,7 +1051,7 @@ async function fetchCurrencyRates() {
   // Primary + documented fallback host for fawazahmed0/currency-api — free, no key, supports 200+ currencies incl. NGN/XAF
   const sources = [
     "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json",
-    "https://latest.currency-api.pages.dev/v1/currencies/usd.json"
+    "https://latest.currency-api.pages.dev/v1/currencies/usd.json",
   ];
   for (const url of sources) {
     try {
@@ -893,7 +1059,7 @@ async function fetchCurrencyRates() {
       const data = await res.json();
       const rates = data.usd || {};
       currencyRates = { USD: 1 };
-      CURRENCY_LIST.forEach(c => {
+      CURRENCY_LIST.forEach((c) => {
         const key = c.code.toLowerCase();
         if (rates[key]) currencyRates[c.code] = rates[key];
       });
@@ -905,22 +1071,32 @@ async function fetchCurrencyRates() {
   // Fallback source: frankfurter.app — only covers major currencies, but request each one separately
   // so a single unsupported code (e.g. NGN) can't break the whole batch.
   currencyRates = { USD: 1 };
-  const supported = CURRENCY_LIST.filter(c => c.code !== "USD");
-  await Promise.all(supported.map(async c => {
-    try {
-      const res = await fetch(`https://api.frankfurter.app/latest?from=USD&to=${c.code}`);
-      const data = await res.json();
-      if (data.rates && data.rates[c.code]) currencyRates[c.code] = data.rates[c.code];
-    } catch (e) {
-      // silently skip currencies this fallback doesn't support
-    }
-  }));
+  const supported = CURRENCY_LIST.filter((c) => c.code !== "USD");
+  await Promise.all(
+    supported.map(async (c) => {
+      try {
+        const res = await fetch(
+          `https://api.frankfurter.app/latest?from=USD&to=${c.code}`,
+        );
+        const data = await res.json();
+        if (data.rates && data.rates[c.code])
+          currencyRates[c.code] = data.rates[c.code];
+      } catch (e) {
+        // silently skip currencies this fallback doesn't support
+      }
+    }),
+  );
   return currencyRates;
 }
 
 function formatConverted(usdAmount, currencyCode) {
-  const c = CURRENCY_LIST.find(x => x.code === currencyCode) || CURRENCY_LIST[0];
-  if (currencyCode === "USD" || !currencyRates || !currencyRates[currencyCode]) {
+  const c =
+    CURRENCY_LIST.find((x) => x.code === currencyCode) || CURRENCY_LIST[0];
+  if (
+    currencyCode === "USD" ||
+    !currencyRates ||
+    !currencyRates[currencyCode]
+  ) {
     return `$${usdAmount.toLocaleString(undefined, { maximumFractionDigits: 2 })}`;
   }
   const converted = usdAmount * currencyRates[currencyCode];
@@ -933,7 +1109,7 @@ async function refreshCurrencyDisplay() {
   const nodes = document.querySelectorAll("[data-usd-price]");
   if (nodes.length === 0) return;
   if (currentCurrency !== "USD") await fetchCurrencyRates();
-  nodes.forEach(el => {
+  nodes.forEach((el) => {
     const usd = parseFloat(el.getAttribute("data-usd-price"));
     let note = el.querySelector(".currency-note");
     if (currentCurrency === "USD") {
@@ -953,7 +1129,9 @@ async function refreshCurrencyDisplay() {
 function initCurrencySelector() {
   const select = document.getElementById("currency-select");
   if (!select) return;
-  select.innerHTML = CURRENCY_LIST.map(c => `<option value="${c.code}">${c.label}</option>`).join("");
+  select.innerHTML = CURRENCY_LIST.map(
+    (c) => `<option value="${c.code}">${c.label}</option>`,
+  ).join("");
   select.value = currentCurrency;
   select.addEventListener("change", async () => {
     currentCurrency = select.value;
