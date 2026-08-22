@@ -1,0 +1,761 @@
+[
+  {
+    "id": "river-2",
+    "series": "RIVER",
+    "capacityTier": "UNDER500",
+    "name": "RIVER 2",
+    "tagline": "Compact, affordable power for everyday small devices.",
+    "capacityWh": 256,
+    "capacityLabel": "256Wh",
+    "outputW": 300,
+    "outputLabel": "300W (600W X-Boost)",
+    "chargeTime": "60 min full AC charge",
+    "weight": "7.7 lb",
+    "price": 169,
+    "useCase": "Everyday carry & small trips",
+    "badge": null,
+    "description": "A weekend trip or a dead phone at the worst moment, RIVER 2 is the one you actually remember to grab because it's light enough to live in your bag.",
+    "images": [
+      "images/river-2-real-1.png",
+      "images/river-2-real-2.png",
+      "images/river-2-real-3.png",
+      "images/river-2-real-4.png"
+    ],
+    "hook": "300W of power in a 7.7 lb bag, ready in 60 minutes.",
+    "bullets": [
+      "Charges almost anywhere: AC wall outlet, solar panel, car adapter, or USB-C, so you're never stuck without a way to top it up",
+      "Full charge in 60 minutes flat: plug it in before you head out the door and it's ready by the time you've packed everything else",
+      "Built to last: LiFePO4 cells rated for 3,000+ charge cycles, roughly 10 years of regular weekend use before it drops below 80% capacity",
+      "Genuinely portable: 7.7 lb fits in a daypack or glovebox without you noticing the extra weight"
+    ],
+    "whoFor": [
+      "Everyday carry",
+      "Weekend trips",
+      "Backup for phones and cameras"
+    ],
+    "whatsInBox": "RIVER 2 power station, AC charging cable, user guide",
+    "inStock": true
+  },
+  {
+    "id": "river-2-max",
+    "series": "RIVER",
+    "capacityTier": "UNDER500",
+    "name": "RIVER 2 Max",
+    "tagline": "More capacity for weekend trips and small home backup.",
+    "capacityWh": 512,
+    "capacityLabel": "512Wh",
+    "outputW": 500,
+    "outputLabel": "500W (1,000W X-Boost)",
+    "chargeTime": "60 min full AC charge",
+    "weight": "13.4 lb",
+    "price": 269,
+    "useCase": "Weekend trips & light backup",
+    "badge": null,
+    "description": "Roughly double the RIVER 2's capacity, RIVER 2 Max is the strong middle ground for anyone who wants real headroom without stepping up to a heavier DELTA.",
+    "images": [
+      "images/river-2-max-1.png"
+    ],
+    "hook": "500W of output, still light enough to carry one-handed.",
+    "bullets": [
+      "1,000W with X-Boost covers around 80% of common household essentials, think small fans, lamps, laptops, and mini-fridges, not just phones",
+      "Full AC charge in 60 minutes, so a lunch-break plug-in gets you back to full before your next outing",
+      "Same 3,000+ cycle LiFePO4 cells as the rest of the RIVER line, built for years of repeated weekend use, not a single-season gadget",
+      "13.4 lb keeps it genuinely portable for car camping and weekend trips where you're still carrying your own gear"
+    ],
+    "whoFor": [
+      "Weekend camping trips",
+      "Light home backup",
+      "Car trips"
+    ],
+    "whatsInBox": "RIVER 2 Max power station, AC charging cable, user guide",
+    "inStock": true
+  },
+  {
+    "id": "river-2-pro",
+    "series": "RIVER",
+    "capacityTier": "500-1000",
+    "name": "RIVER 2 Pro",
+    "tagline": "The most capable RIVER for extended off-grid trips.",
+    "capacityWh": 768,
+    "capacityLabel": "768Wh",
+    "outputW": 800,
+    "outputLabel": "800W (1,600W X-Boost)",
+    "chargeTime": "70 min full AC charge",
+    "weight": "17.2 lb",
+    "price": 339,
+    "useCase": "Extended camping & RV trips",
+    "badge": null,
+    "description": "The most capable RIVER in the lineup, built for people who camp for more than a weekend and need real appliance power without hauling a DELTA.",
+    "images": [
+      "images/river-2-pro-real-1.png",
+      "images/river-2-pro-real-2.png",
+      "images/river-2-pro-real-3.png",
+      "images/river-2-pro-real-4.png"
+    ],
+    "hook": "800W of output for multi-day trips off the grid.",
+    "bullets": [
+      "TÜV Rheinland safety certified, independently verified rather than just self-reported specs",
+      "Full AC charge in about 70 minutes, quick enough to top off between drives on a multi-stop trip",
+      "Pairs with a 220W solar panel for a full charge in roughly 3.5 hours of good sun, genuinely usable for off-grid recharging, not just a marketing bullet",
+      "1,600W X-Boost handles small kitchen appliances like a coffee maker or electric kettle, not just device charging"
+    ],
+    "whoFor": [
+      "Extended camping trips",
+      "RV weekends",
+      "Multi-day off-grid use"
+    ],
+    "whatsInBox": "RIVER 2 Pro power station, AC charging cable, user guide",
+    "inStock": true
+  },
+  {
+    "id": "river-3",
+    "series": "RIVER",
+    "capacityTier": "UNDER500",
+    "name": "RIVER 3",
+    "tagline": "Grab-and-go power for phones, laptops, and weekend trips.",
+    "capacityWh": 245,
+    "capacityLabel": "245Wh",
+    "outputW": 300,
+    "outputLabel": "300W (600W X-Boost)",
+    "chargeTime": "1 hr AC full charge",
+    "weight": "7.9 lb",
+    "price": 189,
+    "ecoflowPrice": 239,
+    "description": "The entry point into the current EcoFlow lineup, honest about what it's for: phones, cameras, and laptops on the go, not microwaves or power tools.",
+    "images": [
+      "images/river-3-real-1.png",
+      "images/river-3-real-2.png",
+      "images/river-3-real-3.png",
+      "images/river-3-real-4.png",
+      "images/river-3-real-5.png"
+    ],
+    "hook": "300W of power, ready in 60 minutes, built for the essentials.",
+    "bullets": [
+      "Full AC charge in 60 minutes flat, so it's rarely the thing holding up your departure",
+      "Solar charging with a 110W panel takes about 2.6 hours, a realistic option for weekend trips without grid access",
+      "Car charging in about 2.8 hours, useful for topping off during a long drive to the campsite",
+      "LiFePO4 cells rated for 3,000+ cycles, about 10 years of regular use before performance drops off"
+    ],
+    "whoFor": [
+      "Weekend trips",
+      "Everyday carry",
+      "Small electronics on the road"
+    ],
+    "useCase": "Weekend trips, Everyday carry, Small electronics on the road",
+    "whatsInBox": "RIVER 3 power station, AC charging cable, user guide",
+    "inStock": true
+  },
+  {
+    "id": "river-3-plus",
+    "series": "RIVER",
+    "capacityTier": "UNDER500",
+    "name": "RIVER 3 Plus",
+    "tagline": "More output, expandable capacity, home-office UPS backup.",
+    "capacityWh": 286,
+    "capacityLabel": "286Wh (expandable to 858Wh)",
+    "outputW": 600,
+    "outputLabel": "600W (1,200W X-Boost)",
+    "chargeTime": "1 hr AC full charge",
+    "weight": "10.4 lb",
+    "price": 245,
+    "useCase": "Home office UPS & camping",
+    "badge": null,
+    "description": "Doubles the output of the base RIVER 3, with genuine UPS backup for home-office gear plus enough headroom for small appliances while camping.",
+    "images": [
+      "images/river-3-plus-real-1.png",
+      "images/river-3-plus-real-2.png",
+      "images/river-3-plus-real-3.png",
+      "images/river-3-plus-real-4.png",
+      "images/river-3-plus-real-5.png",
+      "images/river-3-plus-real-6.png",
+      "images/river-3-plus-real-7.png"
+    ],
+    "hook": "Sub-10ms backup power for your desktop, router, or NAS drive.",
+    "bullets": [
+      "Keeps a 3W WiFi router running for up to 35 hours, your internet stays up through a multi-hour outage",
+      "Keeps a 600W computer alive for at least 21 minutes, enough time for a safe shutdown instead of losing unsaved work",
+      "Expandable to 858Wh with an EB600 extra battery, so you can grow capacity later instead of buying a bigger unit outright",
+      "IP54 water-resistant and survives a 3.3 ft drop, built for a desk or a tailgate, not just a shelf"
+    ],
+    "whoFor": [
+      "Home office UPS backup",
+      "Camping",
+      "Small kitchen appliances"
+    ],
+    "whatsInBox": "RIVER 3 Plus power station, AC charging cable, DC5521-to-5525 car charging cable, user guide",
+    "inStock": true
+  },
+  {
+    "id": "delta-2",
+    "series": "DELTA",
+    "capacityTier": "1000-2000",
+    "name": "DELTA 2",
+    "tagline": "The benchmark mid-size station for home backup and travel.",
+    "capacityWh": 1024,
+    "capacityLabel": "1,024Wh (expandable to 3kWh)",
+    "outputW": 1800,
+    "outputLabel": "1,800W (2,200W X-Boost)",
+    "chargeTime": "50 min to 80%, ~90 min full AC charge",
+    "weight": "27 lb",
+    "price": 469,
+    "useCase": "Home backup & road trips",
+    "badge": "Best Seller",
+    "description": "The benchmark mid-size station for home backup and travel, the one most people land on because it just handles what they throw at it.",
+    "images": [
+      "images/delta-2-real-1.png",
+      "images/delta-2-real-2.png",
+      "images/delta-2-real-3.png"
+    ],
+    "hook": "EcoFlow's best-selling station, powers around 90% of home appliances.",
+    "bullets": [
+      "1,800W output (2,200W with X-Boost) runs mini-fridges and power tools, not just electronics",
+      "X-Stream fast charging gets you to 80% in 50 minutes via AC, so a short charge window is still a useful one",
+      "Expandable to 3,040Wh with an extra battery, buy the base unit now and add capacity later if your needs grow",
+      "LiFePO4 cells built for long-term daily reliability, not a battery that degrades after a season"
+    ],
+    "whoFor": [
+      "Home backup",
+      "Road trips",
+      "Everyday appliance power"
+    ],
+    "whatsInBox": "DELTA 2 power station, AC charging cable, DC5521-to-5525 car charging cable, user guide",
+    "inStock": true
+  },
+  {
+    "id": "delta-3-classic",
+    "series": "DELTA",
+    "capacityTier": "1000-2000",
+    "name": "DELTA 3 Classic",
+    "tagline": "The straightforward, budget-friendly DELTA-class station.",
+    "capacityWh": 1024,
+    "capacityLabel": "1,024Wh",
+    "outputW": 1800,
+    "outputLabel": "1,800W (3,600W surge)",
+    "chargeTime": "45 min to 80%, ~60 min full AC charge",
+    "weight": "26 lb",
+    "price": 449,
+    "ecoflowPrice": 599,
+    "useCase": "Budget home backup",
+    "badge": null,
+    "description": "All the core DELTA-class output at a lower price point, no-frills backup for people who want dependable power without paying for extras they won't use.",
+    "images": [
+      "images/delta-3-classic-real-1.png",
+      "images/delta-3-classic-real-2.png"
+    ],
+    "hook": "1,800W of DELTA-class power at the lineup's lowest price.",
+    "bullets": [
+      "3,600W X-Boost supports devices up to 2,600W, microwaves, fridges, and window AC units included, not just small electronics",
+      "10ms auto-switch protects sensitive devices during outages, your router and computer don't even blink",
+      "Quiet operation at 30dB or below under a 600W load, won't drown out a conversation in the next room",
+      "Full AC charge in about 60 minutes, back to full well within an afternoon"
+    ],
+    "whoFor": [
+      "Budget home backup",
+      "Everyday use"
+    ],
+    "whatsInBox": "DELTA 3 Classic power station, AC charging cable, DC5521-to-5525 car charging cable, user guide",
+    "inStock": true
+  },
+  {
+    "id": "delta-3",
+    "series": "DELTA",
+    "capacityTier": "1000-2000",
+    "name": "DELTA 3",
+    "tagline": "The current-generation base DELTA, expandable and dependable.",
+    "capacityWh": 1024,
+    "capacityLabel": "1,024Wh (expandable to 5kWh)",
+    "outputW": 1800,
+    "outputLabel": "1,800W (3,600W surge)",
+    "chargeTime": "60 min to 80%, ~90 min full charge, 5 charging methods",
+    "weight": "28.7 lb",
+    "price": 519,
+    "useCase": "Home backup & everyday use",
+    "badge": null,
+    "description": "The current-generation DELTA, dependable the day it arrives and built to grow with you if your power needs increase later.",
+    "images": [
+      "images/delta-3-real-1.png",
+      "images/delta-3-real-2.png",
+      "images/delta-3-real-3.png",
+      "images/delta-3-real-4.png"
+    ],
+    "hook": "1,800W of output, expandable up to 5kWh.",
+    "bullets": [
+      "5 ways to charge, including alternator and dual-fuel generator, so you're covered even in situations AC and solar can't reach",
+      "Supports 99% of household devices, from routers to refrigerators, without needing to check compatibility first",
+      "X-Boost extends output to run ovens and kettles that would trip a lower-wattage station",
+      "Expandable with DELTA 3, DELTA 2, or DELTA Pro 3 extra batteries, so today's purchase isn't your capacity ceiling"
+    ],
+    "whoFor": [
+      "Home backup",
+      "Everyday use",
+      "Growing power needs"
+    ],
+    "whatsInBox": "DELTA 3 power station, AC charging cable, DC5521-to-5525 car charging cable, user guide",
+    "inStock": true
+  },
+  {
+    "id": "delta-3-plus",
+    "series": "DELTA",
+    "capacityTier": "1000-2000",
+    "name": "DELTA 3 Plus",
+    "tagline": "The most versatile all-rounder in the lineup.",
+    "capacityWh": 1024,
+    "capacityLabel": "1,024Wh (expandable 1–5kWh)",
+    "outputW": 1800,
+    "outputLabel": "1,800W (2,200W X-Boost, 3,600W surge)",
+    "chargeTime": "56 min full AC charge (1,500W input), 5 charging methods",
+    "weight": "27.6 lb",
+    "price": 649,
+    "useCase": "All-purpose: camping to backup",
+    "badge": "Recommended",
+    "description": "Camping trip or blackout at home, DELTA 3 Plus keeps running what matters without babysitting a generator.",
+    "images": [
+      "images/delta-3-plus-real-1.png",
+      "images/delta-3-plus-real-2.png",
+      "images/delta-3-plus-real-3.png"
+    ],
+    "hook": "1,800W of output, ready in 56 minutes, expandable up to 5kWh.",
+    "bullets": [
+      "Runs almost anything: 1,800W output (2,200W with X-Boost, 3,600W surge) handles ovens, hair dryers, kettles, and other high-draw appliances most compact stations can't touch",
+      "Fast on any power source: 0 to 100% in 56 minutes via AC, 70 minutes via solar, 1.3 hours via car charger, 5 ways to charge total",
+      "Grows with you: starts at 1,024Wh, expandable to 5kWh with add-on battery packs, buy small now and scale later",
+      "Instant backup: under 10ms switchover when the grid drops, computers and NAS servers stay running without a blip"
+    ],
+    "whoFor": [
+      "Weekend camping and road trips",
+      "Home backup during outages",
+      "Running power tools or a home office without interruption"
+    ],
+    "whatsInBox": "DELTA 3 Plus power station, AC charging cable, DC5521-to-5525 car charging cable, user guide",
+    "inStock": true
+  },
+  {
+    "id": "delta-2-max",
+    "series": "DELTA",
+    "capacityTier": "2000PLUS",
+    "name": "DELTA 2 Max",
+    "tagline": "More headroom for full home-appliance backup.",
+    "capacityWh": 2048,
+    "capacityLabel": "2,048Wh (expandable to 6.1kWh)",
+    "outputW": 2400,
+    "outputLabel": "2,400W (3,400W X-Boost)",
+    "chargeTime": "43 min to 80% (AC+Solar combined), 66 min to 80% (AC only)",
+    "weight": "50.7 lb",
+    "price": 899,
+    "useCase": "Serious home backup",
+    "badge": null,
+    "description": "More headroom for full home-appliance backup, with the fastest charging in its class when you combine AC and solar.",
+    "images": [
+      "images/delta-2-max-real-1.png",
+      "images/delta-2-max-real-2.png",
+      "images/delta-2-max-real-3.png",
+      "images/delta-2-max-real-4.png",
+      "images/delta-2-max-real-5.png"
+    ],
+    "hook": "2,400W of output, enough to run 15 devices at once.",
+    "bullets": [
+      "Keeps a fridge running for up to 14 hours on a single charge, your food survives an overnight outage without a generator",
+      "43 minutes to 80% when combining AC with 1,000W solar input, the fastest recharge in its capacity class",
+      "Expandable to 6,144Wh with two extra batteries, enough headroom for a multi-day outage rather than just a few hours",
+      "30dB quiet operation on 3,000-cycle LFP cells, roughly 10 years of regular use without a noisy fan running constantly"
+    ],
+    "whoFor": [
+      "Serious home backup",
+      "Multi-day outages",
+      "Off-grid living"
+    ],
+    "whatsInBox": "DELTA 2 Max power station, AC charging cable, DC5521-to-5525 car charging cable, user guide",
+    "inStock": true
+  },
+  {
+    "id": "delta-3-max",
+    "series": "DELTA",
+    "capacityTier": "2000PLUS",
+    "name": "DELTA 3 Max",
+    "tagline": "The best value-per-watt-hour in the current lineup.",
+    "capacityWh": 2048,
+    "capacityLabel": "2,048Wh",
+    "outputW": 2400,
+    "outputLabel": "2,400W (4,800W surge)",
+    "chargeTime": "68 min to 80% AC charge, ≤25dB whisper-quiet",
+    "weight": "44.8 lb",
+    "price": 799,
+    "useCase": "Home backup & extended off-grid",
+    "badge": null,
+    "description": "Refreshed internals bring faster charging and quieter operation to the 2,048Wh tier, more capable without the higher price of the Max Plus.",
+    "images": [
+      "images/delta-3-max-real-1.png",
+      "images/delta-3-max-real-2.png",
+      "images/delta-3-max-real-3.png",
+      "images/delta-3-max-real-4.png"
+    ],
+    "hook": "2,400W of output at the best value-per-watt-hour in the lineup.",
+    "bullets": [
+      "68 minutes to 80% via AC, quick enough to top off during a lunch break before an evening trip",
+      "25dB or quieter operation, whisper-quiet even while actively charging in a shared living space",
+      "Sub-10ms UPS switchover, sensitive electronics keep running through a grid interruption without rebooting",
+      "13% lighter than the previous generation, easier to move between the garage and wherever you actually need it"
+    ],
+    "whoFor": [
+      "Home backup",
+      "Extended off-grid trips"
+    ],
+    "whatsInBox": "DELTA 3 Max power station, AC charging cable, DC5521-to-5525 car charging cable, user guide",
+    "inStock": true
+  },
+  {
+    "id": "delta-3-max-plus",
+    "series": "DELTA",
+    "capacityTier": "2000PLUS",
+    "name": "DELTA 3 Max Plus",
+    "tagline": "DELTA 3 Max with expandable capacity for growing needs.",
+    "capacityWh": 2048,
+    "capacityLabel": "2,048Wh (expandable 2-10kWh)",
+    "outputW": 3000,
+    "outputLabel": "3,000W continuous (6,000W surge)",
+    "chargeTime": "47 min to 80% AC charge, Smart Output Priority via app",
+    "weight": "48.7 lb",
+    "price": 1049,
+    "useCase": "Home backup with room to grow",
+    "badge": null,
+    "description": "DELTA 3 Max with real room to grow, built for heavy-duty appliances and whole-circuit backup rather than just a few essentials.",
+    "images": [
+      "images/delta-3-max-plus-real-1.png",
+      "images/delta-3-max-plus-real-2.png",
+      "images/delta-3-max-plus-real-3.png"
+    ],
+    "hook": "3,000W of output, expandable up to 10kWh.",
+    "bullets": [
+      "X-Boost 3.0 runs appliances up to 3,800W, fridges, washers, and circular saws that would overload a smaller station",
+      "Choose which circuits stay powered via the app, prioritize the fridge and router without wasting capacity on everything else",
+      "Pairs with EcoFlow's Smart Generator 4000 for automatic start and stop, extended outages don't mean manually restarting a generator at 3am",
+      "Under 25dB even while charging at full load, quiet enough to keep running overnight without disturbing anyone"
+    ],
+    "whoFor": [
+      "Home backup with room to grow",
+      "Heavy-duty appliances"
+    ],
+    "whatsInBox": "DELTA 3 Max Plus power station, AC charging cable, DC5521-to-5525 car charging cable, user guide",
+    "inStock": true
+  },
+  {
+    "id": "delta-pro",
+    "series": "DELTA_PRO",
+    "capacityTier": "2000PLUS",
+    "name": "DELTA Pro",
+    "tagline": "The original whole-home-leaning battery.",
+    "capacityWh": 3600,
+    "capacityLabel": "3,600Wh (expandable to 10.8kWh with 2 extra batteries)",
+    "outputW": 3600,
+    "outputLabel": "3,600W (4,500W X-Boost; up to 7,200W pairing 2 units)",
+    "chargeTime": "1.8 hr full AC charge (3000W input), 6,500W MultiCharge combined",
+    "weight": "99 lb",
+    "price": 1549,
+    "useCase": "Whole-home backup",
+    "badge": null,
+    "description": "Serious backup for the households that can't just wait out a multi-day outage, well pumps, multiple fridges, and high-draw appliances included.",
+    "images": [
+      "images/delta-pro-real-1.png",
+      "images/delta-pro-real-2.png"
+    ],
+    "hook": "3,600W of output, built for whole-home-leaning backup.",
+    "bullets": [
+      "Industry-first EV charging station compatibility, Level 2 charging up to 3,400W, so it can double as backup for your car too",
+      "Expandable to 10.8kWh with two extra batteries, genuinely built for multi-day outages, not just a rough afternoon without power",
+      "Pair two units together for up to 7,200W output, enough for the appliances a single station can't cover alone",
+      "LFP cells rated for 3,500 cycles to 80% capacity, built for a decade of dependable use rather than a couple of storm seasons"
+    ],
+    "whoFor": [
+      "Whole-home backup",
+      "Multi-day outages",
+      "Well pumps and major appliances"
+    ],
+    "whatsInBox": "DELTA Pro power station, AC charging cable, user guide",
+    "inStock": true
+  },
+  {
+    "id": "delta-3-ultra",
+    "series": "DELTA",
+    "capacityTier": "2000PLUS",
+    "name": "DELTA 3 Ultra",
+    "tagline": "Flagship portable tier with smart circuit prioritization.",
+    "capacityWh": 3072,
+    "capacityLabel": "3,072Wh",
+    "outputW": 3600,
+    "outputLabel": "3,600W (7,200W surge)",
+    "chargeTime": "89 min to 80% AC/generator charge",
+    "weight": "72.1 lb",
+    "price": 1249,
+    "useCase": "Apartments & small homes",
+    "badge": null,
+    "description": "Flagship portable tier with smart circuit prioritization, connects directly to your home's panel instead of running extension cords through the house.",
+    "images": [
+      "images/delta-3-ultra-real-1.png",
+      "images/delta-3-ultra-real-2.png",
+      "images/delta-3-ultra-real-3.png",
+      "images/delta-3-ultra-real-4.png",
+      "images/delta-3-ultra-real-5.png"
+    ],
+    "hook": "3,600W of output for apartments and small homes.",
+    "bullets": [
+      "Runs heavy-duty appliances up to 4,600W, well beyond what most portable stations can sustain",
+      "Two ways to connect: a manual transfer switch or an inlet box, whichever fits how your home's already wired",
+      "Class-B EV-grade certification, built and tested to a higher safety standard than typical consumer electronics",
+      "25dB or quieter operation, runs in the background without becoming the loudest thing in the room"
+    ],
+    "whoFor": [
+      "Apartments and small homes",
+      "Home backup"
+    ],
+    "whatsInBox": "DELTA 3 Ultra power station, AC charging cable, user guide, transfer switch/inlet box sold separately",
+    "inStock": true
+  },
+  {
+    "id": "delta-3-ultra-plus",
+    "series": "DELTA",
+    "capacityTier": "2000PLUS",
+    "name": "DELTA 3 Ultra Plus",
+    "tagline": "The top of the portable DELTA 3 line, further expandable.",
+    "capacityWh": 3072,
+    "capacityLabel": "3,072Wh (expandable to 11kWh+)",
+    "outputW": 3600,
+    "outputLabel": "3,600W (7,200W surge)",
+    "chargeTime": "89 min to 80% (AC/generator), 48 min to 80% (solar+generator combined)",
+    "weight": "74.3 lb",
+    "price": 1449,
+    "useCase": "Apartments & small homes",
+    "badge": null,
+    "description": "The top of the portable DELTA 3 line, everything the Ultra offers, plus the room to grow that renters and small-home owners eventually need.",
+    "images": [
+      "images/delta-3-ultra-plus-real-1.png",
+      "images/delta-3-ultra-plus-real-2.png",
+      "images/delta-3-ultra-plus-real-3.png"
+    ],
+    "hook": "3,600W of output, expandable past 11kWh.",
+    "bullets": [
+      "Smart Output Priority lets you choose which circuits stay powered via the app, so limited capacity goes to what matters most first",
+      "Expandable from 3,072Wh to over 11kWh, start small and add batteries as your backup needs grow",
+      "48 minutes to 80% when combining solar and generator input, fast enough to recover between waves of a multi-day storm",
+      "Runs a 200W fridge for 12 to 24 hours, groceries survive an extended outage without a second thought"
+    ],
+    "whoFor": [
+      "Apartments and small homes",
+      "Home backup",
+      "Multi-day power"
+    ],
+    "whatsInBox": "DELTA 3 Ultra Plus power station, AC charging cable, user guide, transfer switch/inlet box sold separately",
+    "inStock": true
+  },
+  {
+    "id": "delta-pro-3",
+    "series": "DELTA_PRO",
+    "capacityTier": "2000PLUS",
+    "name": "DELTA Pro 3",
+    "tagline": "The flagship, chainable for whole-home, multi-day power.",
+    "capacityWh": 4096,
+    "capacityLabel": "4,096Wh (expandable to 48kWh)",
+    "outputW": 4000,
+    "outputLabel": "4,000W (6,000W X-Boost)",
+    "chargeTime": "50 min charge to 80%, continuous output while charging",
+    "weight": "60 lb",
+    "price": 2299,
+    "ecoflowPrice": 2599,
+    "description": "The flagship in the DELTA Pro line, chainable for whole-home, multi-day power when a single unit genuinely isn't enough.",
+    "images": [
+      "images/delta-pro-3-real-1.png",
+      "images/delta-pro-3-real-2.png",
+      "images/delta-pro-3-real-3.png",
+      "images/delta-pro-3-real-4.png"
+    ],
+    "hook": "4,000W of output, enough for a 3-ton central AC.",
+    "bullets": [
+      "120V and 240V output from a single unit, covers standard outlets and larger appliances without a separate transformer",
+      "Retains 80% capacity even after 4,000 cycles, still performing like new after more than a decade of regular use",
+      "UL9540 certified and eligible for the Residential Clean Energy Credit, a real tax rebate, not just a marketing claim",
+      "App control across up to 12 circuits, manage exactly what draws power during an outage from your phone"
+    ],
+    "whoFor": [
+      "Whole-home backup",
+      "Multi-day power",
+      "Central AC and major appliances"
+    ],
+    "useCase": "Whole-home backup, Multi-day power, Central AC and major appliances",
+    "whatsInBox": "DELTA Pro 3 power station, AC charging cable, user guide",
+    "inStock": true
+  },
+  {
+    "id": "delta-pro-ultra",
+    "series": "DELTA_PRO",
+    "capacityTier": "2000PLUS",
+    "name": "DELTA Pro Ultra",
+    "tagline": "Whole-home backup power built to replace a gas generator.",
+    "capacityWh": 6144,
+    "capacityLabel": "6,144Wh (expandable to 90kWh)",
+    "outputW": 7200,
+    "outputLabel": "7.2-21.6kW with up to 3 inverters",
+    "chargeTime": "0ms online-UPS transfer time",
+    "weight": "186 lb (inverter + battery)",
+    "price": 3799,
+    "ecoflowPrice": 6299,
+    "description": "Whole-home backup power at generator-replacing scale, for the households that have decided a portable station isn't enough anymore.",
+    "images": [
+      "images/delta-pro-ultra-real-1.png",
+      "images/delta-pro-ultra-real-2.png"
+    ],
+    "hook": "Up to 21.6kW of output, built to replace a gas generator.",
+    "bullets": [
+      "The only portable power station certified to both UL1973 and UL9540, the same safety bar as fixed home battery systems",
+      "0ms online-UPS transfer, power never blinks, even sensitive lab or medical equipment stays running through a grid drop",
+      "Industry-fastest 8,800W charging, two batteries fully charged in 2 hours instead of overnight",
+      "Self-heating battery works reliably below 32°F, doesn't lose performance the moment winter arrives"
+    ],
+    "whoFor": [
+      "Whole-home backup",
+      "Off-grid living",
+      "Generator replacement"
+    ],
+    "useCase": "Whole-home backup, Off-grid living, Generator replacement",
+    "whatsInBox": "DELTA Pro Ultra inverter and battery, AC charging cable, user guide, professional installation recommended",
+    "inStock": true
+  },
+  {
+    "id": "delta-pro-ultra-x",
+    "series": "DELTA_PRO",
+    "capacityTier": "2000PLUS",
+    "name": "DELTA Pro Ultra X",
+    "tagline": "EcoFlow's largest system, 100% whole-home power.",
+    "capacityWh": 12000,
+    "capacityLabel": "12,000Wh starting (expandable to 180kWh)",
+    "outputW": 12000,
+    "outputLabel": "12,000W (expandable to 36,000W with 3 units)",
+    "chargeTime": "10ms UPS standalone, 20ms with Smart Home Panel 3, plug & play install in 7 days",
+    "weight": "70.1 lb inverter + 111.3 lb per battery (292.7 lb as shipped with 2 batteries)",
+    "price": 7599,
+    "useCase": "Whole-home & multi-property backup",
+    "badge": "Maximum Configuration",
+    "description": "EcoFlow's largest system, built for genuine 100% whole-home power rather than a subset of circuits.",
+    "images": [
+      "images/delta-pro-ultra-x-real-1.png",
+      "images/delta-pro-ultra-x-real-2.png",
+      "images/delta-pro-ultra-x-real-3.png"
+    ],
+    "hook": "12,000W of output, expandable to power an entire property.",
+    "bullets": [
+      "Ships as an inverter plus two 6,144Wh battery packs, a complete starting system rather than a single unit you build around",
+      "Surge handling up to 45kW via the Adaptive Start algorithm, absorbs the startup spike of well pumps and AC compressors without tripping",
+      "Supports up to 10 battery packs for maximum expansion, room to scale as a property's power needs grow over years",
+      "Installed in as little as 7 days from permit issuance, faster than most traditional whole-home generator installs"
+    ],
+    "whoFor": [
+      "Whole-home backup",
+      "Multi-property backup"
+    ],
+    "whatsInBox": "Inverter plus two 6,144Wh battery packs, AC charging cable, user guide, professional installation required",
+    "inStock": true
+  },
+  {
+    "id": "trail-200",
+    "series": "TRAIL",
+    "capacityTier": "UNDER500",
+    "name": "TRAIL 200 DC",
+    "tagline": "The lightest way to keep essentials charged in the backcountry.",
+    "capacityWh": 192,
+    "capacityLabel": "192Wh (60,000mAh)",
+    "outputW": 220,
+    "outputLabel": "220W DC-only",
+    "chargeTime": "~1 hr to 80% via USB-C (no dedicated AC charger included)",
+    "weight": "4.03 lb",
+    "price": 99,
+    "useCase": "Hiking & ultralight camping",
+    "badge": "Ultralight",
+    "description": "Built purely for phones, headlamps, cameras, and small gear on trips where every ounce counts, not a scaled-down home backup unit.",
+    "images": [
+      "images/trail-200-real-1.png",
+      "images/trail-200-real-2.png",
+      "images/trail-200-real-3.png"
+    ],
+    "hook": "220W of DC power in a 4 lb ultralight frame.",
+    "bullets": [
+      "No bulky AC inverter, a DC-only design that saves weight you'd otherwise carry for outlets you won't use on trail",
+      "Charges via bi-directional USB-C, cable not included, so it uses the same charger you're probably already packing",
+      "LiFePO4 cells rated for 2,000+ cycles, about 5 years of regular use before capacity starts to drop",
+      "IP30-rated enclosure, reasonable protection for dust and light moisture on the trail, not a submersion-proof unit"
+    ],
+    "whoFor": [
+      "Hiking",
+      "Ultralight camping",
+      "Backcountry trips"
+    ],
+    "whatsInBox": "TRAIL 200 power station only, USB-C cable not included, bring your own",
+    "inStock": true
+  },
+  {
+    "id": "trail-300",
+    "series": "TRAIL",
+    "capacityTier": "UNDER500",
+    "name": "TRAIL 300 DC",
+    "tagline": "The flagship TRAIL, more ports, more capacity, still pocket-light.",
+    "capacityWh": 288,
+    "capacityLabel": "288Wh (90,000mAh)",
+    "outputW": 300,
+    "outputLabel": "300W DC-only",
+    "chargeTime": "~1 hr to 80% via USB-C (no dedicated AC charger included)",
+    "weight": "5.69 lb",
+    "price": 139,
+    "useCase": "Camping, tailgating & group trips",
+    "badge": null,
+    "description": "More ports, more capacity, still pocket-light, the practical choice for groups who don't want to fight over one charger.",
+    "images": [
+      "images/trail-300-real-1.png",
+      "images/trail-300-real-2.png",
+      "images/trail-300-real-3.png"
+    ],
+    "hook": "Charges 5 devices at once, the flagship TRAIL.",
+    "bullets": [
+      "Fast PD 3.1 USB-C ports charge up to 5 devices simultaneously, no more waiting your turn at the one outlet",
+      "Includes a 12V car outlet, useful for gear the USB ports alone can't cover",
+      "Drop-proof, IP30-rated construction, built to survive actually being used outdoors, not just look rugged",
+      "Charges via bi-directional USB-C, bring your own charger and it just works"
+    ],
+    "whoFor": [
+      "Camping",
+      "Tailgating",
+      "Group trips"
+    ],
+    "whatsInBox": "TRAIL 300 power station only, USB-C cable not included, bring your own",
+    "inStock": true
+  },
+  {
+    "id": "trail-plus-300",
+    "series": "TRAIL",
+    "capacityTier": "UNDER500",
+    "name": "TRAIL Plus 300 DC",
+    "tagline": "TRAIL 300, plus a built-in light and detachable cable handle.",
+    "capacityWh": 288,
+    "capacityLabel": "288Wh (80,000mAh)",
+    "outputW": 300,
+    "outputLabel": "300W DC-only",
+    "chargeTime": "~1 hr to 80% via USB-C",
+    "weight": "4.98 lb",
+    "price": 179,
+    "useCase": "Tent camping & lifestyle trips",
+    "badge": "Most Versatile TRAIL",
+    "description": "Same capacity as TRAIL 300 DC, with genuinely useful extras for tent nights rather than pure minimalism.",
+    "images": [
+      "images/trail-plus-300-real-1.png"
+    ],
+    "hook": "TRAIL 300, plus a built-in light for the campsite.",
+    "bullets": [
+      "Built-in multi-function camping light, one less thing to pack and one less thing to forget",
+      "Detachable 140W cable handle, doubles as a way to carry it and a way to charge from it",
+      "2x USB-A (12W) and 3x USB-C (140W) ports plus a 12V car outlet, enough ports that the whole tent doesn't have to share",
+      "Slightly lighter than TRAIL 300 DC at 4.98 lb, the extras don't cost you portability"
+    ],
+    "whoFor": [
+      "Tent camping",
+      "Campsite lifestyle trips"
+    ],
+    "whatsInBox": "TRAIL Plus 300 power station, detachable 140W cable handle, user guide",
+    "inStock": true
+  }
+]

@@ -1,0 +1,78 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/.netlify/functions/products"
+  [headers.values]
+    Cache-Control = "public, max-age=60"
+
+# sitemap.xml is generated on the fly by netlify/functions/sitemap.js so
+# that products/accessories/solar panels added via admin.html show up
+# without a redeploy. force = true makes this win even though a static
+# sitemap.xml file also exists at the site root (kept as a harmless
+# fallback in case the function or Supabase is ever unreachable).
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/.netlify/functions/sitemap"
+  status = 200
+  force = true
+
+# Clean, permanent SEO-friendly addresses for individual product pages,
+# e.g. /products/river-2 instead of product.html?id=river-2. These are
+# plain rewrites (status 200: the browser's address bar keeps showing the
+# clean URL, but the actual page served is product.html) - no query
+# string is passed through, js/main.js reads the id straight out of the
+# URL path instead (see rawIdFromLocation() in js/main.js). Old-style
+# "product.html?id=..." links still work too: the bot-prerender edge
+# function 301-redirects them to the new clean address for every visitor,
+# not just bots (see netlify/edge-functions/bot-prerender.js).
+[[redirects]]
+  from = "/products/:id"
+  to = "/product.html"
+  status = 200
+[[redirects]]
+  from = "/accessories/:id"
+  to = "/product.html"
+  status = 200
+[[redirects]]
+  from = "/solar/:id"
+  to = "/product.html"
+  status = 200
+[[redirects]]
+  from = "/kits/:id"
+  to = "/product.html"
+  status = 200
+
+# Serves search-engine/link-preview bots a pre-rendered version of
+# product.html (via netlify/functions/product-page.js) so they see real
+# product content without needing to run JavaScript, at all five paths a
+# product page can be reached at (the legacy query-string form plus the
+# four clean-URL forms above). Real visitors are unaffected there - the
+# edge function only intercepts known bot user agents and otherwise calls
+# context.next() to pass the request straight through to the normal page.
+# The one exception is the legacy "/product.html?id=..." form: ANY
+# visitor there (bot or not) gets a real 301 redirect to the clean
+# address, so old bookmarks and links keep working and end up at the
+# permanent URL instead of silently duplicating content at two addresses.
+# Declared both here and via the `config` export inside the edge function
+# file itself (Netlify supports both; this entry is a belt-and-suspenders
+# duplicate, not a conflict).
+[[edge_functions]]
+  path = "/product.html"
+  function = "bot-prerender"
+[[edge_functions]]
+  path = "/products/*"
+  function = "bot-prerender"
+[[edge_functions]]
+  path = "/accessories/*"
+  function = "bot-prerender"
+[[edge_functions]]
+  path = "/solar/*"
+  function = "bot-prerender"
+[[edge_functions]]
+  path = "/kits/*"
+  function = "bot-prerender"

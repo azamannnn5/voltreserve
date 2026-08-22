@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin, VoltReserve</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .admin-wrap { max-width: 960px; margin: 0 auto; padding: 40px 20px 80px; }
+  .admin-gate { max-width: 380px; margin: 120px auto; padding: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); text-align: center; }
+  .admin-gate input { width: 100%; padding: 10px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--bg); color: var(--text); font-size: 0.95rem; margin: 16px 0; }
+  .admin-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.88rem; }
+  .admin-table th, .admin-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .admin-table th { color: var(--text-dim); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  .admin-table tr:hover { background: var(--surface); }
+  .admin-actions button { margin-right: 6px; }
+  .admin-form { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-top: 24px; display: none; }
+  .admin-form.open { display: block; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .field-row.full { grid-template-columns: 1fr; }
+  .field { display: flex; flex-direction: column; gap: 4px; }
+  .field label { font-size: 0.78rem; color: var(--text-dim); font-weight: 600; }
+  .field input, .field select, .field textarea {
+    padding: 9px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border);
+    background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 0.9rem;
+  }
+  .field textarea { resize: vertical; min-height: 70px; }
+  .admin-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+  .admin-status { font-size: 0.85rem; color: var(--text-dim); min-height: 1.2em; }
+  .admin-status.error { color: var(--warn); }
+  .admin-status.success { color: var(--accent); }
+
+  /* ---------- Tabs ---------- */
+  .admin-tabs {
+    display: flex; gap: 6px; margin: 24px 0 8px; border-bottom: 1px solid var(--border);
+    overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+  }
+  .admin-tabs::-webkit-scrollbar { display: none; }
+  .admin-tab-btn {
+    background: none; border: none; padding: 12px 16px; font-family: inherit; font-weight: 700;
+    font-size: 0.88rem; color: var(--text-dim); cursor: pointer; border-bottom: 2px solid transparent;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .admin-tab-btn.active { color: var(--text); border-bottom-color: var(--accent); }
+  .admin-tab-panel { display: none; }
+  .admin-tab-panel.active { display: block; }
+
+  /* ---------- Upload widget ---------- */
+  .upload-row { display: flex; align-items: center; gap: 10px; margin-top: 6px; flex-wrap: wrap; }
+  .upload-status { font-size: 0.75rem; color: var(--text-dim); word-break: break-all; }
+  .upload-status.uploading { color: var(--accent); font-weight: 600; }
+  .upload-status.error { color: var(--warn); font-weight: 600; }
+
+  @media (max-width: 600px) {
+    .field-row { grid-template-columns: 1fr; }
+    .admin-wrap { padding: 24px 14px 60px; }
+    .admin-form { padding: 18px; }
+    .admin-table th, .admin-table td { padding: 8px; font-size: 0.82rem; }
+  }
+</style>
+</head>
+<body>
+
+<div id="admin-gate" class="admin-gate">
+  <p class="eyebrow" style="margin-bottom:8px;">VOLTRESERVE ADMIN</p>
+  <h1 style="font-size:1.3rem;">Enter admin key</h1>
+  <input type="password" id="admin-key-input" placeholder="Admin key" autocomplete="off">
+  <button class="btn btn-primary" style="width:100%;" onclick="unlockAdmin()">Unlock</button>
+  <p id="gate-error" class="admin-status error" style="margin-top:12px;"></p>
+</div>
+
+<div id="admin-app" class="admin-wrap" style="display:none;">
+  <p class="eyebrow" style="margin-bottom:6px;">VOLTRESERVE ADMIN</p>
+  <h1 style="font-size:1.6rem; margin-bottom:6px;">Admin</h1>
+  <p style="color:var(--text-dim); font-size:0.9rem;">Changes here go live on the site immediately, no redeploy needed.</p>
+
+  <div class="admin-tabs">
+    <button class="admin-tab-btn active" data-tab="products">Products</button>
+    <button class="admin-tab-btn" data-tab="accessories">Accessories</button>
+    <button class="admin-tab-btn" data-tab="solar">Solar Panels</button>
+    <button class="admin-tab-btn" data-tab="kits">Power Kits</button>
+    <button class="admin-tab-btn" data-tab="settings">Site Settings</button>
+  </div>
+
+  <div class="admin-tab-panel active" id="tab-products">
+  <div class="admin-toolbar">
+    <div>
+      <button class="btn btn-primary" onclick="openForm()">+ Add Product</button>
+      <button class="btn btn-secondary" onclick="reloadProducts()">Refresh</button>
+    </div>
+    <button class="btn btn-secondary" onclick="seedFromFallback()" title="One-time: loads the original 21-product catalog into the database">Load starting catalog</button>
+  </div>
+  <p id="toolbar-status" class="admin-status"></p>
+
+  <div style="overflow-x:auto;">
+  <table class="admin-table">
+    <thead>
+      <tr><th>ID</th><th>Name</th><th>Series</th><th>Price</th><th>Stock</th><th></th></tr>
+    </thead>
+    <tbody id="products-tbody">
+      <tr><td colspan="5">Loading…</td></tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
+
+  <div class="admin-tab-panel" id="tab-settings">
+  <div style="padding-top:0;">
+    <h1 style="font-size:1.6rem; margin-bottom:6px;">Promo Settings</h1>
+    <p style="color:var(--text-dim); font-size:0.9rem; margin-bottom:20px;">Controls the site-wide promo code, discounts, and thresholds shown in the announcement bar, product pages, and cart. Changes go live for all visitors immediately.</p>
+
+    <div class="admin-form open" style="margin-top:0;">
+      <div class="field-row">
+        <div class="field"><label>Promo code</label><input type="text" id="ps-code"></div>
+        <div class="field"><label>Promo code discount %</label><input type="number" id="ps-discountPercent"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>End date, full (e.g. September 7, 2026)</label><input type="text" id="ps-endDateLabel"></div>
+        <div class="field"><label>End date, short (e.g. Sept. 7)</label><input type="text" id="ps-endDateShort"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Free shipping threshold ($)</label><input type="number" id="ps-freeShippingThreshold"></div>
+        <div class="field"><label>Spend threshold for extra discount ($)</label><input type="number" id="ps-spendThreshold"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Spend threshold discount %</label><input type="number" id="ps-spendDiscountPercent"></div>
+        <div class="field"><label>Buy-2+ quantity threshold</label><input type="number" id="ps-volumeQty"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Buy-2+ discount %</label><input type="number" id="ps-volumeDiscountPercent"></div>
+      </div>
+      <button class="btn btn-primary" onclick="savePromoSettings()">Save Promo Settings</button>
+      <p id="promo-settings-status" class="admin-status"></p>
+    </div>
+  </div>
+
+  <div style="margin-top:48px; padding-top:24px; border-top:1px solid var(--border);">
+    <h1 style="font-size:1.6rem; margin-bottom:6px;">Contact &amp; Payment</h1>
+    <p style="color:var(--text-dim); font-size:0.9rem; margin-bottom:20px;">Used across the site (contact page, policy pages, cart checkout, order emails). Changing this here updates everywhere at once.</p>
+    <div class="admin-form open" style="margin-top:0;">
+      <div class="field-row">
+        <div class="field"><label>Support Email</label><input type="email" id="cs-contactEmail"></div>
+        <div class="field"><label>Phone (optional, only shown on the Contact page if filled in)</label><input type="tel" id="cs-contactPhone"></div>
+      </div>
+      <div class="field-row full">
+        <div class="field"><label>Business Address (optional, only shown on the Contact page if filled in)</label><input type="text" id="cs-contactAddress"></div>
+      </div>
+      <div class="field-row full">
+        <div class="field">
+          <label>Payment methods, one per line (shown as options in the cart's checkout dropdown)</label>
+          <textarea id="cs-paymentMethods" rows="6"></textarea>
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="saveContactSettings()">Save Contact &amp; Payment</button>
+      <p id="contact-settings-status" class="admin-status"></p>
+    </div>
+  </div>
+  </div>
+
+  <div class="admin-tab-panel" id="tab-accessories">
+    <div class="admin-toolbar">
+      <button class="btn btn-primary" onclick="openAccessoryForm()">+ Add Accessory</button>
+      <button class="btn btn-secondary" onclick="reloadAccessories()">Refresh</button>
+    </div>
+    <p id="accessories-toolbar-status" class="admin-status"></p>
+    <div style="overflow-x:auto;">
+      <table class="admin-table">
+        <thead><tr><th>ID</th><th>Name</th><th>Category</th><th>Price</th><th></th></tr></thead>
+        <tbody id="accessories-tbody"><tr><td colspan="5">Loading…</td></tr></tbody>
+      </table>
+    </div>
+
+    <div id="accessory-form" class="admin-form">
+      <h2 id="accessory-form-title" style="font-size:1.1rem; margin-bottom:16px;">Add Accessory</h2>
+      <div class="field-row full">
+        <div class="field">
+          <label>ID (lowercase, hyphenated, e.g. river-3-extra-battery-eb300). Cannot be changed once created.</label>
+          <input type="text" id="af-id">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Name</label><input type="text" id="af-name"></div>
+        <div class="field"><label>Category (e.g. battery, cable, bag)</label><input type="text" id="af-category"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Price (USD)</label><input type="number" id="af-price" step="0.01"></div>
+        <div class="field"><label>Compatible product IDs, comma-separated (e.g. river-3, river-3-plus)</label><input type="text" id="af-compatibleWith"></div>
+      </div>
+      <div class="field-row full">
+        <div class="field"><label>Tagline</label><input type="text" id="af-tagline"></div>
+      </div>
+      <div class="field-row full">
+        <div class="field"><label>Description</label><textarea id="af-description"></textarea></div>
+      </div>
+      <div class="field-row full">
+        <div class="field">
+          <label>Image paths, one per line</label>
+          <textarea id="af-images"></textarea>
+          <div class="upload-row">
+            <input type="file" id="af-image-file" accept="image/*" style="display:none;">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('af-image-file').click()">Upload photo</button>
+            <span class="upload-status" id="af-image-status"></span>
+          </div>
+        </div>
+      </div>
+      <p id="accessory-form-status" class="admin-status"></p>
+      <div style="display:flex; gap:10px; margin-top:8px;">
+        <button class="btn btn-primary" onclick="saveAccessory()">Save</button>
+        <button class="btn btn-secondary" onclick="closeAccessoryForm()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-tab-panel" id="tab-solar">
+    <div class="admin-toolbar">
+      <button class="btn btn-primary" onclick="openSolarForm()">+ Add Solar Panel</button>
+      <button class="btn btn-secondary" onclick="reloadSolar()">Refresh</button>
+    </div>
+    <p id="solar-toolbar-status" class="admin-status"></p>
+    <div style="overflow-x:auto;">
+      <table class="admin-table">
+        <thead><tr><th>ID</th><th>Name</th><th>Watts</th><th>Price</th><th></th></tr></thead>
+        <tbody id="solar-tbody"><tr><td colspan="5">Loading…</td></tr></tbody>
+      </table>
+    </div>
+
+    <div id="solar-form" class="admin-form">
+      <h2 id="solar-form-title" style="font-size:1.1rem; margin-bottom:16px;">Add Solar Panel</h2>
+      <div class="field-row full">
+        <div class="field">
+          <label>ID (lowercase, hyphenated, e.g. solar-45w). Cannot be changed once created.</label>
+          <input type="text" id="sof-id">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Name</label><input type="text" id="sof-name"></div>
+        <div class="field"><label>Watts</label><input type="number" id="sof-watts"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Price (USD)</label><input type="number" id="sof-price" step="0.01"></div>
+        <div class="field"><label>Compatible product IDs, comma-separated</label><input type="text" id="sof-compatibleWith"></div>
+      </div>
+      <div class="field-row full">
+        <div class="field"><label>Tagline</label><input type="text" id="sof-tagline"></div>
+      </div>
+      <div class="field-row full">
+        <div class="field"><label>Description</label><textarea id="sof-description"></textarea></div>
+      </div>
+      <div class="field-row full">
+        <div class="field">
+          <label>Image paths, one per line</label>
+          <textarea id="sof-images"></textarea>
+          <div class="upload-row">
+            <input type="file" id="sof-image-file" accept="image/*" style="display:none;">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('sof-image-file').click()">Upload photo</button>
+            <span class="upload-status" id="sof-image-status"></span>
+          </div>
+        </div>
+      </div>
+      <p id="solar-form-status" class="admin-status"></p>
+      <div style="display:flex; gap:10px; margin-top:8px;">
+        <button class="btn btn-primary" onclick="saveSolar()">Save</button>
+        <button class="btn btn-secondary" onclick="closeSolarForm()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-tab-panel" id="tab-kits">
+    <div class="admin-toolbar">
+      <div>
+        <button class="btn btn-primary" onclick="openBundleForm()">+ Add Kit</button>
+        <button class="btn btn-secondary" onclick="reloadBundles()">Refresh</button>
+      </div>
+      <button class="btn btn-secondary" onclick="seedBundlesFromFallback()" title="One-time: loads the original 14-kit catalog into the database">Load starting kits</button>
+    </div>
+    <p id="kits-toolbar-status" class="admin-status"></p>
+    <div style="overflow-x:auto;">
+      <table class="admin-table">
+        <thead><tr><th>ID</th><th>Name</th><th>Price</th><th>Compare At</th><th></th></tr></thead>
+        <tbody id="kits-tbody"><tr><td colspan="5">Loading…</td></tr></tbody>
+      </table>
+    </div>
+
+    <div id="kit-form" class="admin-form">
+      <h2 id="kit-form-title" style="font-size:1.1rem; margin-bottom:16px;">Add Kit</h2>
+      <div class="field-row full">
+        <div class="field">
+          <label>ID (lowercase, hyphenated, e.g. kit-weekend-camper). Cannot be changed once created.</label>
+          <input type="text" id="kf-id">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Name</label><input type="text" id="kf-name"></div>
+        <div class="field"><label>Linked product ID (the base station this kit is built around, e.g. river-3)</label><input type="text" id="kf-productId"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Price (USD)</label><input type="number" id="kf-price" step="0.01"></div>
+        <div class="field"><label>Compare-at price (USD, the "buying separately" total shown struck through)</label><input type="number" id="kf-compareAt" step="0.01"></div>
+      </div>
+      <div class="field-row full">
+        <div class="field"><label>Tagline</label><input type="text" id="kf-tagline"></div>
+      </div>
+      <div class="field-row full">
+        <div class="field"><label>What's included besides the base station, one per line (shown as "+ Item Name" on the card, e.g. "45W Portable Solar Panel")</label><textarea id="kf-accessories"></textarea></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Badge (optional, e.g. Great Starter Kit)</label><input type="text" id="kf-badge"></div>
+        <div class="field"><label>Use case (optional short line, e.g. Camping)</label><input type="text" id="kf-useCase"></div>
+      </div>
+      <div class="field-row full">
+        <div class="field"><label>Description</label><textarea id="kf-description"></textarea></div>
+      </div>
+      <div class="field-row full">
+        <div class="field">
+          <label>Image path (a kit shows one photo, not a gallery, leave blank to fall back to the linked product's own photo)</label>
+          <input type="text" id="kf-image">
+          <div class="upload-row">
+            <input type="file" id="kf-image-file" accept="image/*" style="display:none;">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('kf-image-file').click()">Upload photo</button>
+            <span class="upload-status" id="kf-image-status"></span>
+          </div>
+        </div>
+      </div>
+      <p id="kit-form-status" class="admin-status"></p>
+      <div style="display:flex; gap:10px; margin-top:8px;">
+        <button class="btn btn-primary" onclick="saveBundle()">Save</button>
+        <button class="btn btn-secondary" onclick="closeBundleForm()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="product-form" class="admin-form">
+    <h2 id="form-title" style="font-size:1.1rem; margin-bottom:16px;">Add Product</h2>
+
+    <div class="field-row full">
+      <div class="field">
+        <label>ID (lowercase, hyphenated, e.g. delta-3-plus). Cannot be changed once created.</label>
+        <input type="text" id="f-id">
+      </div>
+    </div>
+
+    <div class="field-row">
+      <div class="field"><label>Name</label><input type="text" id="f-name"></div>
+      <div class="field"><label>Series (e.g. RIVER, DELTA, DELTA_PRO, TRAIL)</label><input type="text" id="f-series"></div>
+    </div>
+
+    <div class="field-row">
+      <div class="field"><label>Price (USD)</label><input type="number" id="f-price" step="0.01"></div>
+      <div class="field"><label>EcoFlow reference price (optional, for struck-through comparison)</label><input type="number" id="f-ecoflowPrice" step="0.01"></div>
+    </div>
+
+    <div class="field-row full">
+      <div class="field"><label>Tagline</label><input type="text" id="f-tagline"></div>
+    </div>
+
+    <div class="field-row full">
+      <div class="field"><label>Hook (bold headline stat shown on the product page, e.g. "1,800W of output, ready in 56 minutes")</label><input type="text" id="f-hook"></div>
+    </div>
+
+    <div class="field-row full">
+      <div class="field"><label>Bullets, one per line (4-5 detailed benefit points with concrete examples)</label><textarea id="f-bullets"></textarea></div>
+    </div>
+
+    <div class="field-row full">
+      <div class="field"><label>Who it's for, one per line (2-3 short phrases)</label><textarea id="f-whofor"></textarea></div>
+    </div>
+
+    <div class="field-row full">
+      <div class="field"><label>What's in the box</label><input type="text" id="f-whatsinbox"></div>
+    </div>
+
+    <div class="field-row full">
+      <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-weight:600;">
+        <input type="checkbox" id="f-instock" checked style="width:16px; height:16px;">
+        In Stock (uncheck to mark as Out of Stock, shows "Notify Me" instead of Add to Order)
+      </label>
+    </div>
+
+    <div class="field-row">
+      <div class="field"><label>Capacity (Wh)</label><input type="number" id="f-capacityWh"></div>
+      <div class="field"><label>Capacity label (e.g. 512Wh)</label><input type="text" id="f-capacityLabel"></div>
+    </div>
+
+    <div class="field-row">
+      <div class="field"><label>Output (W)</label><input type="number" id="f-outputW"></div>
+      <div class="field"><label>Output label (e.g. 500W (1,000W X-Boost))</label><input type="text" id="f-outputLabel"></div>
+    </div>
+
+    <div class="field-row">
+      <div class="field"><label>Charge time</label><input type="text" id="f-chargeTime"></div>
+      <div class="field"><label>Weight</label><input type="text" id="f-weight"></div>
+    </div>
+
+    <div class="field-row">
+      <div class="field"><label>Capacity tier (e.g. UNDER500, 500-1000)</label><input type="text" id="f-capacityTier"></div>
+      <div class="field"><label>Badge (optional, e.g. Best Seller)</label><input type="text" id="f-badge"></div>
+    </div>
+
+    <div class="field-row full">
+      <div class="field"><label>Use case (optional short line)</label><input type="text" id="f-useCase"></div>
+    </div>
+
+    <div class="field-row full">
+      <div class="field"><label>Description</label><textarea id="f-description"></textarea></div>
+    </div>
+
+    <div class="field-row full">
+      <div class="field">
+        <label>Image paths, one per line (e.g. images/delta-3-plus-real-1.png)</label>
+        <textarea id="f-images"></textarea>
+        <div class="upload-row">
+          <input type="file" id="f-image-file" accept="image/*" style="display:none;">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('f-image-file').click()">Upload photo</button>
+          <span class="upload-status" id="f-image-status"></span>
+        </div>
+      </div>
+    </div>
+
+    <p id="form-status" class="admin-status"></p>
+
+    <div style="display:flex; gap:10px; margin-top:8px;">
+      <button class="btn btn-primary" onclick="saveProduct()">Save</button>
+      <button class="btn btn-secondary" onclick="closeForm()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const ADMIN_SESSION_KEY = "vr_admin_key";
+  let products = [];
+  let editingId = null;
+  // settings.js does a full REPLACE on POST, not a merge - so every save
+  // must send the COMPLETE settings object, or whichever section wasn't
+  // just edited gets silently wiped out. This is the single source of
+  // truth both savePromoSettings() and saveContactSettings() read from
+  // and write back into.
+  let currentSettings = {};
+
+  // Same utility as js/products-data.js - duplicated here rather than
+  // loading that whole file, since it also kicks off a live catalog fetch
+  // on load that this page doesn't need. Escapes admin-entered text
+  // (product names, taglines, etc.) before it's inserted into innerHTML,
+  // so a stray HTML tag typed into a field can't be interpreted as real
+  // markup - applies to this page's own tables just as much as the public
+  // site.
+  function escapeHtml(str) {
+    if (str == null) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function adminKey() { return sessionStorage.getItem(ADMIN_SESSION_KEY) || ""; }
+
+  function unlockAdmin() {
+    const key = document.getElementById("admin-key-input").value.trim();
+    if (!key) return;
+    sessionStorage.setItem(ADMIN_SESSION_KEY, key);
+    document.getElementById("admin-gate").style.display = "none";
+    document.getElementById("admin-app").style.display = "block";
+    reloadProducts();
+    loadPromoSettings();
+    reloadAccessories();
+    reloadSolar();
+    reloadBundles();
+  }
+
+  document.querySelectorAll(".admin-tab-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".admin-tab-btn").forEach((b) => b.classList.remove("active"));
+      document.querySelectorAll(".admin-tab-panel").forEach((p) => p.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById("tab-" + btn.dataset.tab).classList.add("active");
+    });
+  });
+
+  async function apiRequest(method, path, body) {
+    const res = await fetch(`/.netlify/functions/${path}`, {
+      method,
+      headers: { "Content-Type": "application/json", "x-admin-key": adminKey() },
+      body: body ? JSON.stringify(body) : undefined
+    });
+    if (res.status === 401) {
+      sessionStorage.removeItem(ADMIN_SESSION_KEY);
+      document.getElementById("admin-gate").style.display = "block";
+      document.getElementById("admin-app").style.display = "none";
+      document.getElementById("gate-error").textContent = "That key was rejected. Try again.";
+      throw new Error("Unauthorized");
+    }
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error || `Request failed (${res.status})`);
+    }
+    return res.status === 204 ? null : res.json();
+  }
+
+  async function reloadProducts() {
+    const tbody = document.getElementById("products-tbody");
+    tbody.innerHTML = `<tr><td colspan="5">Loading…</td></tr>`;
+    try {
+      products = await apiRequest("GET", "products");
+      renderTable();
+    } catch (err) {
+      tbody.innerHTML = `<tr><td colspan="5">Couldn't load products: ${err.message}</td></tr>`;
+    }
+  }
+
+  // Mirrors the hardcoded defaults in js/products-data.js, used only until
+  // an admin saves settings for the first time (GET /settings returns null
+  // until then, same fallback pattern as the products catalog).
+  const DEFAULT_PROMO_CONFIG = {
+    code: "SUMMER10",
+    discountPercent: 10,
+    endDateLabel: "September 7, 2026",
+    endDateShort: "Sept. 7",
+    freeShippingThreshold: 500,
+    volumeQty: 2,
+    volumeDiscountPercent: 7,
+    spendThreshold: 1000,
+    spendDiscountPercent: 10,
+    contactEmail: "contact@voltreservepower.com",
+    contactPhone: "",
+    contactAddress: "",
+    paymentMethods: ["Cash App", "Zelle", "Apple Pay", "Chime", "PayPal", "Revolut"]
+  };
+
+  async function loadPromoSettings() {
+    const statusEl = document.getElementById("promo-settings-status");
+    let settings;
+    try {
+      const res = await fetch("/.netlify/functions/settings");
+      settings = res.ok ? await res.json() : null;
+    } catch {
+      settings = null;
+    }
+    currentSettings = { ...DEFAULT_PROMO_CONFIG, ...(settings || {}) };
+    const config = currentSettings;
+    document.getElementById("ps-code").value = config.code;
+    document.getElementById("ps-discountPercent").value = config.discountPercent;
+    document.getElementById("ps-endDateLabel").value = config.endDateLabel;
+    document.getElementById("ps-endDateShort").value = config.endDateShort;
+    document.getElementById("ps-freeShippingThreshold").value = config.freeShippingThreshold;
+    document.getElementById("ps-spendThreshold").value = config.spendThreshold;    document.getElementById("ps-spendDiscountPercent").value = config.spendDiscountPercent;
+    document.getElementById("ps-volumeQty").value = config.volumeQty;
+    document.getElementById("ps-volumeDiscountPercent").value = config.volumeDiscountPercent;
+    if (!settings) statusEl.textContent = "Showing defaults, nothing saved yet.";
+    // Chained here (not called separately by the caller) so it always
+    // runs after currentSettings has actually been populated by the fetch
+    // above - calling it independently right after loadPromoSettings()
+    // without awaiting would show stale/default values, since this
+    // function itself is async and its fetch takes time.
+    loadContactSettings();
+  }
+
+  async function savePromoSettings() {
+    const statusEl = document.getElementById("promo-settings-status");
+    statusEl.className = "admin-status";
+    statusEl.textContent = "Saving…";
+    Object.assign(currentSettings, {
+      code: document.getElementById("ps-code").value.trim().toUpperCase(),
+      discountPercent: Number(document.getElementById("ps-discountPercent").value),
+      endDateLabel: document.getElementById("ps-endDateLabel").value.trim(),
+      endDateShort: document.getElementById("ps-endDateShort").value.trim(),
+      freeShippingThreshold: Number(document.getElementById("ps-freeShippingThreshold").value),
+      spendThreshold: Number(document.getElementById("ps-spendThreshold").value),
+      spendDiscountPercent: Number(document.getElementById("ps-spendDiscountPercent").value),
+      volumeQty: Number(document.getElementById("ps-volumeQty").value),
+      volumeDiscountPercent: Number(document.getElementById("ps-volumeDiscountPercent").value)
+    });
+    try {
+      // Send the FULL settings object (not just this section's fields) -
+      // settings.js replaces the whole stored blob on every POST, so a
+      // partial payload here would silently wipe out contact/payment
+      // settings saved from the other form.
+      await apiRequest("POST", "settings", currentSettings);
+      statusEl.className = "admin-status success";
+      statusEl.textContent = "Saved, live on the site now.";
+    } catch (err) {
+      statusEl.className = "admin-status error";
+      statusEl.textContent = "Couldn't save: " + err.message;
+    }
+  }
+
+  function loadContactSettings() {
+    // Reuses currentSettings, already populated by loadPromoSettings() -
+    // both forms edit the same underlying settings blob, so there's only
+    // ever one fetch, not a separate one per form.
+    const config = { ...DEFAULT_PROMO_CONFIG, ...currentSettings };
+    document.getElementById("cs-contactEmail").value = config.contactEmail || "";
+    document.getElementById("cs-contactPhone").value = config.contactPhone || "";
+    document.getElementById("cs-contactAddress").value = config.contactAddress || "";
+    document.getElementById("cs-paymentMethods").value = (config.paymentMethods || []).join("\n");
+  }
+
+  async function saveContactSettings() {
+    const statusEl = document.getElementById("contact-settings-status");
+    statusEl.className = "admin-status";
+    statusEl.textContent = "Saving…";
+    const contactEmail = document.getElementById("cs-contactEmail").value.trim();
+    if (contactEmail && !/^\S+@\S+\.\S+$/.test(contactEmail)) {
+      statusEl.className = "admin-status error";
+      statusEl.textContent = "That doesn't look like a valid email address.";
+      return;
+    }
+    const paymentMethods = document.getElementById("cs-paymentMethods").value
+      .split("\n").map((s) => s.trim()).filter(Boolean);
+    if (paymentMethods.length === 0) {
+      statusEl.className = "admin-status error";
+      statusEl.textContent = "Add at least one payment method - the cart needs something to offer at checkout.";
+      return;
+    }
+    Object.assign(currentSettings, {
+      contactEmail: contactEmail || DEFAULT_PROMO_CONFIG.contactEmail,
+      contactPhone: document.getElementById("cs-contactPhone").value.trim(),
+      contactAddress: document.getElementById("cs-contactAddress").value.trim(),
+      paymentMethods
+    });
+    try {
+      // Same reasoning as savePromoSettings() - send the FULL object.
+      await apiRequest("POST", "settings", currentSettings);
+      statusEl.className = "admin-status success";
+      statusEl.textContent = "Saved, live on the site now.";
+    } catch (err) {
+      statusEl.className = "admin-status error";
+      statusEl.textContent = "Couldn't save: " + err.message;
+    }
+  }
+
+  function renderTable() {
+    const tbody = document.getElementById("products-tbody");
+    if (products.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="6">No products yet. Use "Load starting catalog" or "Add Product".</td></tr>`;
+      return;
+    }
+    tbody.innerHTML = products.map(p => `
+      <tr>
+        <td><code>${escapeHtml(p.id)}</code></td>
+        <td>${escapeHtml(p.name)}</td>
+        <td>${escapeHtml(p.series) || ""}</td>
+        <td>$${Number(p.price).toLocaleString()}</td>
+        <td>${p.inStock !== false ? '<span style="color:var(--accent);">In Stock</span>' : '<span style="color:var(--text-faint);">Out of Stock</span>'}</td>
+        <td class="admin-actions">
+          <button class="btn btn-secondary btn-sm" onclick="openForm('${p.id}')">Edit</button>
+          <button class="btn btn-secondary btn-sm" onclick="deleteProduct('${p.id}')">Delete</button>
+        </td>
+      </tr>
+    `).join("");
+  }
+
+  function openForm(id) {
+    editingId = id || null;
+    const p = id ? products.find(x => x.id === id) : null;
+    document.getElementById("form-title").textContent = p ? `Edit, ${p.name}` : "Add Product";
+    document.getElementById("f-id").value = p ? p.id : "";
+    document.getElementById("f-id").disabled = !!p;
+    document.getElementById("f-name").value = p?.name || "";
+    document.getElementById("f-series").value = p?.series || "";
+    document.getElementById("f-price").value = p?.price ?? "";
+    document.getElementById("f-ecoflowPrice").value = p?.ecoflowPrice ?? "";
+    document.getElementById("f-tagline").value = p?.tagline || "";
+    document.getElementById("f-hook").value = p?.hook || "";
+    document.getElementById("f-bullets").value = (p?.bullets || []).join("\n");
+    document.getElementById("f-whofor").value = (p?.whoFor || []).join("\n");
+    document.getElementById("f-whatsinbox").value = p?.whatsInBox || "";
+    document.getElementById("f-instock").checked = p?.inStock !== false;
+    document.getElementById("f-capacityWh").value = p?.capacityWh ?? "";
+    document.getElementById("f-capacityLabel").value = p?.capacityLabel || "";
+    document.getElementById("f-outputW").value = p?.outputW ?? "";
+    document.getElementById("f-outputLabel").value = p?.outputLabel || "";
+    document.getElementById("f-chargeTime").value = p?.chargeTime || "";
+    document.getElementById("f-weight").value = p?.weight || "";
+    document.getElementById("f-capacityTier").value = p?.capacityTier || "";
+    document.getElementById("f-badge").value = p?.badge || "";
+    document.getElementById("f-useCase").value = p?.useCase || "";
+    document.getElementById("f-description").value = p?.description || "";
+    document.getElementById("f-images").value = (p?.images || []).join("\n");
+    document.getElementById("form-status").textContent = "";
+    document.getElementById("product-form").classList.add("open");
+    document.getElementById("product-form").scrollIntoView({ behavior: "smooth" });
+  }
+
+  function closeForm() {
+    document.getElementById("product-form").classList.remove("open");
+    editingId = null;
+  }
+
+  async function saveProduct() {
+    const status = document.getElementById("form-status");
+    const id = document.getElementById("f-id").value.trim();
+    const name = document.getElementById("f-name").value.trim();
+    const price = parseFloat(document.getElementById("f-price").value);
+
+    if (!id || !name || isNaN(price)) {
+      status.textContent = "ID, name, and price are required.";
+      status.className = "admin-status error";
+      return;
+    }
+
+    const payload = {
+      id, name, price,
+      series: document.getElementById("f-series").value.trim() || null,
+      ecoflowPrice: document.getElementById("f-ecoflowPrice").value ? parseFloat(document.getElementById("f-ecoflowPrice").value) : null,
+      tagline: document.getElementById("f-tagline").value.trim() || null,
+      hook: document.getElementById("f-hook").value.trim() || null,
+      bullets: document.getElementById("f-bullets").value.split("\n").map(s => s.trim()).filter(Boolean),
+      whoFor: document.getElementById("f-whofor").value.split("\n").map(s => s.trim()).filter(Boolean),
+      whatsInBox: document.getElementById("f-whatsinbox").value.trim() || null,
+      inStock: document.getElementById("f-instock").checked,
+      capacityWh: document.getElementById("f-capacityWh").value ? parseInt(document.getElementById("f-capacityWh").value, 10) : null,
+      capacityLabel: document.getElementById("f-capacityLabel").value.trim() || null,
+      outputW: document.getElementById("f-outputW").value ? parseInt(document.getElementById("f-outputW").value, 10) : null,
+      outputLabel: document.getElementById("f-outputLabel").value.trim() || null,
+      chargeTime: document.getElementById("f-chargeTime").value.trim() || null,
+      weight: document.getElementById("f-weight").value.trim() || null,
+      capacityTier: document.getElementById("f-capacityTier").value.trim() || null,
+      badge: document.getElementById("f-badge").value.trim() || null,
+      useCase: document.getElementById("f-useCase").value.trim() || null,
+      description: document.getElementById("f-description").value.trim() || null,
+      images: document.getElementById("f-images").value.split("\n").map(s => s.trim()).filter(Boolean)
+    };
+
+    status.textContent = "Saving…";
+    status.className = "admin-status";
+    try {
+      await apiRequest("POST", "products", payload);
+      status.textContent = "Saved.";
+      status.className = "admin-status success";
+      await reloadProducts();
+      setTimeout(closeForm, 600);
+    } catch (err) {
+      status.textContent = `Save failed: ${err.message}`;
+      status.className = "admin-status error";
+    }
+  }
+
+  async function deleteProduct(id) {
+    if (!confirm(`Delete "${id}"? This can't be undone.`)) return;
+    try {
+      await apiRequest("DELETE", "products", { id });
+      await reloadProducts();
+    } catch (err) {
+      alert(`Delete failed: ${err.message}`);
+    }
+  }
+
+  // ---------- Accessories (mirrors the Products CRUD functions above) ----------
+  let accessories = [];
+  let editingAccessoryId = null;
+
+  async function reloadAccessories() {
+    const tbody = document.getElementById("accessories-tbody");
+    tbody.innerHTML = `<tr><td colspan="5">Loading…</td></tr>`;
+    try {
+      accessories = await apiRequest("GET", "accessories");
+      renderAccessoriesTable();
+    } catch (err) {
+      tbody.innerHTML = `<tr><td colspan="5">Couldn't load accessories: ${err.message}</td></tr>`;
+    }
+  }
+
+  function renderAccessoriesTable() {
+    const tbody = document.getElementById("accessories-tbody");
+    if (accessories.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="5">No accessories yet. Use "Add Accessory".</td></tr>`;
+      return;
+    }
+    tbody.innerHTML = accessories.map(a => `
+      <tr>
+        <td><code>${escapeHtml(a.id)}</code></td>
+        <td>${escapeHtml(a.name)}</td>
+        <td>${escapeHtml(a.category) || ""}</td>
+        <td>$${Number(a.price).toLocaleString()}</td>
+        <td class="admin-actions">
+          <button class="btn btn-secondary btn-sm" onclick="openAccessoryForm('${a.id}')">Edit</button>
+          <button class="btn btn-secondary btn-sm" onclick="deleteAccessory('${a.id}')">Delete</button>
+        </td>
+      </tr>
+    `).join("");
+  }
+
+  function openAccessoryForm(id) {
+    editingAccessoryId = id || null;
+    const a = id ? accessories.find(x => x.id === id) : null;
+    document.getElementById("accessory-form-title").textContent = a ? `Edit, ${a.name}` : "Add Accessory";
+    document.getElementById("af-id").value = a ? a.id : "";
+    document.getElementById("af-id").disabled = !!a;
+    document.getElementById("af-name").value = a?.name || "";
+    document.getElementById("af-category").value = a?.category || "";
+    document.getElementById("af-price").value = a?.price ?? "";
+    document.getElementById("af-compatibleWith").value = (a?.compatibleWith || []).join(", ");
+    document.getElementById("af-tagline").value = a?.tagline || "";
+    document.getElementById("af-description").value = a?.description || "";
+    document.getElementById("af-images").value = (a?.images || []).join("\n");
+    document.getElementById("accessory-form-status").textContent = "";
+    document.getElementById("accessory-form").classList.add("open");
+    document.getElementById("accessory-form").scrollIntoView({ behavior: "smooth" });
+  }
+
+  function closeAccessoryForm() {
+    document.getElementById("accessory-form").classList.remove("open");
+    editingAccessoryId = null;
+  }
+
+  async function saveAccessory() {
+    const status = document.getElementById("accessory-form-status");
+    const id = document.getElementById("af-id").value.trim();
+    const name = document.getElementById("af-name").value.trim();
+    const price = parseFloat(document.getElementById("af-price").value);
+    if (!id || !name || isNaN(price)) {
+      status.textContent = "ID, name, and price are required.";
+      status.className = "admin-status error";
+      return;
+    }
+    const payload = {
+      id, name, price,
+      category: document.getElementById("af-category").value.trim() || null,
+      compatibleWith: document.getElementById("af-compatibleWith").value.split(",").map(s => s.trim()).filter(Boolean),
+      tagline: document.getElementById("af-tagline").value.trim() || null,
+      description: document.getElementById("af-description").value.trim() || null,
+      images: document.getElementById("af-images").value.split("\n").map(s => s.trim()).filter(Boolean)
+    };
+    status.textContent = "Saving…";
+    status.className = "admin-status";
+    try {
+      await apiRequest("POST", "accessories", payload);
+      status.textContent = "Saved.";
+      status.className = "admin-status success";
+      await reloadAccessories();
+      setTimeout(closeAccessoryForm, 600);
+    } catch (err) {
+      status.textContent = `Save failed: ${err.message}`;
+      status.className = "admin-status error";
+    }
+  }
+
+  async function deleteAccessory(id) {
+    if (!confirm(`Delete "${id}"? This can't be undone.`)) return;
+    try {
+      await apiRequest("DELETE", "accessories", { id });
+      await reloadAccessories();
+    } catch (err) {
+      alert(`Delete failed: ${err.message}`);
+    }
+  }
+
+  // ---------- Solar Panels (mirrors Accessories above) ----------
+  let solarPanels = [];
+  let editingSolarId = null;
+
+  async function reloadSolar() {
+    const tbody = document.getElementById("solar-tbody");
+    tbody.innerHTML = `<tr><td colspan="5">Loading…</td></tr>`;
+    try {
+      solarPanels = await apiRequest("GET", "solar");
+      renderSolarTable();
+    } catch (err) {
+      tbody.innerHTML = `<tr><td colspan="5">Couldn't load solar panels: ${err.message}</td></tr>`;
+    }
+  }
+
+  function renderSolarTable() {
+    const tbody = document.getElementById("solar-tbody");
+    if (solarPanels.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="5">No solar panels yet. Use "Add Solar Panel".</td></tr>`;
+      return;
+    }
+    tbody.innerHTML = solarPanels.map(s => `
+      <tr>
+        <td><code>${escapeHtml(s.id)}</code></td>
+        <td>${escapeHtml(s.name)}</td>
+        <td>${s.watts || ""}</td>
+        <td>$${Number(s.price).toLocaleString()}</td>
+        <td class="admin-actions">
+          <button class="btn btn-secondary btn-sm" onclick="openSolarForm('${s.id}')">Edit</button>
+          <button class="btn btn-secondary btn-sm" onclick="deleteSolar('${s.id}')">Delete</button>
+        </td>
+      </tr>
+    `).join("");
+  }
+
+  function openSolarForm(id) {
+    editingSolarId = id || null;
+    const s = id ? solarPanels.find(x => x.id === id) : null;
+    document.getElementById("solar-form-title").textContent = s ? `Edit, ${s.name}` : "Add Solar Panel";
+    document.getElementById("sof-id").value = s ? s.id : "";
+    document.getElementById("sof-id").disabled = !!s;
+    document.getElementById("sof-name").value = s?.name || "";
+    document.getElementById("sof-watts").value = s?.watts ?? "";
+    document.getElementById("sof-price").value = s?.price ?? "";
+    document.getElementById("sof-compatibleWith").value = (s?.compatibleWith || []).join(", ");
+    document.getElementById("sof-tagline").value = s?.tagline || "";
+    document.getElementById("sof-description").value = s?.description || "";
+    document.getElementById("sof-images").value = (s?.images || []).join("\n");
+    document.getElementById("solar-form-status").textContent = "";
+    document.getElementById("solar-form").classList.add("open");
+    document.getElementById("solar-form").scrollIntoView({ behavior: "smooth" });
+  }
+
+  function closeSolarForm() {
+    document.getElementById("solar-form").classList.remove("open");
+    editingSolarId = null;
+  }
+
+  async function saveSolar() {
+    const status = document.getElementById("solar-form-status");
+    const id = document.getElementById("sof-id").value.trim();
+    const name = document.getElementById("sof-name").value.trim();
+    const price = parseFloat(document.getElementById("sof-price").value);
+    if (!id || !name || isNaN(price)) {
+      status.textContent = "ID, name, and price are required.";
+      status.className = "admin-status error";
+      return;
+    }
+    const payload = {
+      id, name, price,
+      watts: document.getElementById("sof-watts").value ? parseInt(document.getElementById("sof-watts").value, 10) : null,
+      compatibleWith: document.getElementById("sof-compatibleWith").value.split(",").map(s => s.trim()).filter(Boolean),
+      tagline: document.getElementById("sof-tagline").value.trim() || null,
+      description: document.getElementById("sof-description").value.trim() || null,
+      images: document.getElementById("sof-images").value.split("\n").map(s => s.trim()).filter(Boolean)
+    };
+    status.textContent = "Saving…";
+    status.className = "admin-status";
+    try {
+      await apiRequest("POST", "solar", payload);
+      status.textContent = "Saved.";
+      status.className = "admin-status success";
+      await reloadSolar();
+      setTimeout(closeSolarForm, 600);
+    } catch (err) {
+      status.textContent = `Save failed: ${err.message}`;
+      status.className = "admin-status error";
+    }
+  }
+
+  async function deleteSolar(id) {
+    if (!confirm(`Delete "${id}"? This can't be undone.`)) return;
+    try {
+      await apiRequest("DELETE", "solar", { id });
+      await reloadSolar();
+    } catch (err) {
+      alert(`Delete failed: ${err.message}`);
+    }
+  }
+
+  // ---------- Power Kits (mirrors Accessories/Solar above) ----------
+  let bundles = [];
+  let editingBundleId = null;
+
+  async function reloadBundles() {
+    const tbody = document.getElementById("kits-tbody");
+    tbody.innerHTML = `<tr><td colspan="5">Loading…</td></tr>`;
+    try {
+      bundles = await apiRequest("GET", "bundles");
+      renderBundlesTable();
+    } catch (err) {
+      tbody.innerHTML = `<tr><td colspan="5">Couldn't load kits: ${err.message}</td></tr>`;
+    }
+  }
+
+  function renderBundlesTable() {
+    const tbody = document.getElementById("kits-tbody");
+    if (bundles.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="5">No kits yet. Use "Load starting kits" or "Add Kit".</td></tr>`;
+      return;
+    }
+    tbody.innerHTML = bundles.map(b => `
+      <tr>
+        <td><code>${escapeHtml(b.id)}</code></td>
+        <td>${escapeHtml(b.name)}</td>
+        <td>$${Number(b.price).toLocaleString()}</td>
+        <td>${b.compareAt != null ? "$" + Number(b.compareAt).toLocaleString() : ""}</td>
+        <td class="admin-actions">
+          <button class="btn btn-secondary btn-sm" onclick="openBundleForm('${b.id}')">Edit</button>
+          <button class="btn btn-secondary btn-sm" onclick="deleteBundle('${b.id}')">Delete</button>
+        </td>
+      </tr>
+    `).join("");
+  }
+
+  function openBundleForm(id) {
+    editingBundleId = id || null;
+    const b = id ? bundles.find(x => x.id === id) : null;
+    document.getElementById("kit-form-title").textContent = b ? `Edit, ${b.name}` : "Add Kit";
+    document.getElementById("kf-id").value = b ? b.id : "";
+    document.getElementById("kf-id").disabled = !!b;
+    document.getElementById("kf-name").value = b?.name || "";
+    document.getElementById("kf-productId").value = b?.productId || "";
+    document.getElementById("kf-price").value = b?.price ?? "";
+    document.getElementById("kf-compareAt").value = b?.compareAt ?? "";
+    document.getElementById("kf-tagline").value = b?.tagline || "";
+    document.getElementById("kf-accessories").value = (b?.accessories || []).join("\n");
+    document.getElementById("kf-badge").value = b?.badge || "";
+    document.getElementById("kf-useCase").value = b?.useCase || "";
+    document.getElementById("kf-description").value = b?.description || "";
+    document.getElementById("kf-image").value = b?.image || "";
+    document.getElementById("kit-form-status").textContent = "";
+    document.getElementById("kit-form").classList.add("open");
+    document.getElementById("kit-form").scrollIntoView({ behavior: "smooth" });
+  }
+
+  function closeBundleForm() {
+    document.getElementById("kit-form").classList.remove("open");
+    editingBundleId = null;
+  }
+
+  async function saveBundle() {
+    const status = document.getElementById("kit-form-status");
+    const id = document.getElementById("kf-id").value.trim();
+    const name = document.getElementById("kf-name").value.trim();
+    const price = parseFloat(document.getElementById("kf-price").value);
+    if (!id || !name || isNaN(price)) {
+      status.textContent = "ID, name, and price are required.";
+      status.className = "admin-status error";
+      return;
+    }
+    const payload = {
+      id, name, price,
+      productId: document.getElementById("kf-productId").value.trim() || null,
+      compareAt: document.getElementById("kf-compareAt").value ? parseFloat(document.getElementById("kf-compareAt").value) : null,
+      tagline: document.getElementById("kf-tagline").value.trim() || null,
+      accessories: document.getElementById("kf-accessories").value.split("\n").map(s => s.trim()).filter(Boolean),
+      badge: document.getElementById("kf-badge").value.trim() || null,
+      useCase: document.getElementById("kf-useCase").value.trim() || null,
+      description: document.getElementById("kf-description").value.trim() || null,
+      image: document.getElementById("kf-image").value.trim() || null
+    };
+    status.textContent = "Saving…";
+    status.className = "admin-status";
+    try {
+      await apiRequest("POST", "bundles", payload);
+      status.textContent = "Saved.";
+      status.className = "admin-status success";
+      await reloadBundles();
+      setTimeout(closeBundleForm, 600);
+    } catch (err) {
+      status.textContent = `Save failed: ${err.message}`;
+      status.className = "admin-status error";
+    }
+  }
+
+  async function deleteBundle(id) {
+    if (!confirm(`Delete "${id}"? This can't be undone.`)) return;
+    try {
+      await apiRequest("DELETE", "bundles", { id });
+      await reloadBundles();
+    } catch (err) {
+      alert(`Delete failed: ${err.message}`);
+    }
+  }
+
+  async function seedBundlesFromFallback() {
+    const status = document.getElementById("kits-toolbar-status");
+    if (!confirm("This loads the original 14-kit catalog into the database, overwriting any existing rows with the same IDs. Continue?")) return;
+    status.textContent = "Loading starting kits…";
+    status.className = "admin-status";
+    try {
+      const result = await apiRequest("POST", "seed-bundles", {});
+      status.textContent = `Loaded ${result.seeded} kits.`;
+      status.className = "admin-status success";
+      await reloadBundles();
+    } catch (err) {
+      status.textContent = `Failed: ${err.message}`;
+      status.className = "admin-status error";
+    }
+  }
+
+  // ---------- File uploads (product/accessory/solar photos) ----------
+  // Reads the chosen file, uploads it via admin-upload.js, and appends the
+  // resulting public URL as a new line onto the paired images textarea -
+  // products/accessories/solar panels all support MULTIPLE images, so
+  // this adds to the list rather than replacing a single field. The
+  // textarea stays fully editable by hand too, this is just a faster way
+  // to add a brand-new image that doesn't exist on the site yet.
+  function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result.split(",")[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function wireImageUpload(fileInputId, textareaId, statusId, folder) {
+    const fileInput = document.getElementById(fileInputId);
+    if (!fileInput) return;
+    fileInput.addEventListener("change", async () => {
+      const file = fileInput.files[0];
+      if (!file) return;
+      const status = document.getElementById(statusId);
+      const textarea = document.getElementById(textareaId);
+      status.textContent = "Uploading…";
+      status.className = "upload-status uploading";
+      try {
+        const contentBase64 = await fileToBase64(file);
+        const res = await fetch("/.netlify/functions/admin-upload", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "x-admin-key": adminKey() },
+          body: JSON.stringify({ filename: file.name, folder, contentBase64, contentType: file.type })
+        });
+        const body = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(body.error || "Upload failed");
+        textarea.value = textarea.value ? `${textarea.value}\n${body.url}` : body.url;
+        status.textContent = "Uploaded ✓";
+        status.className = "upload-status";
+      } catch (err) {
+        status.textContent = err.message || "Upload failed";
+        status.className = "upload-status error";
+      } finally {
+        fileInput.value = "";
+      }
+    });
+  }
+  wireImageUpload("f-image-file", "f-images", "f-image-status", "products");
+  wireImageUpload("af-image-file", "af-images", "af-image-status", "accessories");
+  wireImageUpload("sof-image-file", "sof-images", "sof-image-status", "solar");
+
+  // Kits only ever show a single photo (see kf-image), so this REPLACES
+  // the paired text input's value on upload instead of appending a new
+  // line the way wireImageUpload() does for the multi-image fields above.
+  function wireSingleImageUpload(fileInputId, inputId, statusId, folder) {
+    const fileInput = document.getElementById(fileInputId);
+    if (!fileInput) return;
+    fileInput.addEventListener("change", async () => {
+      const file = fileInput.files[0];
+      if (!file) return;
+      const status = document.getElementById(statusId);
+      const target = document.getElementById(inputId);
+      status.textContent = "Uploading…";
+      status.className = "upload-status uploading";
+      try {
+        const contentBase64 = await fileToBase64(file);
+        const res = await fetch("/.netlify/functions/admin-upload", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "x-admin-key": adminKey() },
+          body: JSON.stringify({ filename: file.name, folder, contentBase64, contentType: file.type })
+        });
+        const body = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(body.error || "Upload failed");
+        target.value = body.url;
+        status.textContent = "Uploaded ✓";
+        status.className = "upload-status";
+      } catch (err) {
+        status.textContent = err.message || "Upload failed";
+        status.className = "upload-status error";
+      } finally {
+        fileInput.value = "";
+      }
+    });
+  }
+  wireSingleImageUpload("kf-image-file", "kf-image", "kf-image-status", "kits");
+
+  async function seedFromFallback() {
+    const status = document.getElementById("toolbar-status");
+    if (!confirm("This loads the original 21-product catalog into the database, overwriting any existing rows with the same IDs. Continue?")) return;
+    status.textContent = "Loading starting catalog…";
+    status.className = "admin-status";
+    try {
+      const result = await apiRequest("POST", "seed-products", {});
+      status.textContent = `Loaded ${result.seeded} products.`;
+      status.className = "admin-status success";
+      await reloadProducts();
+    } catch (err) {
+      status.textContent = `Failed: ${err.message}`;
+      status.className = "admin-status error";
+    }
+  }
+
+  // Resume session if key already unlocked this tab
+  if (adminKey()) {
+    document.getElementById("admin-gate").style.display = "none";
+    document.getElementById("admin-app").style.display = "block";
+    reloadProducts();
+    loadPromoSettings();
+    reloadAccessories();
+    reloadSolar();
+    reloadBundles();
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+[
+  {
+    "id": "solar-45w",
+    "name": "45W Portable Solar Panel",
+    "tagline": "Ultralight Type-C panel for TRAIL and RIVER 3.",
+    "watts": 45,
+    "price": 75,
+    "compatibleWith": [
+      "trail-200",
+      "trail-300",
+      "trail-plus-300",
+      "river-3"
+    ],
+    "description": "Folds down to the size of a laptop. Direct Type-C output charges phones, laptops, and other USB-C devices without needing a power station in between. IP68 waterproof rated. Charge times are lab-tested under ideal sun conditions, expect 20-30% longer in real-world cloud/angle conditions.",
+    "images": [
+      "images/solar-45w-real-1.png",
+      "images/solar-45w-real-2.png",
+      "images/solar-45w-real-3.png",
+      "images/solar-45w-real-4.png"
+    ]
+  },
+  {
+    "id": "solar-60w",
+    "name": "60W Portable Solar Panel",
+    "tagline": "A step up in wattage, still pocket-sized. Type-C direct charging.",
+    "watts": 60,
+    "price": 95,
+    "compatibleWith": [
+      "river-3",
+      "river-3-plus",
+      "river-2"
+    ],
+    "description": "Direct Type-C charging for phones, laptops, and other USB-C devices. Under ideal sun, expect roughly 5-6 hours to fully charge a RIVER 3 from empty, real-world cloud cover and angle typically add 20-30% more time.",
+    "images": [
+      "images/solar-60w-real-1.png",
+      "images/solar-60w-real-2.png",
+      "images/solar-60w-real-3.png"
+    ]
+  },
+  {
+    "id": "solar-100w-flexible",
+    "name": "100W Flexible Solar Panel",
+    "tagline": "258° flexible, bends to fit curved surfaces like RV roofs.",
+    "watts": 100,
+    "price": 189,
+    "compatibleWith": [],
+    "description": "Bends up to 258° to fit curved surfaces like RV roofs and van tops for a permanent, low-profile mount, unlike foldable panels, this one is designed to stay in place rather than pack away.",
+    "images": [
+      "images/solar-100w-flexible-real-1.png",
+      "images/solar-100w-flexible-real-2.png",
+      "images/solar-100w-flexible-real-3.png"
+    ]
+  },
+  {
+    "id": "solar-100w-rigid",
+    "name": "100W Rigid Solar Panel (2-Pack)",
+    "tagline": "All-black rigid panels for permanent van or home mounting.",
+    "watts": 200,
+    "price": 359,
+    "compatibleWith": [],
+    "description": "Two 100W all-black rigid panels for permanent mounting on a van roof or home structure. IP68 waterproof rated, ~23% conversion efficiency. Includes mounting-ready design; a solar charging cable (MC4 to XT60) may be needed separately depending on your power station.",
+    "images": [
+      "images/solar-100w-rigid-real-1.png",
+      "images/solar-100w-rigid-real-2.png",
+      "images/solar-100w-rigid-real-3.png"
+    ]
+  },
+  {
+    "id": "solar-110w",
+    "name": "110W Portable Solar Panel",
+    "tagline": "The standard match for the RIVER series.",
+    "watts": 110,
+    "price": 159,
+    "compatibleWith": [
+      "river-3",
+      "river-2-max",
+      "river-2-pro"
+    ],
+    "description": "23% conversion efficiency, about 10% lighter and smaller than comparable 110W panels. IP68 waterproof rated. The included case unfolds into an adjustable stand for optimal sun angle. Note: RIVER 3 caps solar input at 110W, so this is the largest panel that makes sense to pair with it, a bigger panel won't charge it any faster.",
+    "images": [
+      "images/solar-110w-real-1.png",
+      "images/solar-110w-real-2.png",
+      "images/solar-110w-real-3.png",
+      "images/solar-110w-real-4.png",
+      "images/solar-110w-real-5.png"
+    ]
+  },
+  {
+    "id": "solar-125w-bifacial",
+    "name": "125W Bifacial Modular Solar Panel",
+    "tagline": "Modular, chain up to 8 panels (1000W total) for scalable solar arrays.",
+    "watts": 125,
+    "price": 239,
+    "compatibleWith": [
+      "delta-pro-ultra",
+      "delta-pro-ultra-x"
+    ],
+    "description": "25% conversion efficiency with a modular, chainable design, link multiple panels for scalable arrays (a 4-panel/500W setup weighs about 37 lb total). IP68 rated with a waterproof XT60-W connector. Bifacial cells capture reflected light on the back side for extra output, and the parallel-connection design resists efficiency loss from partial shading better than series-wired panels.",
+    "images": [
+      "images/solar-125w-bifacial-real-1.png",
+      "images/solar-125w-bifacial-real-2.png",
+      "images/solar-125w-bifacial-real-3.png"
+    ]
+  },
+  {
+    "id": "solar-160w",
+    "name": "NextGen 160W Portable Solar Panel",
+    "tagline": "Efficient mid-size panel for the DELTA 3 line.",
+    "watts": 160,
+    "price": 239,
+    "compatibleWith": [
+      "delta-3-classic",
+      "delta-3-plus"
+    ],
+    "description": "Foldable and self-supporting at 15.4 lb (7kg), unfolds in seconds with a built-in adjustable kickstand. IP67 waterproof rated for outdoor and camping use.",
+    "images": [
+      "images/solar-160w-real-1.png",
+      "images/solar-160w-real-2.png",
+      "images/solar-160w-real-3.png",
+      "images/solar-160w-real-4.png",
+      "images/solar-160w-real-5.png",
+      "images/solar-160w-real-6.png"
+    ]
+  },
+  {
+    "id": "solar-175w-rigid",
+    "name": "175W Rigid Solar Panel",
+    "tagline": "For permanent installs, Class B vans and home roof mounting.",
+    "watts": 175,
+    "price": 199,
+    "compatibleWith": [],
+    "description": "25% conversion efficiency (TOPCon cells), notably higher than the 18-20% typical of traditional panels. Pre-cut mounting holes for van or off-grid installs; pair with the Rigid Solar Panel Mounting Feet for a secure attachment. Compatible with 48V systems and most third-party solar setups via its universal connector.",
+    "images": [
+      "images/solar-175w-rigid-real-1.png",
+      "images/solar-175w-rigid-real-2.png"
+    ]
+  },
+  {
+    "id": "solar-220w-bifacial",
+    "name": "NextGen 220W Bifacial Solar Panel",
+    "tagline": "Captures reflected light for up to 25% more energy.",
+    "watts": 220,
+    "price": 289,
+    "compatibleWith": [
+      "delta-3-max",
+      "delta-2-max",
+      "river-3-plus"
+    ],
+    "description": "220W on the front, plus a 155W bifacial back side that captures reflected ambient light for up to 25% more total energy. 22-23% conversion efficiency, IP68 waterproof, tempered-glass build rated to withstand heat up to 300°F. The included case doubles as an adjustable 40-80° stand. In the box: panel, MC4 to XT60i charging cable, protective bag.",
+    "images": [
+      "images/solar-220w-bifacial-real-1.png",
+      "images/solar-220w-bifacial-real-2.png",
+      "images/solar-220w-bifacial-real-3.png",
+      "images/solar-220w-bifacial-real-4.png",
+      "images/solar-220w-bifacial-real-5.png",
+      "images/solar-220w-bifacial-real-6.png",
+      "images/solar-220w-bifacial-real-7.png",
+      "images/solar-220w-bifacial-real-8.png"
+    ]
+  },
+  {
+    "id": "solar-400w",
+    "name": "400W Portable Solar Panel",
+    "tagline": "The fastest way to solar-charge the DELTA Pro line.",
+    "watts": 400,
+    "price": 569,
+    "compatibleWith": [
+      "delta-pro",
+      "delta-pro-3",
+      "delta-pro-ultra",
+      "delta-pro-ultra-x",
+      "delta-2"
+    ],
+    "description": "22.4% conversion efficiency with MPPT optimization for a steady charge throughout the day. Folds down with a built-in shoulder strap, ~35 lb. The protective case unfolds into a 40-90° adjustable stand. Uses the universal MC4 connector, compatible with the full DELTA lineup and most third-party generators. Chain up to 3 panels for 1,600W total input on a DELTA Pro.",
+    "images": [
+      "images/solar-400w-real-1.png",
+      "images/solar-400w-real-2.png",
+      "images/solar-400w-real-3.png"
+    ]
+  }
+]

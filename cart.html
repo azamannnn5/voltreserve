@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4WE5FE3Q67"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4WE5FE3Q67');
+</script>
+<title>Your Order | VoltReserve</title>
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="/" class="logo"><svg class="logo-icon" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="vertical-align:-5px; margin-right:2px;">
+        <circle cx="12" cy="12" r="11" fill="#1e7800"/>
+        <path d="M13 4L6 13.5H11L10 20L18 10H12L13 4Z" fill="#ffffff"/>
+      </svg> VoltReserve</a>
+    <select id="currency-select" class="currency-select" aria-label="Currency"></select>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-toggle" onclick="this.nextElementSibling.classList.toggle('open')">Shop ▾</button>
+        <div class="nav-dropdown-menu">
+          <a href="products.html">All Products</a>
+          <a href="river.html">RIVER Series</a>
+          <a href="delta.html">DELTA Series</a>
+          <a href="delta-pro.html">DELTA Pro Series</a>
+          <a href="trail.html">TRAIL Series</a>
+          <div class="divider"></div>
+          <a href="solar.html">Solar Panels</a>
+          <a href="accessories.html">Extra Batteries & Accessories</a>
+          <a href="kits.html">Power Kits</a>
+        </div>
+      </div>
+      <a href="guide.html">Buying Guide</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="cart.html" class="nav-cart" aria-label="Cart"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span class="count">0</span></a>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+  </nav>
+</header>
+
+<section>
+  <div class="container">
+    <p class="eyebrow">STEP 1 OF 1</p>
+    <h1 style="margin:12px 0 30px;">Your Order Request</h1>
+
+    <div id="cart-empty" class="empty-state" style="display:none;">
+      <p>Your order list is empty.</p>
+      <p style="margin-top:8px;"><a href="products.html">Browse power stations →</a></p>
+    </div>
+
+    <div class="detail-grid" id="order-form-section">
+      <div>
+        <h3 style="margin-bottom:18px;">Order Summary</h3>
+        <div id="cart-items"></div>
+
+        <form id="order-form" onsubmit="submitOrder(event)" style="margin-top:36px;">
+          <h3 style="margin-bottom:18px;">Your Details</h3>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="order-name">Full name</label>
+              <input type="text" id="order-name" required placeholder="Jane Cooper">
+            </div>
+            <div class="form-field">
+              <label for="order-phone">Phone number</label>
+              <div style="display:flex; gap:8px;">
+                <select id="order-phone-code" style="flex:0 0 118px;" aria-label="Country code">
+                  <option value="+1">+1 (US/CA)</option>
+                  <option value="+44">+44 (UK)</option>
+                  <option value="+49">+49 (DE)</option>
+                  <option value="+33">+33 (FR)</option>
+                  <option value="+31">+31 (NL)</option>
+                  <option value="+353">+353 (IE)</option>
+                  <option value="+32">+32 (BE)</option>
+                  <option value="+41">+41 (CH)</option>
+                  <option value="+34">+34 (ES)</option>
+                  <option value="+39">+39 (IT)</option>
+                </select>
+                <input type="tel" id="order-phone" required placeholder="712 345 678" style="flex:1;">
+              </div>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="order-email">Email address</label>
+            <input type="email" id="order-email" required placeholder="jane@email.com">
+          </div>
+          <div class="form-field">
+            <label for="order-country">Country</label>
+            <select id="order-country" required onchange="syncPhoneCode(this.value); renderCartPage();">
+              <option value="" disabled selected>Select your country</option>
+              <option value="United States">United States</option>
+              <option value="Canada">Canada</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="Germany">Germany</option>
+              <option value="France">France</option>
+              <option value="Netherlands">Netherlands</option>
+              <option value="Ireland">Ireland</option>
+              <option value="Belgium">Belgium</option>
+              <option value="Switzerland">Switzerland</option>
+              <option value="Spain">Spain</option>
+              <option value="Italy">Italy</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="order-address">Delivery address</label>
+            <input type="text" id="order-address" required placeholder="Street, City, State/Region, Postal Code" oninput="renderCartPage()">
+          </div>
+          <div class="form-field">
+            <label for="order-payment">Preferred payment method</label>
+            <select id="order-payment" required></select>
+          </div>
+          <div class="form-field">
+            <label for="order-notes">Notes (optional)</label>
+            <textarea id="order-notes" placeholder="Anything we should know, preferred contact time, delivery instructions, etc."></textarea>
+          </div>
+          <div class="form-field">
+            <label for="order-promo">Promo code (optional)</label>
+            <input type="text" id="order-promo" placeholder="Enter code e.g. SUMMER10" style="text-transform:uppercase; letter-spacing:0.05em;" oninput="renderCartPage()">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Submit Order Request</button>
+          <p style="font-size:0.82rem; color:var(--text-faint); margin-top:12px;">When you submit, we'll email your order confirmation to you right away. A member of our team will reply shortly to confirm pricing and payment (Cash App, Zelle, Apple Pay, Chime, PayPal, or Revolut).</p>
+        </form>
+      </div>
+
+      <aside class="cart-summary">
+        <h3 style="margin-bottom:16px;">Order Summary</h3>
+        <div id="cart-summary-body"></div>
+      </aside>
+    </div>
+
+    <!-- Deliberately a SIBLING of #order-form-section, not nested inside it.
+         showOrderReadyState() hides order-form-section via display:none -
+         if this lived inside that container (as it used to), the parent's
+         display:none would also hide this regardless of its own display
+         value, since a hidden ancestor always wins over a child's own
+         display setting. That was the actual bug behind the confirmation
+         never appearing after a successful order. -->
+    <div id="order-ready-state" style="display:none; text-align:center; padding:50px 20px;">
+      <div class="icon-badge" style="width:64px; height:64px; background:var(--accent); color:var(--accent-ink); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.8rem; margin:0 auto 24px;">✓</div>
+      <h3 style="margin-bottom:12px;">Your order has been submitted</h3>
+      <p style="color:var(--text-dim);">We've emailed your order confirmation to you. A team member will reply shortly to confirm details and payment.</p>
+      <p style="margin-top:20px;"><a href="products.html" style="color:var(--accent);">Continue browsing →</a></p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/" class="logo"><svg class="logo-icon" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="vertical-align:-5px; margin-right:2px;">
+        <circle cx="12" cy="12" r="11" fill="#1e7800"/>
+        <path d="M13 4L6 13.5H11L10 20L18 10H12L13 4Z" fill="#ffffff"/>
+      </svg> VoltReserve</a>
+        <p style="margin-top:14px; font-size:0.88rem; max-width:260px;">Portable power stations for home backup, camping, and off-grid living.</p>
+        <p style="margin-top:14px; font-size:0.82rem; color:#9c9ca4;">Mon–Fri 8AM–7PM CST · Sat 9AM–4PM CST<br>contact@voltreservepower.com</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="products.html">All Products</a></li>
+          <li><a href="river.html">RIVER Series</a></li>
+          <li><a href="delta.html">DELTA Series</a></li>
+          <li><a href="delta-pro.html">DELTA Pro Series</a></li>
+          <li><a href="trail.html">TRAIL Series</a></li>
+          <li><a href="solar.html">Solar Panels</a></li>
+          <li><a href="accessories.html">Accessories</a></li>
+          <li><a href="kits.html">Power Kits</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="guide.html">Buying Guide</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="compare.html">Compare</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Policies</h4>
+        <ul>
+          <li><a href="shipping.html">Shipping & Returns</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 VoltReserve. Independent reseller, not affiliated with EcoFlow Inc.</span>
+      <span>Made for real off-grid power needs.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/products-data.js"></script>
+<script src="js/products-loader.js"></script>
+<script src="js/main.js"></script>
+<script>
+  function renderPaymentOptions() {
+    const select = document.getElementById("order-payment");
+    if (!select) return;
+    const previousValue = select.value;
+    const methods = (PROMO_CONFIG.paymentMethods && PROMO_CONFIG.paymentMethods.length)
+      ? PROMO_CONFIG.paymentMethods
+      : ["Cash App", "Zelle", "Apple Pay", "Chime", "PayPal", "Revolut"];
+    select.innerHTML = `<option value="" disabled ${previousValue ? "" : "selected"}>Select a payment method</option>` +
+      methods.map((m) => `<option value="${escapeHtml(m)}">${escapeHtml(m)}</option>`).join("");
+    if (previousValue && methods.includes(previousValue)) select.value = previousValue;
+  }
+  renderPaymentOptions();
+  PRODUCTS_READY.then(renderPaymentOptions);
+
+  renderCartPage();
+  PRODUCTS_READY.then(renderCartPage);
+
+  // Maps Netlify's detected country code to the exact option values in
+  // the country dropdown. If we recognize the visitor's country and they
+  // haven't touched the field yet, pre-select it so the shipping estimate
+  // reflects their real location immediately instead of assuming US.
+  const GEO_COUNTRY_MAP = {
+    US: "United States", CA: "Canada", GB: "United Kingdom", DE: "Germany",
+    FR: "France", NL: "Netherlands", IE: "Ireland", BE: "Belgium",
+    CH: "Switzerland", ES: "Spain", IT: "Italy"
+  };
+  if (typeof GEO_READY !== "undefined") {
+    GEO_READY.then(({ countryCode }) => {
+      const select = document.getElementById("order-country");
+      if (!select || select.value) return; // already touched by the user, leave it
+      const mapped = GEO_COUNTRY_MAP[countryCode];
+      if (mapped) {
+        select.value = mapped;
+        if (typeof syncPhoneCode === "function") syncPhoneCode(mapped);
+        renderCartPage();
+      } else if (countryCode) {
+        // Detected a real country, just not one we currently ship to.
+        window._geoDetectedUnsupported = true;
+        renderCartPage();
+      }
+    });
+  }
+</script>
+<div id="compare-bar" class="compare-bar">
+  <span class="compare-bar-text"></span>
+  <a href="compare.html" class="btn btn-primary btn-sm">Compare Now</a>
+</div>
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'a77613b06d05d9ee2bd17b97e2a9842c8f728c40';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
+</body>
+</html>

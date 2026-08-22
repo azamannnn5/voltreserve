@@ -1,0 +1,25 @@
+# Netlify picks this file up automatically to set response headers.
+# Only static assets are cached here (never HTML, never the Netlify
+# Functions) so an admin.html change or a future code fix always reaches
+# visitors right away - only images/css/js get a speed boost from caching.
+#
+# Cache lifetimes are kept modest (not "immutable"/1-year) on purpose:
+# filenames here aren't content-hashed (e.g. css/style.css, js/main.js
+# stay the same name across deploys), so a very long cache could leave
+# returning visitors on stale CSS/JS after a real fix ships. These values
+# balance page-speed gains against that risk.
+
+/css/*
+  Cache-Control: public, max-age=3600
+
+/js/*
+  Cache-Control: public, max-age=3600
+
+/images/*
+  Cache-Control: public, max-age=604800
+
+/favicon.ico
+  Cache-Control: public, max-age=604800
+
+/favicon.svg
+  Cache-Control: public, max-age=604800
