@@ -1,0 +1,16 @@
+{
+  "name": "voltreserve-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "VoltReserve site , Netlify Functions backend (products database + promo email)",
+  "scripts": {
+    "test": "node tests/run-all.js",
+    "prerender": "node scripts/prerender-grids.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4"
+  },
+  "devDependencies": {
+    "jsdom": "^24.0.0"
+  }
+}

@@ -1,0 +1,216 @@
+[
+  {
+    "id": "kit-weekend-camper",
+    "name": "Weekend Camper Kit",
+    "tagline": "RIVER 3 + 45W solar panel + waterproof carry bag",
+    "productId": "river-3",
+    "accessories": [
+      "45W Portable Solar Panel",
+      "RIVER 3 Waterproof Bag"
+    ],
+    "price": 219,
+    "compareAt": 309,
+    "badge": "Great Starter Kit",
+    "useCase": "Camping",
+    "description": "Everything a first-time camper needs in one order: RIVER 3 for essentials, a 45W panel to keep it topped up, and a waterproof bag for wet-weather trips.",
+    "image": "images/kit-weekend-camper-1.png"
+  },
+  {
+    "id": "kit-home-office-ups",
+    "name": "Home Office UPS Kit",
+    "tagline": "RIVER 3 Plus + EB600 battery for extended desk backup",
+    "productId": "river-3-plus",
+    "accessories": [
+      "RIVER 3 EB600 Extra Battery (+572Wh)"
+    ],
+    "price": 429,
+    "compareAt": 484,
+    "badge": null,
+    "useCase": "Home Office",
+    "description": "RIVER 3 Plus with an EB600 extra battery for extended desk backup, enough runtime to protect a work session through a longer outage, not just a quick blip.",
+    "image": "images/kit-home-office-ups-1.png"
+  },
+  {
+    "id": "river-3-max",
+    "name": "RIVER 3 Max Bundle",
+    "tagline": "RIVER 3 Plus + EB300 Extra Battery, EcoFlow's own bundled config",
+    "productId": "river-3-plus",
+    "accessories": [
+      "RIVER 3 EB300 Extra Battery (+286Wh)"
+    ],
+    "price": 299,
+    "compareAt": 394,
+    "badge": "New",
+    "useCase": "Extended Camping",
+    "description": "RIVER 3 Plus paired with the compact EB300 battery, a lighter capacity boost than the Max Plus bundle, for trips where every pound still matters.",
+    "image": null
+  },
+  {
+    "id": "river-3-max-plus",
+    "name": "RIVER 3 Max Plus Bundle",
+    "tagline": "RIVER 3 Plus + EB600 Extra Battery, maximum RIVER capacity",
+    "productId": "river-3-plus",
+    "accessories": [
+      "RIVER 3 EB600 Extra Battery (+572Wh)"
+    ],
+    "price": 429,
+    "compareAt": 484,
+    "badge": "New",
+    "useCase": "Extended Camping & RV",
+    "description": "RIVER 3 Plus with the larger EB600 battery for maximum RIVER-class capacity, the strongest camping/RV setup available in this series.",
+    "image": "images/river-3-max-plus-kit-real-1.png"
+  },
+  {
+    "id": "kit-everyday-backup",
+    "name": "Everyday Backup Kit",
+    "tagline": "DELTA 2 + 220W solar panel, the most popular combo",
+    "productId": "delta-2",
+    "accessories": [
+      "NextGen 220W Bifacial Solar Panel"
+    ],
+    "price": 719,
+    "compareAt": 758,
+    "badge": "Most Popular",
+    "useCase": "Home Backup",
+    "description": "DELTA 2 (1,024Wh, 1,800W output) paired with a 220W bifacial solar panel, a well-rounded middle ground between portability and power for weekend trips or home office backup.",
+    "image": "images/kit-everyday-backup-1.png"
+  },
+  {
+    "id": "kit-expandable-starter",
+    "name": "Expandable Starter Kit",
+    "tagline": "DELTA 3 Plus + Extra Battery, grow capacity as you need it",
+    "productId": "delta-3-plus",
+    "accessories": [
+      "DELTA 3 Series Extra Battery (+1,024Wh)"
+    ],
+    "price": 989,
+    "compareAt": 1038,
+    "badge": null,
+    "useCase": "Growing Households",
+    "description": "DELTA 3 Plus (1,024Wh, 1,800W output) with an extra battery already included, start here and add more batteries later as needs grow, up to 5kWh total.",
+    "image": "images/kit-expandable-starter-1.png"
+  },
+  {
+    "id": "kit-serious-backup",
+    "name": "Serious Backup Kit",
+    "tagline": "DELTA 2 Max + 400W solar panel for faster, greener recharge",
+    "productId": "delta-2-max",
+    "accessories": [
+      "400W Portable Solar Panel"
+    ],
+    "price": 1399,
+    "compareAt": 1468,
+    "badge": null,
+    "useCase": "Home Backup",
+    "description": "DELTA 2 Max (2,048Wh, 2,400W output) paired with a 400W portable solar panel, the strongest foldable-panel option for multi-day backup with genuine solar recharge.",
+    "image": "images/kit-serious-backup-1.png"
+  },
+  {
+    "id": "kit-off-grid",
+    "name": "Off-Grid Living Kit",
+    "tagline": "DELTA Pro 3 + 400W solar panel + Smart Extra Battery",
+    "productId": "delta-pro-3",
+    "accessories": [
+      "400W Portable Solar Panel",
+      "DELTA Pro 3 Extra Battery (+4,096Wh)"
+    ],
+    "price": 4599,
+    "compareAt": 4667,
+    "badge": "Maximum Off-Grid",
+    "useCase": "Off-Grid Properties",
+    "description": "The full off-grid setup: DELTA Pro 3 (12kWh when paired with the included extra battery), a 400W solar panel for daily recharge, and 120V/240V output to power heavy appliances. Built for properties with no grid connection.",
+    "image": "images/kit-off-grid-1.png"
+  },
+  {
+    "id": "kit-trail-ultralight",
+    "name": "TRAIL Ultralight Kit",
+    "tagline": "TRAIL 300 + waterproof case, minimal weight, maximum freedom",
+    "productId": "trail-300",
+    "accessories": [
+      "TRAIL Waterproof Case"
+    ],
+    "price": 154,
+    "compareAt": 181,
+    "badge": null,
+    "useCase": "Backpacking & Hiking",
+    "description": "The lightest possible power solution for backpacking trips, TRAIL 300 (DC-only, no AC inverter) at 5.69 lb, plus protection for wet conditions. Charges phones, cameras, and headlamps via USB-C.",
+    "image": null
+  },
+  {
+    "id": "kit-solar-starter",
+    "name": "Solar Charging Starter Kit",
+    "tagline": "RIVER 3 + 110W solar panel, entry into solar independence",
+    "productId": "river-3",
+    "accessories": [
+      "110W Portable Solar Panel"
+    ],
+    "price": 295,
+    "compareAt": 348,
+    "badge": null,
+    "useCase": "Camping & Light Off-Grid",
+    "description": "Your first step toward solar self-sufficiency, RIVER 3 with a foldable 110W panel that charges it fully in about 2.5 hours under ideal sun. Great for weekend trips where you want zero grid dependency.",
+    "image": null
+  },
+  {
+    "id": "kit-home-office-advanced",
+    "name": "Home Office Advanced Kit",
+    "tagline": "RIVER 3 Plus + 110W solar + waterproof bag, work anywhere",
+    "productId": "river-3-plus",
+    "accessories": [
+      "110W Portable Solar Panel",
+      "RIVER 3 Waterproof Bag"
+    ],
+    "price": 382,
+    "compareAt": 449,
+    "badge": null,
+    "useCase": "Remote Work",
+    "description": "Everything a remote worker needs to work from anywhere, RIVER 3 Plus for extended runtime, a 110W solar panel to recharge during lunch, and a waterproof bag for weather protection.",
+    "image": null
+  },
+  {
+    "id": "kit-delta-home-backup",
+    "name": "DELTA Home Backup Kit",
+    "tagline": "DELTA 3 Plus + 160W solar panel, balanced home backup",
+    "productId": "delta-3-plus",
+    "accessories": [
+      "160W Portable Solar Panel"
+    ],
+    "price": 755,
+    "compareAt": 888,
+    "badge": null,
+    "useCase": "Home Backup",
+    "description": "A sweet middle ground for home backup, DELTA 3 Plus delivers enough power for essential circuits, paired with a 160W solar panel for rapid recharge during outages. Foldable, not permanent install.",
+    "image": null
+  },
+  {
+    "id": "kit-delta-pro-portable",
+    "name": "DELTA Pro Portable Off-Grid Kit",
+    "tagline": "DELTA Pro + 220W bifacial solar panel, serious portability",
+    "productId": "delta-pro",
+    "accessories": [
+      "220W NextGen Bifacial Solar Panel"
+    ],
+    "price": 1564,
+    "compareAt": 1838,
+    "badge": null,
+    "useCase": "Off-Grid Weekends",
+    "description": "For off-gridders who still want portability, DELTA Pro (3,600Wh, expandable to 10.8kWh) with a 220W bifacial panel. More capable than DELTA-class stations but lighter than DELTA Pro 3.",
+    "image": null
+  },
+  {
+    "id": "kit-budget-camper",
+    "name": "Budget Camper Kit",
+    "tagline": "RIVER 2 Max + 60W solar + waterproof case, affordable entry",
+    "productId": "river-2-max",
+    "accessories": [
+      "60W Portable Solar Panel",
+      "RIVER Waterproof Bag"
+    ],
+    "price": 373,
+    "compareAt": 439,
+    "badge": "Best Value",
+    "useCase": "Budget Camping",
+    "description": "The most affordable full-featured camping kit, RIVER 2 Max (512Wh) with a 60W solar panel for recharge and weatherproof protection. Perfect for campers new to power stations.",
+    "image": null
+  }
+]
