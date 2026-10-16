@@ -101,7 +101,7 @@ exports.handler = async () => {
     "Cache-Control": "public, max-age=3600"
   };
 
-  const entries = STATIC_PAGES.map(([p, priority, freq]) => urlEntry(`${DOMAIN}/${p}`, priority, freq));
+  const entries = STATIC_PAGES.map(([p, priority, freq]) => urlEntry(`${DOMAIN}/${p}`, priority, freq, "2026-10-16"));
 
   if (supabase) {
     // Each table queried independently and tolerantly, a failure on one
