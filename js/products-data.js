@@ -263,7 +263,7 @@ const FALLBACK_PRODUCTS = [
     "outputW": 1800,
     "outputLabel": "1,800W (3,600W surge)",
     "chargeTime": "45 min to 80%, ~60 min full AC charge",
-    "weight": "26 lb",
+    "weight": "26.7 lb",
     "price": 449,
     "ecoflowPrice": 599,
     "useCase": "Budget home backup",
