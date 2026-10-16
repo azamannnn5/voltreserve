@@ -27,4 +27,6 @@
   <url><loc>https://voltreservepower.com/shipping.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://voltreservepower.com/privacy.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
   <url><loc>https://voltreservepower.com/terms.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://voltreservepower.com/blog-river-2-vs-river-2-pro-vs-max.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://voltreservepower.com/blog-which-ecoflow-for-home-backup.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

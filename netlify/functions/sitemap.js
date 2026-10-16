@@ -55,6 +55,8 @@ const STATIC_PAGES = [
   ["blog-rv-van-life.html", "0.6", "monthly"],
   ["blog-home-office-backup.html", "0.6", "monthly"],
   ["blog-cold-weather-care.html", "0.6", "monthly"],
+  ["blog-which-ecoflow-for-home-backup.html", "0.6", "monthly"],
+  ["blog-river-2-vs-river-2-pro-vs-max.html", "0.6", "monthly"],
   ["blog-off-grid-sizing.html", "0.6", "monthly"],
   ["guides.html", "0.6", "weekly"],
   ["about.html", "0.5", "monthly"],

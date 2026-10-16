@@ -112,7 +112,7 @@ const FALLBACK_PRODUCTS = [
     "outputW": 800,
     "outputLabel": "800W (1,600W X-Boost)",
     "chargeTime": "70 min full AC charge",
-    "weight": "17.2 lb",
+    "weight": "18.2 lb",
     "price": 339,
     "useCase": "Extended camping & RV trips",
     "badge": null,
